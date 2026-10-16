@@ -1,7 +1,7 @@
 /* Informes USG · funcionamiento sin internet.
    Al publicar una versión nueva, cambiar VERSION: el navegador detecta el cambio
    y la app muestra el aviso "Hay una versión nueva". */
-var VERSION = "1.0.1";
+var VERSION = "1.0.2";
 var CACHE = "usg-app-" + VERSION;
 var FONTS = "usg-fonts";
 var ASSETS = [
@@ -9,10 +9,10 @@ var ASSETS = [
   "./index.html",
   "./manifest.webmanifest",
   "./lib/pdfmake.min.js",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/icon-maskable-512.png",
-  "./icons/apple-touch-icon.png"
+  "./icons/icon-192-v2.png",
+  "./icons/icon-512-v2.png",
+  "./icons/icon-maskable-512-v2.png",
+  "./icons/apple-touch-icon-v2.png"
 ];
 
 self.addEventListener("install", function (e) {
