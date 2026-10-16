@@ -15,4 +15,4 @@ https://informes.danielvillamizar.com
 2. Subir el número en `sw.js` (`VERSION`) y en `index.html` (`APP.version` y la etiqueta `v…`).
 3. Al abrir la app, aparece el aviso "Hay una versión nueva".
 
-Versión actual: 1.0.2 · 16-oct-2026
+Versión actual: 1.0.3 · 16-oct-2026
