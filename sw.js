@@ -1,7 +1,7 @@
 /* Informes USG · funcionamiento sin internet.
    Al publicar una versión nueva, cambiar VERSION: el navegador detecta el cambio
    y la app muestra el aviso "Hay una versión nueva". */
-var VERSION = "1.0.3";
+var VERSION = "1.1.0";
 var CACHE = "usg-app-" + VERSION;
 var FONTS = "usg-fonts";
 var ASSETS = [
