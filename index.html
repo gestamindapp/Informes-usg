@@ -204,12 +204,12 @@ label.file input{position:absolute;width:1px;height:1px;opacity:0;pointer-events
 .sheet .study-line{margin:12pt 0 4pt;font-weight:600;font-size:calc(var(--rs,10.5pt)*1.1);text-align:center;
   letter-spacing:.3pt;color:var(--rc)}
 .sheet .sig{margin-top:22pt;display:flex;justify-content:flex-end}
-.sheet .sig .box{text-align:center;width:62mm}
-.sheet .sig img{max-height:16mm;max-width:55mm;object-fit:contain;display:block;margin:0 auto 2pt}
+.sheet .sig .box{text-align:center;width:70mm}
+.sheet .sig img{max-height:26mm;max-width:66mm;object-fit:contain;display:block;margin:0 auto 2pt}
 .sheet .sig .rule{border-top:.75pt solid #000;padding-top:3pt}
-.sheet .sig .nm{font-size:var(--rs,10.5pt);font-weight:600}
-.sheet .sig .sp{font-size:calc(var(--rs,10.5pt)*.86)}
-.sheet .sig .rg{font-size:calc(var(--rs,10.5pt)*.8)}
+.sheet .sig .nm{font-size:9pt;font-weight:600}
+.sheet .sig .sp{font-size:8pt}
+.sheet .sig .rg{font-size:8pt}
 
 dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);
   padding:0;max-width:min(560px,94vw);width:100%}
@@ -381,6 +381,8 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 .sheet .rb-h{margin:11pt 0 4pt;padding-bottom:1.5pt;border-bottom:.75pt solid var(--rc);font-weight:600;
   font-size:calc(var(--rs,10.5pt)*.9);letter-spacing:.6pt;color:var(--rc);text-transform:uppercase}
 .sheet .rb-t{margin:0 0 3pt;text-align:justify}
+.sheet .rb-ind{margin:0 0 6pt;text-align:justify}
+.sheet .rb-ind b{font-weight:600;color:var(--rc)}
 .sheet .rb-run{font-weight:600}
 .sheet .rb-li{margin:0 0 2pt 3pt;display:grid;grid-template-columns:9pt 1fr}
 .sheet .rb-li>span:last-child{text-align:justify}
@@ -514,7 +516,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 <header class="topbar">
   <span class="mark appmark" id="mark"><img src="data:image/png;base64,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" alt="Informes USG"></span>
   <h1><span class="tl-long">Informes de ultrasonido</span><span class="tl-short">Informes USG</span></h1>
-  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.1</button>
+  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.2</button>
   <span class="who" id="topWho"></span>
   <span class="spacer"></span>
   <button class="btn" id="btnCfg">Configuración</button>
@@ -747,10 +749,13 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
       <div class="g-field">
         <span class="g-title">Posición</span>
         <div class="g-choices" data-group="posicionBase">
+          <label class="gin-only"><input type="radio" name="posicionBase" value="Anteversoflexión"><span>Anteversoflexión</span></label>
           <label><input type="radio" name="posicionBase" value="Anteversión"><span>Anteversión</span></label>
-          <label><input type="radio" name="posicionBase" value="Retroversión"><span>Retroversión</span></label>
+          <label class="gin-only"><input type="radio" name="posicionBase" value="Anteflexión"><span>Anteflexión</span></label>
           <label><input type="radio" name="posicionBase" value="Neutral"><span>Neutral</span></label>
+          <label><input type="radio" name="posicionBase" value="Retroversión"><span>Retroversión</span></label>
           <label><input type="radio" name="posicionBase" value="Retroflexión"><span>Retroflexión</span></label>
+          <label class="gin-only"><input type="radio" name="posicionBase" value="Retroversoflexión"><span>Retroversoflexión</span></label>
           <label><input type="radio" name="posicionBase" value="Retroversión forzada"><span>Retroversión forzada</span></label>
         </div>
         <div class="g-choices" data-group="posicionExtra" style="margin-top:6px">
@@ -759,14 +764,6 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
           <label><input type="checkbox" value="Desplazado"><span>Desplazado</span></label>
         </div>
         <textarea id="ut_posicionDesc" placeholder="Descripción adicional de la posición..." style="margin-top:8px"></textarea>
-      </div>
-
-      <div class="g-field gin-only">
-        <span class="g-title">Movilidad</span>
-        <div class="g-choices" data-group="movilidadUterina">
-          <label><input type="radio" name="movilidadUterina" value="Móvil"><span>Móvil</span></label>
-          <label><input type="radio" name="movilidadUterina" value="No móvil"><span>No móvil</span></label>
-        </div>
       </div>
 
       <div class="g-field">
@@ -787,10 +784,15 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
       <div class="g-field">
         <span class="g-title">Medidas uterinas (mm)</span>
         <div class="grid g3">
-          <label class="f"><span>Longitudinal</span><input type="number" step="0.1" id="ut_L"></label>
+          <label class="f"><span>Longitudinal<span class="gin-only"> (fondo–OCI)</span></span><input type="number" step="0.1" id="ut_L"></label>
           <label class="f"><span>Anteroposterior</span><input type="number" step="0.1" id="ut_AP"></label>
           <label class="f"><span>Transverso</span><input type="number" step="0.1" id="ut_T"></label>
         </div>
+        <div class="g-vol gin-only" id="ut_len_box">
+          <span>Longitud (cuerpo + cérvix): <b id="ut_len_val">—</b> mm <small id="ut_len_det" style="color:var(--muted)"></small></span>
+          <button type="button" id="ut_len_btn">editar manual</button>
+        </div>
+        <div class="g-hint gin-only hide" id="ut_len_warn">Falta la longitud cervical (sección Cérvix): por ahora se usa solo la longitudinal.</div>
         <div class="g-vol" id="ut_vol_box">
           <span>Volumen uterino: <b id="ut_vol_val">—</b> cc</span>
           <button type="button" data-target="ut_vol">editar manual</button>
@@ -1030,6 +1032,14 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 
       <div class="sub">
         <h3>Evaluación dinámica</h3>
+        <div class="g-field">
+          <span class="g-title">Útero móvil</span>
+          <div class="g-choices" data-group="movilidadUterina" id="movUtWrap">
+            <label><input type="radio" name="movilidadUterina" value="Sí"><span>Sí</span></label>
+            <label><input type="radio" name="movilidadUterina" value="No"><span>No</span></label>
+          </div>
+        </div>
+        <p class="g-hint" style="margin:-6px 0 12px">Solo se imprime lo que selecciones; lo que quede "No evaluado" no aparece en el informe.</p>
         <div class="grid g2">
           <div class="g-field">
             <span class="g-title">Anterior (útero-vejiga)</span>
@@ -1100,6 +1110,13 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
       <div class="sub">
         <h3>Conclusiones</h3>
         <textarea id="conclusionesTexto" rows="5" placeholder="Toca &quot;Aceptar sugerencia&quot; y completa aquí a mano."></textarea>
+      </div>
+
+      <div class="sub">
+        <h3>Sugerencias</h3>
+        <div class="ind-chips" data-for="ginSugerencias"><button type="button" class="ind-chip" data-ind="Se sugiere realizar mapeo de endometriosis profunda">Mapeo de endometriosis profunda</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar resonancia magnética nuclear de pelvis">Resonancia magnética</button><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico en 6 a 8 semanas">Control en 6–8 semanas</button><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico posmenstrual (días 5 a 10 del ciclo)">Control posmenstrual</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar histeroscopia diagnóstica">Histeroscopia</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar histerosonografía">Histerosonografía</button><button type="button" class="ind-chip" data-ind="Se sugiere biopsia endometrial o correlación histológica">Biopsia endometrial</button><button type="button" class="ind-chip" data-ind="Se sugiere evaluación por ginecología oncológica">Gineco-oncología</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar ecografía 3D">Ecografía 3D</button><button type="button" class="ind-chip" data-ind="Se sugiere correlación clínica y de laboratorio">Correlación clínica</button></div>
+        <textarea id="ginSugerencias" rows="2" placeholder="Escribe una sugerencia o toca una opción"></textarea>
+        <p class="note">Solo se imprime si tiene texto.</p>
       </div>
 
       <div class="sub">
@@ -1977,6 +1994,8 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
         </label>
         <label class="f"><span>Tamaño de letra</span>
           <select id="lkSize">
+            <option value="9">9 pt</option>
+            <option value="9.5">9,5 pt</option>
             <option value="10">10 pt</option>
             <option value="10.5">10,5 pt</option>
             <option value="11">11 pt</option>
@@ -2486,8 +2505,8 @@ Object.keys(RFONTS).forEach(function(k){
 
 /* ============================ aspecto del informe ============================ */
 var LKEY = "usg.look.v1";
-var LOOK_DEF = { font:"ss", color:"#1f3a5f", size:10.5 };
-var LOOK_SIZES = [10, 10.5, 11, 11.5];
+var LOOK_DEF = { font:"ss", color:"#1f3a5f", size:10 };
+var LOOK_SIZES = [9, 9.5, 10, 10.5, 11, 11.5];
 var look = Object.assign({}, LOOK_DEF);
 function loadLook(){
   try{
@@ -2585,6 +2604,10 @@ function prepBlock(el){
     else {
       var m0 = t.match(/^([A-ZÁÉÍÓÚÜÑ][A-ZÁÉÍÓÚÜÑ0-9 /·().,%+-]{1,60}?)\s+[—–]$/);
       if(m0 && /[A-ZÁÉÍÓÚÜÑ]{3}/.test(m0[1])){ label = sentenceCase(m0[1].trim()) + "."; t = ""; }
+    }
+    if(!li && !label && el.classList.contains("rb-ov")){
+      var mo = t.match(/^(Ovario (?:derecho|izquierdo):)\s*(.*)$/);
+      if(mo){ label = mo[1]; t = mo[2]; }
     }
     if(li && !label){
       var mc = t.match(/^([^,:;.]{2,60}):\s+(.+)$/);
@@ -2794,6 +2817,10 @@ function pdfNode(el, ctx){
              columnGap:0, margin:[3,0,0,2] };
   }
   if(cl.contains("rb-t")) return { text:inlineRuns(el), alignment:"justify", margin:[0,0,0,3] };
+  if(cl.contains("rb-ind")){
+    var ir = inlineRuns(el); if(ir.length) ir[0].color = C;
+    return { text:ir, alignment:"justify", margin:[0,0,0,6] };
+  }
   if(cl.contains("rb-note")){
     return { stack:[ hline(0.5, "#9a9a9a"), { text:el.textContent, fontSize:S*0.82, margin:[0,4,0,0] } ], margin:[0,8,0,0] };
   }
@@ -2821,12 +2848,12 @@ function pdfNode(el, ctx){
       var rr = im.getBoundingClientRect();
       st.push({ image:im.src, width:rr.width*PX2PT, height:rr.height*PX2PT, alignment:"center", margin:[0,0,0,2] });
     }
-    var w = mm2pt(62);
+    var w = mm2pt(70);
     st.push({ canvas:[{ type:"line", x1:0, y1:0, x2:w, y2:0, lineWidth:0.75, lineColor:"#000" }] });
     var nm = el.querySelector(".nm"), sp = el.querySelector(".sp"), rg = el.querySelector(".rg");
-    st.push({ text:nm ? nm.textContent : "", bold:true, alignment:"center", margin:[0,3,0,0] });
-    if(sp) st.push({ text:sp.textContent, fontSize:S*0.86, alignment:"center" });
-    if(rg) st.push({ text:rg.textContent, fontSize:S*0.8, alignment:"center" });
+    st.push({ text:nm ? nm.textContent : "", bold:true, fontSize:9, alignment:"center", margin:[0,3,0,0] });
+    if(sp) st.push({ text:sp.textContent, fontSize:8, alignment:"center" });
+    if(rg) st.push({ text:rg.textContent, fontSize:8, alignment:"center" });
     return { columns:[ { width:"*", text:"" }, { width:w, stack:st } ], margin:[0,22,0,0] };
   }
   var tx = el.textContent.trim();
@@ -2993,13 +3020,29 @@ function attachVolumeGeneric(wrap){
   });
 }
 
+var OV_LOC = [
+  ["fosa", "Fosa ovárica"], ["retro", "Retrouterino"], ["lateral", "Lateral al útero"],
+  ["alto", "Alto"], ["adosado", "Adosado al útero"], ["otra", "Otra"]
+];
+var OV_LOC_TXT = { fosa:"localizado en fosa ovárica", retro:"localizado en posición retrouterina",
+  lateral:"localizado lateral al útero", alto:"localizado en posición alta", adosado:"adosado al útero" };
 function buildOvarioBase(lado){
   var body = q('#ov-body-'+lado);
   body.innerHTML =
     '<div class="g-field"><span class="g-title">Visualizado</span>' +
     '<div class="g-choices" data-group="ov_vis_'+lado+'">' +
     '<label><input type="radio" name="ov_vis_'+lado+'" value="si" checked><span>Sí</span></label>' +
-    '<label><input type="radio" name="ov_vis_'+lado+'" value="no"><span>No</span></label></div></div>' +
+    '<label><input type="radio" name="ov_vis_'+lado+'" value="no"><span>No</span></label>' +
+    '<label><input type="radio" name="ov_vis_'+lado+'" value="oof"><span>Ooforectomía</span></label></div></div>' +
+    '<div id="ov_det_'+lado+'">' +
+    '<div class="g-field"><span class="g-title">Localización</span>' +
+    '<div class="g-choices" id="ov_locWrap_'+lado+'">' +
+    OV_LOC.map(function(o){ return '<label><input type="radio" name="ov_loc_'+lado+'" value="'+o[0]+'"><span>'+o[1]+'</span></label>'; }).join('') +
+    '</div><input type="text" id="ov_locOtra_'+lado+'" class="hide" placeholder="Ej.: en el fondo de saco de Douglas" style="margin-top:8px"></div>' +
+    '<div class="g-field"><span class="g-title">Móvil</span>' +
+    '<div class="g-choices" id="ov_movWrap_'+lado+'">' +
+    '<label><input type="radio" name="ov_mov_'+lado+'" value="si"><span>Sí</span></label>' +
+    '<label><input type="radio" name="ov_mov_'+lado+'" value="no"><span>No</span></label></div></div>' +
     '<div class="g-field"><span class="g-title">Medidas (mm)</span>' +
     '<div class="grid g3">' +
     '<label class="f"><span>Longitudinal</span><input type="number" step="0.1" id="ov_L_'+lado+'"></label>' +
@@ -3011,11 +3054,28 @@ function buildOvarioBase(lado){
     '<input type="number" step="1" id="ov_folAntrales_'+lado+'"></div>' +
     '<div class="g-field"><span class="g-title">Cuerpo lúteo</span>' +
     '<input type="text" id="ov_cuerpoLuteo_'+lado+'" placeholder="Ej.: cuerpo lúteo funcional presente..."></div>' +
+    '<div class="g-field"><span class="g-title">Folículo dominante</span>' +
+    '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">' +
+    '<div class="g-choices"><label><input type="checkbox" id="ov_domSi_'+lado+'" value="si"><span>Sí</span></label></div>' +
+    '<div class="unit hide" id="ov_domWrap_'+lado+'" style="max-width:220px"><input type="number" step="0.1" id="ov_dom_'+lado+'" placeholder="Diámetro promedio"><em>mm</em></div>' +
+    '</div></div>' +
     '<div id="ov_hallazgos_'+lado+'"></div>' +
     '<button type="button" class="btn quiet" data-add-lado="'+lado+'" style="width:100%">+ Agregar hallazgo (quiste / masa)</button>' +
+    '</div>' +
     '<label class="f" style="margin-top:14px"><span>Comentario — '+ladoTexto(lado)+'</span><textarea id="c_ov_'+lado+'"></textarea></label>';
   attachVolume('ov'+lado, ['ov_L_'+lado,'ov_AP_'+lado,'ov_T_'+lado], 'ov_vol_box_'+lado, 'ov_vol_val_'+lado, '[data-target="ov_vol_'+lado+'"]');
   q('[data-add-lado="'+lado+'"]').addEventListener('click', function(){ addHallazgo(lado); });
+  toggleableRadios(q('#ov_locWrap_'+lado));
+  toggleableRadios(q('#ov_movWrap_'+lado));
+  body.addEventListener('change', function(){ ovSync(lado); });
+  ovSync(lado);
+}
+/* muestra u oculta los campos del ovario según lo elegido */
+function ovSync(lado){
+  var vis = radioVal('ov_vis_'+lado);
+  q('#ov_det_'+lado).classList.toggle('hide', vis === 'oof');
+  q('#ov_locOtra_'+lado).classList.toggle('hide', radioVal('ov_loc_'+lado) !== 'otra');
+  q('#ov_domWrap_'+lado).classList.toggle('hide', !q('#ov_domSi_'+lado).checked);
 }
 
 var ovCounter = 0;
@@ -3118,7 +3178,8 @@ function autoTexto(wrap, lado, force){
   ta.value = frase;
 }
 
-function seccionUtero(){
+/* textos del útero, cérvix y endometrio tal como los usa el mapeo de endometriosis (sin cambios desde la v1.1) */
+function seccionUteroEndo(){
   var f = [];
   var posBase = radioVal('posicionBase');
   var posExtra = checkedVals('[data-group="posicionExtra"]');
@@ -3150,6 +3211,84 @@ function seccionUtero(){
   f = [];
   var douglas = radioVal('douglas');
   if (douglas === "Sí" && UT_MODE !== "endo") f.push("Líquido libre en fondo de saco de Douglas: Sí.");
+  var com = q('#c_utero').value.trim();
+  if (com) f.push(com);
+  if (f.length) lines.push(f.join(" "));
+  return lines.filter(Boolean).join("\n");
+}
+function seccionCervixEndo(){
+  var f = [];
+  var aspecto = radioVal('cervixAspecto');
+  f.push("Cérvix de aspecto " + (aspecto ? aspecto.toLowerCase() : "no evaluado") + ".");
+  var long = q('#cx_longitud').value;
+  if (long) f.push("Longitud cervical: " + long + " mm.");
+  var desc = q('#cx_desc').value.trim();
+  if (desc) f.push(desc);
+  return f.join(" ");
+}
+function seccionEndometrioEndo(){
+  var f = [];
+  var grosor = q('#e_grosor').value;
+  var evaluacion = radioVal('e_evaluacion');
+  if (evaluacion === "No medible" || evaluacion === "Inadecuada"){
+    f.push("Evaluación endometrial: " + evaluacion.toLowerCase() + ".");
+  } else {
+    f.push("Endometrio mide: " + (grosor?grosor+" mm":"(sin medida)") + ". Evaluación: " + (evaluacion || "no especificada") + ".");
+  }
+  var eco1 = radioVal('e_eco1'), eco2 = radioVal('e_eco2'), eco3 = radioVal('e_eco3');
+  var ecoPartes = [eco1, eco2, eco3].filter(Boolean);
+  if (ecoPartes.length) f.push("Ecogenicidad: " + ecoPartes.join(", ").toLowerCase() + ".");
+  var linea = radioVal('e_linea'); if (linea) f.push("Línea media " + linea.toLowerCase() + ".");
+  var union = radioVal('e_union'); if (union) f.push("Unión endometrio-miometrio " + union.toLowerCase() + ".");
+  if (radioVal('e_liquidoSiNo') === 'si'){
+    var tipo = radioVal('e_liquidoTipo');
+    f.push("Líquido intracavitario presente" + (tipo? ", "+tipo : "") + ".");
+  }
+  if (radioVal('e_lesionSiNo') === 'si'){
+    var les = textoLesionesEndo(q('#eLesList'));
+    if (les) f.push(les);
+  } else {
+    f.push("Sin lesiones focales intracavitarias.");
+  }
+  var cs = radioVal('e_colorScore'); var pat = radioVal('e_patronVascular');
+  if (cs || pat) f.push("Doppler endometrial: color score " + (cs||"no evaluado") + (pat? ", patrón: "+pat : "") + ".");
+  var com = q('#c_endometrio').value.trim();
+  if (com) f.push(com);
+  return f.join(" ");
+}
+
+function capPrimera(t){ return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+function seccionUtero(){
+  var f = [];
+  var posBase = radioVal('posicionBase');
+  var posExtra = checkedVals('[data-group="posicionExtra"]').map(function(x){ return x.toLowerCase(); });
+  if (posBase){
+    var pb = posBase === "Neutral" ? "posición neutral" : posBase.toLowerCase();
+    f.push("En " + pb + (posExtra.length ? ", " + posExtra.join(", ") : "") + ".");
+  } else if (posExtra.length){
+    f.push(capPrimera(posExtra.join(", ")) + ".");
+  }
+  var posDesc = q('#ut_posicionDesc').value.trim();
+  if (posDesc) f.push(posDesc);
+
+  var aspecto = checkedVals('[data-group="aspectoGeneral"]');
+  if (aspecto.length) f.push(capPrimera(aspecto.join(", ").toLowerCase()) + ".");
+  var aspectoDesc = q('#ut_aspectoDesc').value.trim();
+  if (aspectoDesc) f.push(aspectoDesc);
+
+  var L = utLongitud(), AP = q('#ut_AP').value, T = q('#ut_T').value;
+  if (L && AP && T){
+    var medidaTxt = "Medidas: " + L + " x " + AP + " x " + T + " mm.";
+    var v = q('#ut_vol_val').textContent.trim();
+    if (v && v !== "—") medidaTxt += " Vol: " + v + " cc.";
+    f.push(medidaTxt);
+  }
+  var lines = [f.join(" ")];
+  if (radioVal('miomasSiNo') === 'si') lines = lines.concat(textoMiomas());
+  var aden = textoAdenomiosis();
+  if (aden) lines.push(aden);
+  f = [];
+  if (radioVal('douglas') === "Sí") f.push("Líquido libre en fondo de saco de Douglas.");
   var com = q('#c_utero').value.trim();
   if (com) f.push(com);
   if (f.length) lines.push(f.join(" "));
@@ -3203,7 +3342,7 @@ function seccionIstmocele(){
 function seccionCervix(){
   var f = [];
   var aspecto = radioVal('cervixAspecto');
-  f.push("Cérvix de aspecto " + (aspecto ? aspecto.toLowerCase() : "no evaluado") + ".");
+  if (aspecto) f.push("Aspecto " + aspecto.toLowerCase() + ".");
   var long = q('#cx_longitud').value;
   if (long) f.push("Longitud cervical: " + long + " mm.");
   var desc = q('#cx_desc').value.trim();
@@ -3215,14 +3354,12 @@ function seccionEndometrio(){
   var f = [];
   var grosor = q('#e_grosor').value;
   var evaluacion = radioVal('e_evaluacion');
-  if (evaluacion === "No medible" || evaluacion === "Inadecuada"){
-    f.push("Evaluación endometrial: " + evaluacion.toLowerCase() + ".");
-  } else {
-    f.push("Endometrio mide: " + (grosor?grosor+" mm":"(sin medida)") + ". Evaluación: " + (evaluacion || "no especificada") + ".");
-  }
-  var eco1 = radioVal('e_eco1'), eco2 = radioVal('e_eco2'), eco3 = radioVal('e_eco3');
-  var ecoPartes = [eco1, eco2, eco3].filter(Boolean);
-  if (ecoPartes.length) f.push("Ecogenicidad: " + ecoPartes.join(", ").toLowerCase() + ".");
+  var noMedible = evaluacion === "No medible" || evaluacion === "Inadecuada";
+  var eco = [radioVal('e_eco1'), radioVal('e_eco2'), radioVal('e_eco3')].filter(Boolean).map(function(x){ return x.toLowerCase(); });
+  var primera = eco.join(", ");
+  if (grosor && !noMedible) primera += (primera ? ", mide " : "mide ") + grosor + " mm";
+  if (primera) f.push(capPrimera(primera) + ".");
+  if (evaluacion && evaluacion !== "Adecuada") f.push("Evaluación endometrial: " + evaluacion.toLowerCase() + ".");
   var linea = radioVal('e_linea'); if (linea) f.push("Línea media " + linea.toLowerCase() + ".");
   var union = radioVal('e_union'); if (union) f.push("Unión endometrio-miometrio " + union.toLowerCase() + ".");
   if (radioVal('e_liquidoSiNo') === 'si'){
@@ -3244,27 +3381,35 @@ function seccionEndometrio(){
 
 function seccionOvario(lado){
   var f = [];
-  var visRad = radioVal('ov_vis_'+lado);
-  if (visRad === 'no'){
-    f.push(ladoTexto(lado) + ": no visualizado.");
-    var com0 = q('#c_ov_'+lado) ? q('#c_ov_'+lado).value.trim() : "";
-    if (com0) f.push(com0);
-    return f.join(" ");
+  var vis = radioVal('ov_vis_'+lado);
+  var com = q('#c_ov_'+lado) ? q('#c_ov_'+lado).value.trim() : "";
+  if (vis === 'oof' || vis === 'no'){
+    f.push(vis === 'oof' ? "ausente por antecedente de ooforectomía." : "no visualizado.");
+    if (com) f.push(com);
+    return ladoTexto(lado) + ": " + f.join(" ");
   }
+  var ubic = [];
+  var loc = radioVal('ov_loc_'+lado);
+  if (loc === 'otra'){
+    var otra = q('#ov_locOtra_'+lado).value.trim();
+    if (otra) ubic.push(/^(localizad|ubicad|adosad)/i.test(otra) ? otra.charAt(0).toLowerCase() + otra.slice(1) : "localizado " + otra);
+  } else if (loc && OV_LOC_TXT[loc]) ubic.push(OV_LOC_TXT[loc]);
+  var mov = radioVal('ov_mov_'+lado);
+  if (mov) ubic.push(mov === 'si' ? "móvil" : "no móvil");
+  if (ubic.length) f.push(ubic.join(", ").replace(/\.$/, "") + ".");
   var L = q('#ov_L_'+lado).value, AP = q('#ov_AP_'+lado).value, T = q('#ov_T_'+lado).value;
-  var base = ladoTexto(lado) + ":";
   if (L && AP && T){
-    base += " " + L + " x " + AP + " x " + T + " mm";
-    var v = q('#ov_vol_val_'+lado).textContent;
-    if (v && v !== "—") base += " (volumen " + v + " cc)";
-  } else {
-    base += " sin medidas registradas";
+    var m = "Mide " + L + " x " + AP + " x " + T + " mm.";
+    var v = q('#ov_vol_val_'+lado).textContent.trim();
+    if (v && v !== "—") m += " Vol: " + v + " cc.";
+    f.push(m);
   }
-  f.push(base + ".");
   var folAntrales = q('#ov_folAntrales_'+lado).value;
   if (folAntrales) f.push("Folículos antrales: " + folAntrales + ".");
   var cl = q('#ov_cuerpoLuteo_'+lado).value.trim();
   if (cl) f.push("Cuerpo lúteo: " + cl + ".");
+  var dom = q('#ov_dom_'+lado).value;
+  if (q('#ov_domSi_'+lado).checked && dom) f.push("Folículo dominante de " + dom + " mm.");
   var hallazgos = qa('#ov_hallazgos_'+lado+' .g-subgrid');
   if (hallazgos.length === 0){
     f.push("Sin quistes ni masas anexiales.");
@@ -3274,19 +3419,22 @@ function seccionOvario(lado){
       if (txt) f.push(txt);
     });
   }
-  var com = q('#c_ov_'+lado).value.trim();
   if (com) f.push(com);
-  return f.join(" ");
+  var t = f.join(" ");
+  if (/^[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(t)) t = t.charAt(0).toLowerCase() + t.slice(1);
+  return ladoTexto(lado) + ": " + t;
 }
 
 function seccionDinamica(){
   var f = [];
-  var ant = radioVal('slide_ant'), post = radioVal('slide_post'), cuello = radioVal('slide_cuello'), istmo = radioVal('slide_istmo');
-  f.push("Sliding sign anterior: " + ant + ". Posterior: " + post + ". Cuello: " + cuello + ". Istmo: " + istmo + ".");
   var movU = radioVal('movilidadUterina');
-  if (movU) f.push("Movilidad uterina: " + movU.toLowerCase() + ".");
+  if (movU) f.push(movU === "Sí" ? "Útero móvil." : "Útero no móvil.");
+  var sl = [["slide_ant","anterior"],["slide_post","posterior"],["slide_cuello","cuello"],["slide_istmo","istmo"]]
+    .map(function(a){ var v = radioVal(a[0]); return (v && v !== "No evaluado") ? a[1] + " " + v.toLowerCase() : ""; })
+    .filter(Boolean);
+  if (sl.length) f.push("Sliding sign: " + sl.join(", ") + ".");
   var dolor = checkedVals('[data-group="dolorSitios"]');
-  if (dolor.length) f.push("Dolor específico a la presión en: " + dolor.join(", ") + ".");
+  if (dolor.length) f.push("Dolor específico a la presión en: " + dolor.join(", ").toLowerCase() + ".");
   var com = q('#c_dinamica').value.trim();
   if (com) f.push(com);
   return f.join(" ");
@@ -3576,22 +3724,25 @@ function regenerarInforme(){
   if (ginPreviewManual){ renderSheet(); return; }
   var istmocele = seccionIstmocele();
   var ind = (q('#ginIndicacion') ? q('#ginIndicacion').value.trim() : "");
+  var sug = (q('#ginSugerencias') ? q('#ginSugerencias').value.trim() : "");
+  var ut = seccionUtero(), cx = seccionCervix(), en = seccionEndometrio(), din = seccionDinamica();
   var partes = [
-    ind ? ("INDICACIÓN\n" + indPunto(ind) + "\n\n") : "",
-    "ÚTERO\n" + seccionUtero(),
-    istmocele ? ("\n\nISTMOCELE\n" + istmocele) : "",
-    "\n\nCÉRVIX\n" + seccionCervix(),
-    "\n\nENDOMETRIO\n" + seccionEndometrio(),
-    "\n\nOVARIO DERECHO\n" + seccionOvario('D'),
-    "\n\nOVARIO IZQUIERDO\n" + seccionOvario('I'),
-    "\n\nEVALUACIÓN DINÁMICA\n" + seccionDinamica(),
-    "\n\nCONCLUSIONES\n" + (q('#conclusionesTexto').value.trim() || "(pendiente)"),
-    "\n\n" + notaCriterios()
-  ];
-  q('#previewText').value = partes.join("");
+    ind ? ("Indicación: " + indPunto(ind)) : "",
+    ut ? ("ÚTERO\n" + ut) : "",
+    istmocele ? ("ISTMOCELE\n" + istmocele) : "",
+    cx ? ("CÉRVIX\n" + cx) : "",
+    en ? ("ENDOMETRIO\n" + en) : "",
+    "OVARIOS\n" + seccionOvario('D') + "\n" + seccionOvario('I'),
+    din ? ("EVALUACIÓN DINÁMICA\n" + din) : "",
+    "CONCLUSIONES\n" + (q('#conclusionesTexto').value.trim() || "(pendiente)"),
+    sug ? ("SUGERENCIAS\n" + indPunto(sug)) : ""
+  ].filter(Boolean);
+  q('#previewText').value = partes.join("\n\n");
   renderSheet();
 }
 
+/* indicación como línea bajo el título del estudio, sin título de sección (v1.2) */
+function indLineaHTML(t){ return '<p class="rb-ind"><b>Indicación:</b> ' + esc(t.replace(/^Indicación:\s*/, "")) + "</p>"; }
 function indPunto(t){ t = t.replace(/\s+$/, ""); return /[.!?…:]$/.test(t) ? t : t + "."; }
 function renderInformeGinHTML(){
   var ta = q('#previewText');
@@ -3604,6 +3755,10 @@ function renderInformeGinHTML(){
     if (!t) return;
     if (t.indexOf("Nota:") === 0){
       html.push('<p class="rb-note">'+esc(t)+'</p>');
+    } else if (/^Indicación:\s/.test(t)){
+      html.push(indLineaHTML(t));
+    } else if (/^Ovario (derecho|izquierdo):/.test(t)){
+      html.push('<p class="rb-t rb-ov">'+esc(t)+'</p>');
     } else if (/^[A-ZÁÉÍÓÚÑ0-9 /·]+$/.test(t) && t.length < 60){
       html.push('<p class="rb-h">'+esc(t)+'</p>');
     } else {
@@ -3632,6 +3787,7 @@ function limpiarGin(){
   qa('#ginCard input[name^="slide_"][value="No evaluado"]').forEach(function(r){ r.checked = true; });
   qa('#ov-body-D .g-subgrid, #ov-body-I .g-subgrid').forEach(function(el){ el.remove(); });
   ['ut_vol_val','ov_vol_val_D','ov_vol_val_I','ist_razon_val'].forEach(function(id){ var el=q('#'+id); if(el) el.textContent='—'; });
+  resetUtMedidas(); ovSync('D'); ovSync('I');
   q('#miomasTextoWrap').classList.add('hide');
   q('#istmoceleWrap').classList.add('hide');
   q('#e_liquidoTipoWrap').classList.add('hide');
@@ -3640,8 +3796,59 @@ function limpiarGin(){
   regenerarInforme();
 }
 
+/* ---- útero: longitud = cuerpo (fondo–OCI) + cérvix, editable a mano; el volumen usa esa longitud (v1.2, solo ginecológico).
+   En el mapeo de endometriosis el volumen se sigue calculando con la longitudinal sola. ---- */
+var UTM = { lenManual:false, volManual:false };
+function r1(n){ return String(Math.round(n*10)/10); }
+function utLongitud(){
+  if (UT_MODE === "endo") return q('#ut_L').value;
+  var t = q('#ut_len_val').textContent.trim().replace(",", ".");
+  return (t && t !== "—" && !isNaN(parseFloat(t))) ? fmtMed(parseFloat(t)) : "";
+}
+function recomputeUt(){
+  var L = parseFloat(q('#ut_L').value), c = parseFloat(q('#cx_longitud').value);
+  if (!UTM.lenManual){
+    q('#ut_len_val').textContent = L ? r1(c ? L + c : L) : "—";
+    q('#ut_len_det').textContent = (L && c) ? "· " + fmtMed(q('#ut_L').value) + " + " + fmtMed(q('#cx_longitud').value) : "";
+  }
+  q('#ut_len_warn').classList.toggle('hide', !(L && !c && !UTM.lenManual));
+  if (!UTM.volManual){
+    var v = volCC(utLongitud(), q('#ut_AP').value, q('#ut_T').value);
+    q('#ut_vol_val').textContent = v === null ? "—" : fmt(v);
+  }
+}
+function resetUtMedidas(){
+  UTM.lenManual = false; UTM.volManual = false;
+  ['#ut_len_val','#ut_vol_val'].forEach(function(s){ q(s).contentEditable = "false"; });
+  q('#ut_len_btn').textContent = "editar manual";
+  q('[data-target="ut_vol"]').textContent = "editar manual";
+  q('#ut_len_box').classList.remove('manual'); q('#ut_vol_box').classList.remove('manual');
+  recomputeUt();
+}
+function wireUtMedidas(){
+  ['ut_L','ut_AP','ut_T','cx_longitud'].forEach(function(id){ q('#'+id).addEventListener('input', recomputeUt); });
+  q('#ut_len_val').addEventListener('input', recomputeUt);
+  function toggle(key, valSel, btn, box){
+    btn.addEventListener('click', function(){
+      var el = q(valSel);
+      if (!UTM[key]){
+        UTM[key] = true; el.contentEditable = "true"; el.focus();
+        box.classList.add('manual'); btn.textContent = "volver a automático";
+      } else {
+        UTM[key] = false; el.contentEditable = "false";
+        box.classList.remove('manual'); btn.textContent = "editar manual";
+      }
+      recomputeUt(); regenerarInforme();
+    });
+  }
+  toggle('lenManual', '#ut_len_val', q('#ut_len_btn'), q('#ut_len_box'));
+  toggle('volManual', '#ut_vol_val', q('[data-target="ut_vol"]'), q('#ut_vol_box'));
+  toggleableRadios(q('#movUtWrap'));
+  recomputeUt();
+}
+
 function wireGinForm(){
-  attachVolume('ut', ['ut_L','ut_AP','ut_T'], 'ut_vol_box', 'ut_vol_val', '[data-target="ut_vol"]');
+  wireUtMedidas();
   qa('input[name=miomasSiNo]').forEach(function(r){ r.addEventListener('change', function(){
     var activo = radioVal('miomasSiNo') === 'si';
     q('#miomasTextoWrap').classList.toggle('hide', !activo);
@@ -3992,7 +4199,7 @@ var FERT = (function(){
     var out = [];
     function add(h, body){ if(body) out.push(h + "\n" + body); }
     var fInd = f$("#fIndicacion").value.trim();
-    add("INDICACIÓN", fInd ? endDot(fInd.replace(/\s+$/, "")) : "");
+    if(fInd) out.push("Indicación: " + endDot(fInd.replace(/\s+$/, "")));
     add("DATOS DEL CICLO", secCiclo());
     add("ÚTERO", secUtero());
     add("ENDOMETRIO", secEndo());
@@ -4010,6 +4217,7 @@ var FERT = (function(){
       var t = line.trim();
       if(!t) return;
       if(t === "[TABLA DE EVOLUCIÓN]") h.push(evoTableHTML());
+      else if(/^Indicación:\s/.test(t)) h.push(indLineaHTML(t));
       else if(/^[A-ZÁÉÍÓÚÑ0-9 /·]+$/.test(t) && t.length < 60) h.push('<p class="rb-h">'+fesc(t)+'</p>');
       else h.push('<p class="rb-t">'+fesc(t)+'</p>');
     });
@@ -4839,7 +5047,6 @@ var OBS = (function(){
     if(!noFpp()) add("FECHADO", secFechado());
     add("IMPRESIÓN DIAGNÓSTICA", o$("#oClasif").value.trim());
     out.push("CONCLUSIONES\n" + (o$("#oConclusiones").value.trim() || "(pendiente)"));
-    out.push(nota());
     o$("#oPreviewText").value = out.join("\n\n");
   }
   function html(){
@@ -5573,10 +5780,10 @@ var ENDO = (function(){
     var out = [];
     var clin = secClin();
     if(clin.length) out.push("INDICACIÓN Y CLÍNICA\n" + clin.join("\n"));
-    var ut = ["ÚTERO", seccionUtero()];
+    var ut = ["ÚTERO", seccionUteroEndo()];
     var ist = seccionIstmocele(); if(ist) ut.push("ISTMOCELE — " + ist);
-    ut.push("CÉRVIX — " + seccionCervix());
-    ut.push("ENDOMETRIO — " + seccionEndometrio());
+    ut.push("CÉRVIX — " + seccionCervixEndo());
+    ut.push("ENDOMETRIO — " + seccionEndometrioEndo());
     out.push(ut.join("\n"));
     var t3 = sec3D(); if(t3) out.push("EVALUACIÓN 3D · CORTE CORONAL\n" + t3);
     var ov = [], oD = secOv("D"), oI = secOv("I"), ax = secAnexos();
@@ -5612,6 +5819,7 @@ var ENDO = (function(){
     if(blk.parentNode !== slot) slot.appendChild(blk);
     blk.classList.toggle("endo-mode", !!toEndo);
     UT_MODE = toEndo ? "endo" : "gin";
+    if (typeof recomputeUt === "function" && e$("#ut_len_val")) recomputeUt();
   }
 
   function clear(){
@@ -5858,8 +6066,9 @@ Array.prototype.forEach.call(document.querySelectorAll(".ind-chips"), function(b
 
 /* ============================ publicación v1.0 ============================ */
 var APP = {
-  version:"1.1", fecha:"16-oct-2026",
+  version:"1.2", fecha:"20-oct-2026",
   novedades:[
+    "1.2: ginecológico: longitud uterina con el cérvix sumado y volumen con esa longitud; nuevas posiciones; ovarios con localización, movilidad, folículo dominante y ooforectomía; movilidad uterina en evaluación dinámica; sugerencias; informe sin repeticiones ni notas finales. Ginecológico y fertilidad: la indicación se imprime como una línea bajo el título. Letra desde 9 pt (10 pt de inicio) y firma más grande.",
     "1.1: caja de indicación en los informes ginecológico y de fertilidad; el título de fertilidad ya no dice seguimiento folicular (ahora es una opción de la indicación).",
     "1.0.3: la esquina superior izquierda muestra siempre el ícono de la app; el logo del centro queda para el impreso.",
     "1.0.2: el ícono nuevo se actualiza correctamente al reinstalar.",
