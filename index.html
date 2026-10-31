@@ -383,6 +383,26 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 #fertCard .evo tr.cur td{background:var(--accent-soft)}
 #fertCard .evo tr.cur td.ro{padding:6px 8px}
 #fertCard .evo .x{border:0;background:none;color:var(--danger);cursor:pointer;font-size:18px;line-height:1;padding:2px 6px}
+.sheet table.bio-tbl{width:100%;border-collapse:collapse;font-size:calc(var(--rs,10.5pt)*.9);margin:2pt 0 6pt;font-variant-numeric:tabular-nums}
+.sheet table.bio-tbl th{font-size:calc(var(--rs,10.5pt)*.72);font-weight:600;color:#555;text-align:left;padding:2pt 5pt;border-bottom:.75pt solid var(--rc);letter-spacing:.3pt}
+.sheet table.bio-tbl td{padding:1.8pt 5pt;border-bottom:.5pt solid #d6d6d6}
+.sheet table.bio-tbl .n{text-align:right}
+.sheet table.bio-tbl tr.ef td{background:#f1f3f8;font-weight:600}
+.sheet table.bio-tbl .out{color:#b3261e;font-weight:600}
+.sheet table.bio-tbl td.bar{width:40%}
+.sheet .bbar{position:relative;height:6pt;border-radius:3pt;background:#f2f2f2;border:.5pt solid #d9d9d9}
+.sheet .bbar i{position:absolute;top:0;bottom:0;left:10%;right:10%;background:#dfe5f3;border-radius:3pt}
+.sheet .bbar b{position:absolute;top:-1pt;bottom:-1pt;left:50%;width:.6pt;background:#9fb0d6}
+.sheet .bbar em{position:absolute;top:50%;width:8pt;height:8pt;margin:-4pt 0 0 -4pt;border-radius:50%;background:var(--rc)}
+.sheet .bbar.out em{background:#b3261e}
+.sheet table.bio-tbl td.disc{font-weight:400;font-size:calc(var(--rs,10.5pt)*.85);border-bottom:0}
+.sheet table.bio-tbl td.txt{font-size:calc(var(--rs,10.5pt)*.82);color:#555}
+.sheet table.bio-tbl .calc{font-size:calc(var(--rs,10.5pt)*.7);color:#777;font-weight:400}
+.sheet .rb-h.rb-h-tight{margin-top:3pt}
+.sheet .rb-wnote{margin:-3pt 0 6pt;font-size:calc(var(--rs,10.5pt)*.68);color:#666}
+.sheet .sig:has(.rb-foot){flex-wrap:wrap}
+.sheet .sig .rb-foot{flex:0 0 100%}
+.sheet .rb-foot{margin:6pt 0 0;padding-top:3pt;border-top:.5pt solid #c8c8c8;font-size:calc(var(--rs,10.5pt)*.68);color:#666}
 .sheet table.rb-table{width:100%;border-collapse:collapse;font-size:calc(var(--rs,10.5pt)*.86);margin:4pt 0 6pt}
 .sheet .rb-table th{text-align:left;font-weight:600;border-bottom:.75pt solid #000;padding:2.5pt 4pt}
 .sheet .rb-table td{border-bottom:.5pt solid #9a9a9a;padding:2.5pt 4pt;vertical-align:top}
@@ -441,6 +461,83 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 #obsCard .sugg .lbl{font-size:12px;color:var(--muted);margin-bottom:4px}
 #obsCard .sugg .txt{font-size:14px;font-weight:500;margin-bottom:10px}
 #obsCard .sugg .same{font-size:12.5px;color:var(--accent)}
+#obssCard .g-field{margin-bottom:14px}
+#obssCard .g-title{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+#obssCard .g-choices{display:flex;flex-wrap:wrap;gap:6px}
+#obssCard .g-choices label{position:relative;font-size:13px;border:1px solid var(--line);border-radius:20px;padding:6px 12px;cursor:pointer;
+  background:var(--surface2);user-select:none}
+#obssCard .g-choices input{position:absolute;opacity:0;width:0;height:0}
+#obssCard .g-choices label:has(input:checked){background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+#obssCard .g-choices label:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+#obssCard .g-cols2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:720px){ #obssCard .g-cols2{grid-template-columns:1fr} }
+#obssCard .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:620px){ #obssCard .g4{grid-template-columns:repeat(2,minmax(0,1fr))} }
+#obssCard textarea{width:100%;min-height:42px;padding:8px 10px;background:var(--surface2);
+  border:1px solid var(--line);border-radius:8px;font:inherit;color:inherit;resize:vertical}
+#obssCard textarea:focus{outline:2px solid var(--focus);outline-offset:-1px;border-color:transparent}
+#obssCard .box{border:1px solid var(--line2);border-radius:9px;padding:12px;background:var(--sunken)}
+#obssCard .box h4{margin:0 0 10px;font-size:13.5px;font-weight:600}
+#obssCard .sac{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--sunken);margin-bottom:12px}
+#obssCard .sac>.sac-h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#obssCard .sac>.sac-h h4{margin:0;font-size:14px;font-weight:600}
+#obssCard .emb{border:1px solid var(--line2);border-radius:9px;padding:12px;background:var(--surface);margin-top:10px}
+#obssCard .emb h5{margin:0 0 10px;font-size:13px;font-weight:600}
+#obssCard .ro{font-size:13px;padding:8px 10px;border-radius:8px;background:var(--auto-bg);border:1px solid var(--auto-line);color:var(--ink);min-height:36px}
+#obssCard .ro b{color:var(--auto);font-weight:600}
+#obssCard .ref{font-size:13px;padding:9px 11px;border-radius:8px;background:var(--surface2);border:1px solid var(--line2);color:var(--muted)}
+#obssCard .ref b{color:var(--ink);font-weight:500}
+#obssCard .dating{border:1px solid var(--auto-line);background:var(--auto-bg);border-radius:9px;padding:12px}
+#obssCard .dating table{width:100%;border-collapse:collapse;font-size:13px}
+#obssCard .dating td{padding:4px 0;vertical-align:top}
+#obssCard .dating td:first-child{color:var(--muted);width:46%}
+#obssCard .dating .st{margin-top:8px;font-size:13px}
+#obssCard .ok{color:var(--accent);font-weight:500}
+#obssCard .bad{color:var(--danger);font-weight:500}
+#obssCard .alert{margin-top:12px;border:1px solid color-mix(in srgb,var(--danger) 40%,var(--surface));
+  background:color-mix(in srgb,var(--danger) 10%,var(--surface));color:var(--danger);border-radius:9px;padding:10px 12px;font-size:13.5px}
+#obssCard .alert ul{margin:6px 0 0;padding-left:18px}
+#obssCard .alert li{margin:2px 0}
+#obssCard .warnbox{margin-top:12px;border:1px solid var(--auto-line);background:var(--auto-bg);color:var(--auto);border-radius:9px;padding:10px 12px;font-size:13.5px}
+#obssCard .sugg{border:1px solid var(--line);border-radius:9px;padding:12px;background:var(--surface2)}
+#obssCard .sugg .lbl{font-size:12px;color:var(--muted);margin-bottom:4px}
+#obssCard .sugg .txt{font-size:14px;font-weight:500;margin-bottom:10px}
+#obssCard .sugg .same{font-size:12.5px;color:var(--accent)}
+#obssCard .s-pc{display:block;font-size:12.5px;color:var(--accent);font-weight:600;min-height:1em;margin-top:3px}
+#obssCard .s-pc.low,#obssCard .s-pc.high{color:var(--danger)}
+#obssCard .s-an{border:1px solid var(--line);border-radius:10px;padding:2px 12px;background:var(--surface);margin-bottom:6px}
+#obssCard .s-anr{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 12px;align-items:center;padding:7px 0}
+#obssCard .s-an .s-anr+.s-anr{border-top:1px solid var(--line2)}
+#obssCard .s-anr>.s-anl{font-size:13px;font-weight:600}
+#obssCard .s-anr>.s-ant,#obssCard .s-anr>.s-hint{grid-column:2}
+#obssCard .s-br.s-ic{background:var(--surface2)}
+#obssCard .s-icv{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:620px){ #obssCard .s-anr{grid-template-columns:1fr} #obssCard .s-anr>.s-ant,#obssCard .s-anr>.s-hint{grid-column:1} #obssCard .s-br.s-ic .s-hint{grid-column:1 / -1} }
+#obssCard .s-bt{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+#obssCard .s-bt-h,#obssCard .s-br{display:grid;grid-template-columns:96px 130px minmax(0,1fr) 64px;gap:12px;align-items:center;padding:8px 12px}
+#obssCard .s-bt-h{font-size:11px;letter-spacing:.4px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--line)}
+#obssCard .s-bt-h span:last-child,#obssCard .s-br .s-pc{text-align:right}
+#obssCard .s-br+.s-br{border-top:1px solid var(--line2)}
+#obssCard .s-br>.s-lb{font-size:13.5px;font-weight:600}
+#obssCard .s-br .unit input{width:100%}
+#obssCard .s-br.s-pfe-row{background:var(--auto-bg)}
+#obssCard .s-br .s-pc{display:block;margin:0;font-size:14px;font-variant-numeric:tabular-nums}
+#obssCard .s-bar{position:relative;height:10px;border-radius:5px;background:var(--sunken);border:1px solid var(--line2)}
+#obssCard .s-bar i{position:absolute;top:0;bottom:0;left:10%;right:10%;background:color-mix(in srgb,var(--accent) 18%,transparent);border-radius:5px}
+#obssCard .s-bar b{position:absolute;top:-1px;bottom:-1px;left:50%;width:1px;background:color-mix(in srgb,var(--accent) 45%,transparent)}
+#obssCard .s-bar em{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px var(--surface);display:none}
+#obssCard .s-bar.on em{display:block}
+#obssCard .s-bar.out em{background:var(--danger)}
+#obssCard .s-sub{grid-column:2 / -1;font-size:12px;color:var(--muted);margin-top:-4px}
+@media (max-width:620px){
+  #obssCard .s-bt-h{display:none}
+  #obssCard .s-br{grid-template-columns:70px minmax(0,1fr) 58px;row-gap:8px}
+  #obssCard .s-br .s-bar{grid-column:1 / -1;grid-row:2}
+  #obssCard .s-sub{grid-column:1 / -1;margin-top:0}
+}
+#obssCard .s-hint{font-size:12px;color:var(--muted);margin-top:4px}
+#obssCard .s-h4{margin:16px 0 8px;font-size:13px;font-weight:600}
+#obssCard .ref b{color:var(--ink)}
 
 #printRoot{display:none}
 @media print{
@@ -526,7 +623,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 <header class="topbar">
   <span class="mark appmark" id="mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAACACAYAAAChvY/kAAAh4klEQVR42u19eZhcZZ3u+/u+s1RVdzoLhB0FRkTSuWxpCRECaccQSSCA2qVeH73DLMRRmdFRB4Ekpw4hLCp3BgW9wTvj6DiPTNVVMECzBOmGsCTYQRhNnHGHGdYEsnR3VZ3l+977R1U1lU530gFMusmc58nz5Omq7jrnrd/6/pYPmKDXZd3d/ueKj2WbfxaQiqT8IT9XJhpQAalCERv+aO18RVkM2CdTw6dfzQ5u/PrChREABAFVoQCKCA94wEiKiDC8fe1nlcZsIUz9UV4A+ARS+8jSD57zQgO4sADiTQRuggFGAYRBsafVyTg3gpIR4SAJEYgPQYZgPyzXeVD3XX7RWc8PAReKPVABQ3DvY1OdiukSJe8AeCgEikSFRCICVwQthPTT8tFJk1tXf67z1G0kRQC8UWmbcCrZfN3U3e2/mrSe4ABnAnKSEJOppELLqAactNDiFcCUll10zsNvhrRNWMCCIFBhGA49+Mriw9NNRp8Ja9+rFA62lmUoiUFkBOIL7fqE5rvhxZ3bGo7jgJMwABIEgQBAA7zri2smpxnvfbTqXBG0WHCgrs1tAnlJwX7rqovO3jQc8AMFsGb3KQEgDckJ7uo5TKfOhxUwm8KKiEQEsqAoBX7vqgvnrqlJGgiM3a7JhAOlt1dj3jwb1ow39wTcijvXzoPFhwXSQnBQRGnSTiJw+/IL5xZByt44ggktYUFPj1OYN8+MFKCSlEKhIGEY2hvueOSIRLjEEseLYDsECpRWwqwxTz743ZpKF8YkaTIxBKsWrAa39xyTzbb8L2uT7isXnvmTxutFUncBdiTguopFXcrnzU3d3X5/2vpnsHI2RLZZAAqYRvDuZRfO/c5YHYGaCIAVens1ALjKObdt2vQCrTxxXff6vuvueeKvg7t6DsuLGBFhsUg9/HdL+bwJgkD99cKF0dLFZ3/DgndA2CakWNhXATn36h+t/UAoYgNSvSUAa9+8mTVHJ52V/u1Vm5pIaTXLy2T+PiPZf7v+nvVhULx3Wj4vZqQEPAxDC1JIyvKLzr4NxO0QtCkoQDAgQNeKOx49eyygTQDAKPl83l52U7cP4jTHz2T8XNaPq1Vb3r49Ijndy+SWZ9umbbj27scvCUWsiLCrWNxZ2kQoUlPRpRfOLQFcTcFkkBbAAJS9JLhr7XGhiA2CQE14o99VLOqTWo84xqHzfgIfAjjPz+ZQ7t9BELHje77nZxBVKz+Itr78yfBji7cEQY8Thp3pLrEbKaGIveaOh/+KomaLyHaAOVi+lKhsWLhgVqWeR/Et4yWvvevx2UrpP7c0f+r6GVUdHEhASK5tspNEld9WyuWPhR/sXBf09Dhh5zDQ6iob9Pb6znZ3ORSOJDgoxFQh1iy9aO4/juYE1EQCKQgCFfT0OCTlyvPnrP/SwtP/wlrOSeP4gVxrm6u0csr922IRdVyupbXnmtvXXhB2dqZBT48zXD2DQkHCzs4qMt43aW0ihCuQ7VTovPrOtSePppoTN5ckFXp7VUN6Vt697tNKyY1KlB9HlVg7rqdd11QGBz9duPicVSNJWiPkWPmjtfMt8KcAtpGSFeHLaVu6vDBvXjRcNSeEhI1EO4ciNuzsTLuKRR2Q6qpFZ9wSJ5W5JH+TaZnkpUmcpHGssrnc/wl/uPa8sLMzHR521EIOqqsWn/UAiKdBtCrFMoCj3X5nvogw4M5CNSEAExEGQaDqDyzDHzoUsUFPjxMsnveTSv/gWWkcPd7SNsU1aZKaJKWX9W4PfvDQaY2wY1iUB4gw9dzvUZBYwoFImcT7brjjkUkhwOYvbAKoJGVl99qDr1p49uahyL5Y1Pl83gx/Z5HUeRFzeXHN5Cmtk+5zPH92ZWBH4mdb3DSJf6t977TKI7P6gQKamYqGgV+x+uGP08p5ALaJYCqVfH/5BWetbnYAajwbeABY2f3Tg5nKz6+7Z/39192zvisIApXP52uSMkxV8yKmWCzqG/Lzt9uBVy9IouqzfibrxpVynG1pPS4tV1aFodj29nYZJmMEIDr1uwXoF4ELkbIQnV+576mWGli1zxq/KjlvngIASSqz/VzrIUrp+a7nF7NzFq2/rnv9xaGIhQiDYGcVy+fzplikviq/cHNUjS8mJFKuqwf7tyeZSW0fvvpHa/ON9wxTebnyA7NfoXAtiRZaRiAPK1cGTq9JIWRC2DAr/FAmm0NcLVcq/TsSEdXh+v4Pr7v78e8F/9zdFoZih0f1+byYoKfHCT94zpNJZeCLmWxOg0QaRVQiX/7KfU+1bNxYYLOEFgoFAoChelCEFVGiSSQKPBOE1KVwHAPW22tBCsi+8mD/z/1sLuvnWty4Wk4qA/3Gb2n9WObgg9YG3+85ptRQ0WYv2tlpgp4eZ9nFnV8v9+9Ym8m1ukkUxbm2yW+vRv2XhWFog3pS35AykhJedNbzEPkFLHNKS1kEx624+9G3NRzPuAUsDEMLES69cO7N5UfvPDVNogtMmjyamzTZFRE1uH1r7DjuSZkp2cdX/OihY0dInIl58ywAUONzJk2tKHGq5UGKyGeD23umhJ2dptkDFupO0EIehYgCaQlkaZJZALCpvV3GvUp2FYs6DMP0ykVn3nXFwjPmxpXyFxzXM9rxvMpgf+I43mFKu3deX1wzGYXCTjFbKGKLLOrl58/dkMTV72VbJ2kTx3Gute1QV3l5ACw0SVmNrgZsNfkZiFdh6QGMRfQMkFLKd9lxD1ipFj5IsVjUJHHFojk3JuXKAlHS73q+Wx0ciLOtk9oTz781DENbKpV2eqZSaUjjbkqiqhWldJoksLB/RlLQ29uUL9bVMt85QOC3VOILJALk6ODO3oMA4UTJJZnP542IcFVfn7vsg+c8GFcri0SpWLuuLu/YHucmT8mvvPPRD9U84GtOoE4gytLF5zwZR9FjXjbrRNWycRyn44bVj8wIw9A2e9p8HXAR+wsQDgEDotXV7jETLvkGgCUdHcmqvj43uHje2iiqfN7PZDVpJYkiWmuvDYpFr6ury44QoohS+L7juBAiyeRaVAp1fu313iEcZmzcWMsb3dyvSEZQgAiEqT1+QgLWAC3o6XGCC8+5uTIw0FvzgJUkN6nteCdz2IdFhM0MRWHePAOAVPruysBAFSKeSVNAcf6QR268NwwJANv0Ky+KyHZSXIJGQY6YsIABwKYabS2K9kvGpBQoZdKUtOpTw21TI2RYdv6Zz5D2ac/PqDiqghYnBd3r2sIwtA1nIfXc8cYFC8qg3Sy0rlASK3LQqr4+d8IC1rBNV1509vokitZ52awTVytWu+rdX7730XfWbNNrfFbDG1L4U+26sMYk2tHTXZse1xxSNP2fovSLoCgRJCAnv7LVtE1YwJptkwhvc1wXIJNMJqfimGc1p1c7MR8WPwVgADF+NgcaeyIAtJdeA2xTqdT4/1YoaTGEC8BD2Ux1JjhgFgCtyEPVcjkFxBGlBYKzAPzDCCoMivxeO45WSjQEEYjDAWDj9N4hwEoNpyFqHU38W2h/QNnBHVF02NbxQO8IWcts2eCbxli6bxR4r1+zZnIymHleu07O8bw4qpR/uGzx3I+SVNLg5estASt/9Pih4mIWYDe7fublF5/bsuXGTywYHOvN7jcJIymF3l4ddnamUuOBh3SiWCzq0mtB626JRQCoPPJIvz9r/vuyLa3bBra/Wt22vfpy/XXbzOMDwFUXznkJQPeY7xEQFAooFAp/kJ7ZsfPxr92VBOt+2Rb0/Lw16F7XduNjz2aHp0Zv9hdVLFJ3FYu67hT2Ssv2uUo2Cg/B/RuO8C0uMUlyAWCPBJgCokRUROAh66ofBgtOv2fod7q67O5UtatY1DO6uohCAWGh8KY2Au83wBpghavX/7Hnqm97vn90mkSwxtRvhRAROK6P1KRIU/OQFfXl5Qvf3d1gYV9PE9yEBGyov777iXM8kbuUsDWOokQATUCa7QNBCiFeNqcsCWP5jRe5+W++vnBh9EbaLScOYKQQwJce2NA2KUrWu657QlytpiK7dzoEjJAq0zpJoiR9PI7xkXBxx7NvZhv53l77JHAtlkpKRNia2GVtU6edEFfKqcievywBNESkOtCf+q4zx3Ns94p7f3Z0GO6+YWTCA1ZnDwTgM+WBgZ+I4zp+jWe3JPdsnEWcykB/ksn47UgHv31pX5+7qb1dGpWct6QNa1I0WbHmqXOQxH/ru+55aRTBmtRC9sz+kkyzrW1OuVq9evmi2UGxSJ3Pi3nLAjbcYK/o7vtLRXONVpiWxLGVPYFGUpSiOG5sRc5Z+v53P7Gv7dk+tQMNsGpBI9WyhR3fjK2cYyHPeJmsYq25bbehvbUWWquMTZJbgr6+XK0Mu+9Uc7/mko2OmqB73QxfVLfQvt2kiQV2L2kkTba1TUdJ8qmr3t/xzX2pmvs9+R4C7c7H5/mOvp9poutk3u7uzbh+RkVxvOG/nvfes+rSWem+yvP2Ox8Wdnaml67qc8ML5vSm1gZ+rkUR3JNN0nG1AtdxTj3yaPueWgf1m5tzjlvAAODWS2elQUB16KGzv1qpVB/1/KzGHu0ZrOt5Wll7QT14wQEDGETY3l6SJR2SWNf5vLE2QYPzGZVEg5g0AYB5AanqNkwODMBQ67oJSBUs6Fhv0vQ+P5sTAmZ3HjNNEoDmROf2R4+tJec8cAADAPTW6oPK9b5PALKHcIHWUmudgaMPB4BN7aUDDjALAHFqHowq1c3KcdRuUichaF0/o6DlZACYMX36gQVYozQWnj/7RSi13vF8YCxUjuVbM9If09UojQkeF6Uw0kjk/rzGb11S5LmxEBn/DVjvvHq3sv1pXK6kSpQeT2I2biVMWyRjxWksZORbHjCjZE8gUCAqrlQMlDzZLJ1/yGtCtwqIiJBWbGL7/1vC9pAakYTSGhS8YCT7EgAUCn94Wzd+vWSUpLvzkgJQOw4Ezn+Eizu2YFip7sABrFA3+r5ziHYdGS3Sp4BKO6Dg3wBKEPTsE3pn/NmwWj5pQZnpZjK6OrDDCESPxFZYayFKPw0I29t5YBCIo9owWg+Wo9kvilIqiaKq1bIeADZu3Dex2riTsEbjm1jpGC0OE4CO50ucJOvN/NP+o94nZg9IwGZs3MggoBK1/jDaev13uIQB1K4HMVwTiljUOqbTA04lG9057hkbDiV5cprEwK6LN6iUqKhcrlrt31tP2PcZWzGuJGxTffBTaN+plJpuk5gyLB4jYD0/q+M46Vu+4KQN+1Idx52ENQhASzPL9TwQsLvaL9aSR6V/CACl0r59hvHIuAos3gty1zoISaUdHUXVbRS5reYdC/uUyRg3KtmwX8Fd6w8D0zlpHKHeBd0crFrXy2ibxP+y9LyOF7qKRR3uoXH4LSth7e0FAQBX5FTH9aaYNN3FfoFQSRwRSn13f93nOFLJUiOEv9B1XUXZ2X4RMH42Jym5JvE7ngyCQJX2sXSNH5UkpbZvom8ybXxeEkUQyPCNJGKMseK6N4Sdku6r1oBxCVixBJUHTEuLmetq921JVKHITvPoxs1kdTWKHlx+/pyefR1KjDuVLNXVUUEWOq7LXUtrFGutpaO/DBHWx5R5QEpYXVpM0Pdczr7wzLlpTGlWRwLGz+R0NY4ftIvOWNPYjHLAGv1SqaRAin75+YWe6x6XJrFtvi9BjcaBcm4MReymYWtgDjjANm7sIkQoTD6qHUe4s6oZL5NVcZI+9LOB3923vzzjuAGsFqyKXXHvE0cL5eykWoEQOw1uGWupPP+GUj5v2vezdO1/Cau3BZD4QCabPdhYYxr5EEHj51pUkiTrE2/7frdd4wKwwrx5JujpcWDSi4xJ2cR9UYmSNDVVcbJXhJ2d6aZxIF1vBDAhKQwCVezq0tzNGEvQ9B4GwdBS2q5iUYsI3Uq2Q4uam1SrtVGZmnRZP9ui0iS5Y9l5p/Y2puDGA2B7FVY0gJEwtEOas4drl3G9MNyJygHlPD/j68pAvxER3ZCuOI6qju9/tT4VO+aR5nyppIb3ibVv3syuri77ZpThnDEDFYaU+sPz0lVu5XAcnjjpUUrJMdbQSRVOEMK3UqNILQChaEf4e0W8YoSxY/Wvladf2TQVL3R0dibXr+mbnETxR9M4QiPRJmkzLa26UqnetGzhrA1/tGdGQorFYn39ixjsps0zIBUKwBuZHNnD+B3rfF3tA3YEX3tX4spZrzI9GeDhVthCC7e2HUMsm8ACAFs7Q+d/sOb5mIqpIrU8aovz9wAeTKP0LNf1jk+jigVEkaTjuFKtVF6Bo2+pr3gfVSoauxAbzuD6Nb+ZnNgtJ0tiTyFIEUVRShPq1wCeXCryQsMcvF4Vd/YQgRMCbL36G6dCbFcsONEAbYRJRFQCMgYkGuJeuKuBZCP6FGFKakXaDOX3te+DH9NaI4HUm1lJJ5NRaRQtW/b+0//zhCJ1GIZmpHtrSFRXsahPnfKOBSZJLkyizedqwTFeLveaEguQxDFMmm657r4N91WT9Kvh+bOfer2gyWgqKGFoGXx7yja38icxzfsg8EFURGBqxJ7CXh7rZQWS06J+fNDST90QdK87yjV8WilMq3FfoOtnVBwn63MHHdW5476jo5EOcWoe8Fp535Mfokm+4DrObKUU0jiCSRLuSm1Tae2Il80hSZKB2JgrgkVn3Px6QFOjgTUYfP2IrW75yzHMBQQsiMF6zKQBkaZvmfXpKAvstvqsBIgSR3cDgE/J+7nsNGNSU7NfQoqCVU74+fe8rdLeXpLRwApW9x18bfdPfuAqlFytZieVsq2WB4xJUwsRERG98z8lxhhWBwZSmyatOd//+jXd6z5byufN3m4tkJHUcDD4+hGRo8IEfDvAQdTd/dAv1Zb/sG7nNEQcWCgICUgquxYvLAVZB/LzF5NDrvjx7FNkh9myznPdU5I4siSZbWnVg9Xq/7OLzvhwe6kkw4PUxpjf1fc/ebxO0+9ks9k5gzu2GQFkLLOWTQ9plVKA49GIPnvZ+097bKeFIGOVsAZYA8HNh0WuKiQwb4fsChYAS1oFQYsIsi5U4lB+7wk2upBfaUh1xA+yUApO78wwHw9g61mO1iclcZUAoLWWKEl2iM4UQhG7sauLI4EVdK87Sqfpw66j55R3bEtFRO8VWLVvWxmSWqCZVG8Jen7eWrenstdGn0HgbHPkkwnsHwnUdpJO0wfVZqZEWhRVvwB9Du2jHuRXW16NXj56ztExNk6XqvPvZw2K+Xw6pLMkIK6CvFhJ5PG6Wn/UzfgqTWMDEF62RVeq1b9bvujUjcVibdvvMANPzHlsmmvk+46jDosr5RQir5uaEkDHUdXkWiedUqkMflxEaiOEu5s8aQaMQaBExO4IvzY7Fc4B0U80gQWShNYirqb0ZFMUs+Fnfr0T2P+bInnh9pW3HGXJjACDABQoFIFnFZ48Mlyy5frVa9+WGPOBuFIGIHBdV1XLg7/wzNQbgyBQ+a6d1blUKql8Pm9W3P34P2Zz2bMqO3a8IbCaBAAmTQnLjxWLvHX4546qkgQEYUiuWuXGSl9s7LD13iAJ0a5IlIX62rRln7k2G37m182pDhEoEeGW4J/bYvJ9lkheG2CnCBCndNYCgFHu/EwuO9VYY0BCe75QuzdeftGJ/e3t7TsZ+kacdXX3+sszfubCGlhvDukpgErjSBQ461dtG46HCMd2iEoQiAB89eX03RacKcIqh2wbSYHjQuIWK0tbl3767gZQEoa2niIRQV1c3YF3gThEhAkgtXBWxNNQ/3n4dNkUkIrAR2ktBLCen9HVSqVvm3ZvCwKqfNPuwtqEWt6sfGDDSRoI4kqZBPWebTpJ0BA0IC2IdJRRQqG11vX8jDV2DgBsKu25G1sVhkSNcyDQO52DIQrKivKBWzPLP/0LdhV1A6idaYd6NE6+m0IXbPwNISCOED+RJUvK3j3r3yXgmUlUJQhtQSjHufLGBacMbmrHa9JFSnupJKv6+lwbxTe7jpOltbvWKXfJTGC040gm16ozuUnay7aozKRJTm2e3HJX4MQqrSHCd9Ty2949AxaGoWVwc6tVaLdk85yiBZjzRHW3LvvMvQwCJaW8GS0j2LHyH6anwjMtEDdxWhpAuaycR+tPdL6XzWZIm3jZnEpS80C8oOPHQUBVaprZ7qrbrZdeMn+VyWTnRpWy2Z03rAkVmcm1aEO+ElWjf6nEyd9ESfqnlUo1jNP0ATfbIq6fUSNLG+O9So0GNN5uiUMApLXFZCQJV1NtUSpz25CnqjMNw6RLANDa6qmGdroIBgEqgATFF2DT1uT53waksnetW0xjAIoyxlBc9yuhiG2uMdaDU7PyvqdmwsZBUilb2R0NRVqttRLtoBrFt7p+28ovzZ/57PC3XX3/hsXa2MDL5U6Ly+Wd92RY8fYq0o812inMDAWcFCoRzxH147ar/mwzCoXRO5Qb6iiYtfNjCZVAK5H/mBmGcXb1EycqhVOTasV62ayTpOna9NxZDwxnUjeVSkJSTFy5xnfdScYajjadS2upXVeJ41US8JJli2Yv+dL8mc92FYu6WKQuFou6cejK8nNnrdaefm+SmIfdoZUPVNYYQMlvajTQPI5JwsTiIIpIfR0VLak0JcpRr8duxoKJmjpuC741zTCaQUEs9WNZCSgNqdLxngQAo3mu52dy0eBAaqyB8pzrlw+TrqFDTe75yYWe515YLQ+O2BDckCzHdcVS/itNkw8F589ZXywW9caNGxnm86bUTMEBuHRVn/ul+R3br1v7bxelOyobHNc71iQx4yiKRMs6ANjYtWfeTTEIFAQHoz7JX1dxh+Bmz8OzNVUchWIJag0k2klOMcJDSKa15i0hBBrCbU4Fv65vd1psjYF2XSeJ003Jkbkfg5SGZyQpMzZuZNDz0ylIzXWwdvQFHrWmYEC7ElMuCc6fs37Vqj43n8+b0faL3bqkIymS+oq5J2014N+IqNTNZEDBk3G28kvUD4cai0oqWh5Sy/CHYielKP245/nBmrbJaHQqASCimU2IUhjychTAs1S/nBL+xavXdj9xPK2Zk1Qr1vWzEO18P5w5Mw56e3XDM5ZKNQfkVs0nMi3ZE5M4Gs3QE0pZ7fkqNebS8PzTHwh6epwlSzqSPT1s7QgM6uWLzrgjSZPbspMmiyj9T2FnZ1ocY2NefZhT0hFfO+GI3asjwOeCVTmKHEMwbd62JACUUptqRtW82/N9HyISVSvbkFH/CmBoZDkIAtXVBbuy+8npMOnnkmpl1BCizvfrJEn/77JFs7/VVSzqXU7G2l3hGKXaPjOl/3XHtm0Pv3Pg9/8AUvL5vUq+7d5XZOrqOM1XR4jgEDTUsWbvRaBiKud3dXl9j4jA8zNiyd5lf9zxm+b1fJva20VEaG18VSaXPSZNEjtigYa0npfR1ajydMZ9+2eLxaIeWrY9VsDyeQMRZh2/R9vooiaHw7EDxhFubowFA2OT40m0COpxlJAEHLF2+8GufaZ+Osy7aG3NBYteTVIaDXS1GCxvVtz7s6NF8Im4PMAReTqSSmuklhVxMn/yxQWHD5ZGKrKM8friglMGrzh/7ta9edYaYJvaCaX7ZejccAVAUoIH4/DkoEY2OVI4QUAM2U5hc18lAXGUUi9i/QNbqw9smGTJd5IWaRwPpB4eEhEO702lGVjpe95UY8zI6iiwbianUtprli449alikW+09CZ8HVuhlJTyRgyea6RFtWSahsDUioN3NAWnwzhEIYJAR7THWdI02y8FKBF5TkolMzU1R4mgTTsOKNyErbn/IilhGNra8RVir7l/Q4ej9P+MqxUromQkVfT9rK5UK09MOX7ajQGpuvJ4o/1hr2uRrQIAq+UlaRIjVVuxocqQ9xIUDKvcsH62djl75GEQTAfkNftV47vEaPU7ADDGnuA4bhtJgPJKmJ8ZFwoFASkzuroY9NBBnHxFK9G1yY9dyRKlFFJjK67rfeqv3/nOqO6590t/mAIAz3KTiFSabIeyZJXg6QNX3zxTRDhSdTuKo6mEZEWG7e4ixKZW19Pv5rlHp6EGq27d4IQiVg+uv8zPZubFUXXEMIIC67W0KkN++YoFszYUi9T7cy2pAoBJ5uXfKPL3hHiN9EgBlrBOIuqSX152k9+wWQBQ2rSpLgX6WBH4Oxk5EYEgoqOfqz/wGVprkADB2p6v9i5nyZKOJOheN8MRVUgqZTui4wGt62V0pVJ54qgZh1xfo4CwXxffNritWEMeU6DD13ysIqSawJ508CHuR0SE6CrudGCvVtrsEo2TIkrFiZUt9Z9MEq2RxhGVqJnB6r6Dw/zMeMV9Tx3ri/qBUmirN+3IrmyNgCStcr5wybHHVkeqJO17CatH6wOa9yvICxC4TeUyBeGgEfORrVff8gEp1U5+OW7qVEVAjE2nQnYfvxDUdToj8TOZo11JLg+6182QtHqP4zjvSuLqiBs26y0DKrHmH4PzOtaOduLfPgdMADII1FFXXvaKr5x/UoCz82G6CoZME9i/2Lbilst4/arJHbfemghAJXIMR4jfaK3nKh5St+C/stYCIjoqD1KEX3CN2aCVnBCXB+2wbunXVNH1VLUa/c7xJl8OUnY5SWZ/2jCpHyIy6apP/lhTHoLIJEE9XSJFibIUxhHtRa8kyVf7V978x7yxmLVI0xFUkgJ4MMlhAKChfmmtRT3sEBpDATImSeyouaIIxXHEWHz+yvkzXmlsGh43gDWqKCRlaqbtJhfoIzil0QlTw0AEgv5UeFSV+Nut5Zf/3orMIBDtEpkLqKmOAgClnH9Pkni7KF1bbVXLgUaM5odUMdeqozj5VnDB7Nu7xokq7gKYNPpGvviJQR/6ay7kaQCTADT3VSkhY0tWYuHbDHGQEpUODwQsaTT4Dt50kz+Y7X8GkF+4rsfGZ2D0xNq4vq+r1ejprJv5XL0Zz2IcXWqEFgBpWfqXz01N3as8qMcAtNY9ox0SxTpwEEl3TS9ERFSU0h736qB/WtjZmSrBbaK1cDcOgoDR2tHGsmo9/fEvLjhlEIUCxosqjtqM0jhHUcIl5Snpy4WMqO8qQAskV/eetkmHRyX4LOjQ2AtBSi6ufqdarTzrur4maEYoYKSu62nROqaojyyf3/GzrmJxvwaoY2pG2ZXvqn27A1d/8+QIad4Ap1FEQ2wFFEIo4CilLyEVlauVe8O0q5Y8dO1d6z6ufe+7Jo5gU5NCICBFaa1qbUjpM3FsLwsWn35ncZzZrTEB1pQ3qkYdcts13zw9tenFFDmZoEdBVOfBWMtlm3vGhnoqNsdZ9/NHfmHJlmtWP/ZJ7fkrtFYH1/o/iCSJtyjHXW0tli49r+OF8QzWmABrAo0Nki265uZTBok5lpxDhemWcAlJ60dymdf+uFhLtniQR6Ye6l4vS5Ykf3f748cM+O6ZtVMIVWSy2UfCzpkvNhdBMI6vveKDmqUNALYF35oGN32HImcltCdawVFWOAmoi5rAWCAVwncg66yX+cb0y//8+V3IW1IVXifdMq4BawauEfA2/cypZI84opokbwPlOILTReRIgFkKDhIypyDPUTnFX2SmPXbfadOT9s3z2NUFOxGAekOA7RTU18lFGYEqZldRYwayVbx8GKBT0fQTWKfVHPIrCfMxJuD1/wHWpD1gopB52wAAAABJRU5ErkJggg==" alt="Informes USG"></span>
   <h1><span class="tl-long">Informes de ultrasonido</span><span class="tl-short">Informes USG</span></h1>
-  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.6</button>
+  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.7</button>
   <span class="who" id="topWho"></span>
   <span class="spacer"></span>
   <button class="btn" id="btnCfg">Configuración</button>
@@ -1950,6 +2047,90 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
     </div>
   </section>
 
+  <!-- v1.7 · ecografía obstétrica simple (único y múltiple) -->
+  <section class="card hide" id="obssCard">
+    <header><h2>Informe · Ecografía obstétrica</h2></header>
+    <div class="body">
+      <div class="ref" id="sRefM1">Edad gestacional y número de fetos: se toman de los datos de la paciente.</div>
+
+      <div class="sub">
+        <h3>Indicación</h3>
+        <div class="ind-chips" data-for="sIndicacion"><button type="button" class="ind-chip" data-ind="Control prenatal">Control prenatal</button><button type="button" class="ind-chip" data-ind="Evaluación del crecimiento fetal">Evaluación del crecimiento</button><button type="button" class="ind-chip" data-ind="Disminución de movimientos fetales">Disminución de movimientos</button><button type="button" class="ind-chip" data-ind="Sangrado genital">Sangrado genital</button><button type="button" class="ind-chip" data-ind="Altura uterina discordante">Altura uterina discordante</button><button type="button" class="ind-chip" data-ind="Trastorno hipertensivo del embarazo">Trastorno hipertensivo</button><button type="button" class="ind-chip" data-ind="Diabetes gestacional">Diabetes gestacional</button><button type="button" class="ind-chip" data-ind="Gestación múltiple">Gestación múltiple</button><button type="button" class="ind-chip" data-ind="Evaluación de la presentación fetal">Presentación fetal</button></div>
+        <textarea id="sIndicacion" rows="2" placeholder="Escribe la indicación o toca una opción"></textarea>
+      </div>
+
+      <div class="sub">
+        <h3>Fórmula del peso fetal (Hadlock)</h3>
+        <div class="g-choices" id="sHadWrap">
+          <label><input type="radio" name="sHad" value="4" checked><span>4 medidas: DBP, CC, CA, LF</span></label>
+          <label><input type="radio" name="sHad" value="3"><span>3 medidas: CC, CA, LF</span></label>
+        </div>
+        <div class="g-field" style="margin-top:12px"><span class="g-title">Percentil del peso fetal</span><div class="g-choices">
+          <label><input type="radio" name="sRef" value="h91" checked><span>Hadlock 1991</span></label>
+          <label><input type="radio" name="sRef" value="fmf"><span>FMF 2018</span></label>
+        </div></div>
+      </div>
+
+      <div class="sub hide" id="sMulti">
+        <h3 id="sMultiTitle">Gestación múltiple</h3>
+        <div class="g-field"><span class="g-title">Corionicidad</span><div class="g-choices">
+          <label><input type="radio" name="sCorion" value="bicorial biamniótica" checked><span>Bicorial biamniótica</span></label>
+          <label><input type="radio" name="sCorion" value="monocorial biamniótica"><span>Monocorial biamniótica</span></label>
+          <label><input type="radio" name="sCorion" value="monocorial monoamniótica"><span>Monocorial monoamniótica</span></label>
+          <label><input type="radio" name="sCorion" value="tricorial triamniótica" class="s3only"><span class="s3only">Tricorial triamniótica</span></label>
+          <label><input type="radio" name="sCorion" value="no determinada"><span>No determinada</span></label>
+        </div></div>
+        <div class="grid g2">
+          <div class="g-field"><span class="g-title">Signo</span><div class="g-choices" id="sSignoWrap">
+            <label><input type="radio" name="sSigno" value="lambda"><span>Lambda</span></label>
+            <label><input type="radio" name="sSigno" value="T"><span>T</span></label>
+          </div></div>
+          <div class="g-field"><span class="g-title">Placentas</span><div class="g-choices" id="sPlacWrap">
+            <label><input type="radio" name="sPlac" value="1"><span>1</span></label>
+            <label><input type="radio" name="sPlac" value="2"><span>2</span></label>
+            <label><input type="radio" name="sPlac" value="3"><span>3</span></label>
+          </div></div>
+        </div>
+        <div class="ro" id="sDiscord" style="margin-top:4px">Discordancia de peso: —</div>
+      </div>
+
+      <div id="sFetos"></div>
+
+      <div class="sub">
+        <h3>Cérvix (opcional)</h3>
+        <div class="grid g3"><label class="f"><span>Longitud cervical</span><div class="unit"><input type="number" id="sCx" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label></div>
+      </div>
+
+      <div class="alert hide" id="sAlerts"><b>Avisos (solo en pantalla)</b><ul></ul></div>
+
+      <div class="sub">
+        <h3>Impresión diagnóstica sugerida</h3>
+        <div class="sugg"><pre id="sSuggTxt" style="white-space:pre-wrap;font:inherit;font-size:14px;margin:0 0 10px"></pre>
+          <button type="button" class="btn" id="sAccept">Aceptar sugerencia</button></div>
+        <p class="note">Solo se ve en pantalla. Al aceptarla pasa a Conclusiones, donde puedes completarla.</p>
+      </div>
+
+      <div class="sub">
+        <h3>Conclusiones</h3>
+        <textarea id="sConclusiones" rows="5" placeholder="Toca &quot;Aceptar sugerencia&quot; y completa aquí a mano."></textarea>
+      </div>
+
+      <div class="sub">
+        <h3>Sugerencias</h3>
+        <div class="ind-chips" data-for="sSugerencias"><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico de crecimiento en 2 semanas">Control de crecimiento en 2 semanas</button><button type="button" class="ind-chip" data-ind="Se sugiere evaluación Doppler fetal">Doppler fetal</button><button type="button" class="ind-chip" data-ind="Se sugiere ecografía morfológica">Ecografía morfológica</button><button type="button" class="ind-chip" data-ind="Se sugiere evaluación por medicina fetal">Medicina fetal</button><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico de la inserción placentaria a las 32 semanas">Control placentario 32 semanas</button><button type="button" class="ind-chip" data-ind="Se sugiere correlación clínica">Correlación clínica</button></div>
+        <textarea id="sSugerencias" rows="2" placeholder="Escribe una sugerencia o toca una opción"></textarea>
+        <p class="note">Solo se imprime si tiene texto.</p>
+      </div>
+
+      <div class="sub">
+        <h3>Vista previa del informe (editable)</h3>
+        <textarea id="sPreviewText" rows="10" style="font-family:Georgia,serif"></textarea>
+        <p class="note">Se regenera con cada cambio. Si la editas a mano, deja de actualizarse hasta que presiones "Regenerar". La línea [TABLA DE BIOMETRÍA] marca dónde se imprime la tabla.</p>
+        <div class="row" style="margin-top:8px"><button type="button" class="btn" id="btnSRegen">Regenerar</button></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 5 · INFORME DE ENDOMETRIOSIS -->
   <section class="card hide" id="endoCard">
     <header><h2>Informe · Mapeo de endometriosis profunda</h2></header>
@@ -2356,6 +2537,7 @@ function recalcAll(){
   paintDerived();
   if(typeof FERT !== "undefined" && FERT && FERT.active()) FERT.refresh();
   if(typeof OBS !== "undefined" && OBS && OBS.active()) OBS.refresh();
+  if(typeof OBSS !== "undefined" && OBSS && OBSS.active()) OBSS.refresh();
   if(typeof ENDO !== "undefined" && ENDO && ENDO.active()) ENDO.refresh();
   renderSheet();
 }
@@ -2434,6 +2616,7 @@ function pick(node, path){
   if(isGinForm(node.id)){ regenerarInforme(); }
   $("#fertCard").classList.toggle("hide", node.id !== "tv-fert");
   $("#obsCard").classList.toggle("hide", node.id !== "tv-obs");
+  $("#obssCard").classList.toggle("hide", node.id !== "obs-simple");
   $("#btnGo").disabled = false;
   recalcAll();
 }
@@ -2580,8 +2763,7 @@ function renderSheet(){
     }
     var sinFpp = typeof OBS !== "undefined" && OBS && OBS.active() && OBS.noFpp();
     if($("#fpp").value && !sinFpp) rows.push(["Fecha probable de parto", human($("#fpp").value)]);
-    if($("#trimestre").value) rows.push(["Trimestre", $("#trimestre").value]);
-    rows.push(["Fetos", $("#fetuses").value]);
+    /* v1.7: sin trimestre ni número de fetos en el encabezado obstétrico */
   }
 
   out.push("<dl>");
@@ -2597,6 +2779,7 @@ function renderSheet(){
   if(study && isGinForm(study.id)){ out.push(renderInformeGinHTML()); }
   if(study && study.id === "tv-fert" && typeof FERT !== "undefined" && FERT){ out.push(FERT.html()); }
   if(study && study.id === "tv-obs" && typeof OBS !== "undefined" && OBS){ out.push(OBS.html()); }
+  if(study && study.id === "obs-simple" && typeof OBSS !== "undefined" && OBSS){ out.push(OBSS.html()); }
   if(study && study.id === "endo-map" && typeof ENDO !== "undefined" && ENDO){ out.push(ENDO.html()); }
 
   /* firma */
@@ -2607,7 +2790,10 @@ function renderSheet(){
   var sp = $("#cSpecialty").value.trim(), rg = $("#cLicense").value.trim();
   if(sp) out.push('<div class="sp">'+esc(sp)+"</div>");
   if(rg) out.push('<div class="rg">'+esc(rg)+"</div>");
-  out.push("</div></div></div>");
+  out.push("</div></div>");
+  /* v1.7: nota de la ecografía obstétrica, debajo de la firma (dentro del bloque de la firma para que no se separen) */
+  if(study && study.id === "obs-simple") out.push('<p class="rb-foot">La evaluación anatómica de este estudio es básica y no sustituye la ecografía morfológica.</p>');
+  out.push("</div>");
 
   paginate(out.join(""));
   $("#topWho").textContent = centerSummary() === "Sin configurar" ? "" : centerSummary();
@@ -2764,7 +2950,7 @@ function prepBlock(el){
       if(m0 && /[A-ZÁÉÍÓÚÜÑ]{3}/.test(m0[1])){ label = sentenceCase(m0[1].trim()) + "."; t = ""; }
     }
     if(!li && !label && el.classList.contains("rb-ov")){
-      var mo = t.match(/^((?:Ovario (?:derecho|izquierdo)|Trompa (?:derecha|izquierda)|Quiste paraovárico (?:derecho|izquierdo)|Cérvix|Endometrio|Istmocele|Anexos):)\s*(.*)$/);
+      var mo = t.match(/^((?:Ovario (?:derecho|izquierdo)|Trompa (?:derecha|izquierda)|Quiste paraovárico (?:derecho|izquierdo)|Cérvix|Endometrio|Istmocele|Anexos|Corazón|Anatomía básica):)\s*(.*)$/);
       if(mo){ label = mo[1]; t = mo[2]; }
     }
     if(li && !label){
@@ -2967,7 +3153,7 @@ function pdfNode(el, ctx){
   if(cl.contains("rb-h")){
     return { stack:[ { text:el.textContent.toLocaleUpperCase("es"), bold:true, color:C, fontSize:S*0.9, characterSpacing:0.6 },
                      { canvas:[{ type:"line", x1:0, y1:0, x2:cw, y2:0, lineWidth:0.75, lineColor:C }], margin:[0,1.5,0,0] } ],
-             margin:[0,11,0,4] };
+             margin:[0, cl.contains("rb-h-tight") ? 3 : 11, 0, 4] };
   }
   if(cl.contains("rb-li")){
     var spans = el.querySelectorAll("span");
@@ -2980,8 +3166,56 @@ function pdfNode(el, ctx){
     var ir = inlineRuns(el); if(ir.length) ir[0].color = C;
     return { text:ir, alignment:"justify", margin:[0,0,0,6] };
   }
+  if(cl.contains("rb-wnote")) return { text:el.textContent, fontSize:S*0.68, color:"#666", margin:[0,-3,0,6] };
+  if(cl.contains("rb-foot")) return { stack:[ hline(0.5, "#c8c8c8"), { text:el.textContent, fontSize:S*0.68, color:"#666", margin:[0,3,0,0] } ], margin:[0,12,0,0] };
   if(cl.contains("rb-note")){
     return { stack:[ hline(0.5, "#9a9a9a"), { text:el.textContent, fontSize:S*0.82, margin:[0,4,0,0] } ], margin:[0,8,0,0] };
+  }
+  if(cl.contains("bio-tbl")){
+    /* v1.7: biometría obstétrica; en único lleva barra de percentil (franja p10–p90, mediana y punto) */
+    var RED = "#b3261e", bh = el.tHead.rows[0].cells, uno = cl.contains("bio-1");
+    var bw = uno ? cw * 0.38 : 0;
+    function barCanvas(p, out){
+      var x = Math.max(1, Math.min(99, p * 100)) / 100 * bw;
+      return { canvas:[
+        { type:"rect", x:0, y:2, w:bw, h:5, r:2.5, color:"#f2f2f2", lineColor:"#d9d9d9", lineWidth:0.4 },
+        { type:"rect", x:bw*0.10, y:2, w:bw*0.80, h:5, r:2.5, color:"#dfe5f3" },
+        { type:"line", x1:bw/2, y1:1, x2:bw/2, y2:8, lineWidth:0.5, lineColor:"#9fb0d6" },
+        { type:"ellipse", x:x, y:4.5, r1:3.6, r2:3.6, color:out ? RED : C }
+      ], margin:[0,1,0,0] };
+    }
+    var bodyB = [Array.prototype.map.call(bh, function(h, i){ return { text:h.textContent, bold:true, fontSize:S*0.72, color:"#555", alignment:(h.classList.contains("n") ? "right" : "left") }; })];
+    Array.prototype.forEach.call(el.tBodies[0].rows, function(r){
+      var ef = r.classList.contains("ef");
+      if(r.cells.length === 1){
+        var row1 = [{ text:r.cells[0].textContent, colSpan:bh.length, fontSize:S*0.85 }];
+        for(var k = 1; k < bh.length; k++) row1.push({});
+        bodyB.push(row1); return;
+      }
+      var rowB = [];
+      Array.prototype.forEach.call(r.cells, function(c){
+        var o = c.querySelector(".out"), bb = c.querySelector(".bbar"), cell;
+        if(bb) cell = barCanvas(parseFloat(bb.dataset.p), bb.classList.contains("out"));
+        else if(c.classList.contains("bar")) cell = { text:"" };
+        else if(c.classList.contains("txt")) cell = { text:c.textContent, fontSize:S*0.8, color:o ? RED : "#555", bold:!!o };
+        else {
+          var cal = c.querySelector(".calc");
+          var tx = cal ? [ { text:c.textContent.replace(cal.textContent, "") }, { text:cal.textContent, fontSize:S*0.68, color:"#777", bold:false } ] : c.textContent;
+          cell = { text:tx, bold:ef || !!o, color:o ? RED : undefined, alignment:c.classList.contains("n") ? "right" : "left", fillColor:ef ? "#f1f3f8" : undefined };
+        }
+        var span = c.colSpan || 1;
+        if(span > 1) cell.colSpan = span;
+        rowB.push(cell);
+        for(var q = 1; q < span; q++) rowB.push({});
+      });
+      bodyB.push(rowB);
+    });
+    var wB = uno ? ["*", 62, 52, bw] : ["*"].concat(Array.prototype.slice.call(bh, 1).map(function(h, i){ return i % 2 === 0 ? 62 : 34; }));
+    return { table:{ headerRows:1, widths:wB, body:bodyB }, fontSize:S*0.9, margin:[0,2,0,6],
+      layout:{ hLineWidth:function(i){ return i === 0 ? 0 : (i === 1 ? 0.75 : 0.5); }, vLineWidth:function(){ return 0; },
+        hLineColor:function(i){ return i === 1 ? C : "#d6d6d6"; },
+        paddingLeft:function(){ return 4; }, paddingRight:function(){ return 4; },
+        paddingTop:function(){ return 1.8; }, paddingBottom:function(){ return 1.8; } } };
   }
   if(el.tagName === "TABLE"){
     var ths = el.tHead ? Array.prototype.slice.call(el.tHead.rows[0].cells) : [];
@@ -3019,7 +3253,11 @@ function pdfNode(el, ctx){
     if(sp) st.push({ text:sp.textContent, fontSize:8, alignment:"center" });
     if(rg) st.push({ text:rg.textContent, fontSize:8, alignment:"center" });
     if(img) st.push(img);
-    return { columns:[ { width:"*", text:"" }, { width:w, stack:st } ], margin:[0,22,0,0] };
+    var ft = el.querySelector(".rb-foot");
+    var cols = { columns:[ { width:"*", text:"" }, { width:w, stack:st } ] };
+    if(ft) return { stack:[ cols, { stack:[ hline(0.5, "#c8c8c8"), { text:ft.textContent, fontSize:S*0.68, color:"#666", margin:[0,3,0,0] } ], margin:[0,6,0,0] } ], margin:[0,22,0,0] };
+    cols.margin = [0,22,0,0];
+    return cols;
   }
   var tx = el.textContent.trim();
   return tx ? { text:tx, margin:[0,0,0,3] } : null;
@@ -5723,6 +5961,647 @@ var OBS = (function(){
   return { wire:wire, refresh:refresh, clear:clear, html:html, active:active, lcnForM1:lcnForM1, noFpp:noFpp };
 })();
 
+/* ============================ ecografía obstétrica simple (v1.7) ============================
+   Peso fetal: Hadlock 4 medidas (DBP, CC, CA, LF) o 3 medidas (CC, CA, LF).
+   Percentil del peso: FMF 2018 (Nicolaides et al.), modelo log-normal reconstruido de su Tabla 1 (20+0 a 41+6).
+   Percentiles de DBP, CC, CA, LF: Snijders y Nicolaides 1994 (14+0 a 40+6). Húmero: Chitty y Altman 2002 (12 a 42).
+   Gemelares y triples: las mismas curvas de embarazo único. Ecuaciones verificadas contra las tablas de cada artículo. */
+var OBSS = (function(){
+  var s$ = function(sel){ return document.querySelector(sel); };
+  function s$$(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function rv(name){ var r = document.querySelector('#obssCard input[name="' + name + '"]:checked'); return r ? r.value : ""; }
+  function num(v){ if(v == null) return null; var n = parseFloat(String(v).replace(",", ".")); return isFinite(n) && n > 0 ? n : null; }
+  function f1(n){ return String(Math.round(n * 10) / 10); }
+  function gramos(n){ n = Math.round(n); return n >= 1000 ? String(Math.floor(n / 1000)) + "\u00a0" + String(n % 1000).padStart(3, "0") : String(n); }
+  function cap(t){ return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function dot(t){ t = String(t || "").trim(); return t ? t + (/[.!?]$/.test(t) ? "" : ".") : ""; }
+  var LET = "ABC";
+  var previewManual = false, lastSugg = "", nFetos = 1;
+
+  function active(){ return !!(study && study.id === "obs-simple"); }
+
+  /* ---------- estadística ---------- */
+  function phi(z){ /* distribución normal acumulada (Abramowitz-Stegun 7.1.26) */
+    var t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-z * z / 2);
+    return z >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  }
+  function pctTxt(p){
+    if(p === null) return "";
+    var c = p * 100;
+    if(c < 1) return "<p1";
+    if(c > 99) return ">p99";
+    return "p" + Math.round(c);
+  }
+  /* Snijders y Nicolaides 1994, Tabla 1: EG en semanas decimales */
+  var SNIJ = {
+    lf:  { t:function(x){ return Math.sqrt(x); },        c:-1.1132444, a:0.4263429, b:-0.0045992, sd:0.1852 },
+    ca:  { t:function(x){ return Math.log10(x + 9); },   c:1.3257977,  a:0.0552337, b:-0.0006146, sd:0.02947 },
+    cc:  { t:function(x){ return Math.log10(x + 1); },   c:1.3369692,  a:0.0596493, b:-0.0007494, sd:0.01997 },
+    dbp: { t:function(x){ return Math.log10(x + 5); },   c:0.9446108,  a:0.0509883, b:-0.0006097, sd:0.02056 },
+    dof: { t:function(x){ return Math.log10(x + 5); },   c:0.9676148,  a:0.0568481, b:-0.0007240, sd:0.02017 }
+  };
+  function pSnij(k, mm, ga){
+    if(!mm || ga === null || ga < 14 || ga >= 41) return null;
+    var e = SNIJ[k], mu = e.c + e.a * ga + e.b * ga * ga;
+    return phi((e.t(mm) - mu) / e.sd);
+  }
+  /* Chitty y Altman 2002: húmero */
+  function pHum(mm, ga){
+    if(!mm || ga === null || ga < 12 || ga > 42) return null;
+    var mu = 11.459 * ga - 2.2362 * ga * Math.log(ga) - 63.704, sd = 0.040292 * ga + 1.3464;
+    return phi((mm - mu) / sd);
+  }
+  /* FMF 2018: ln(peso) normal; mediana cúbica y DE cuadrática en la EG (reproduce su Tabla 1 con error < 0.2 %) */
+  /* Hadlock 1991 (Radiology 181:129): media ln = 0.578 + 0.332·EG − 0.00354·EG²; DE 13.3 % de la media
+     (reproduce los p3, p10, p50, p90 y p97 de su Tabla 1, de 10 a 40 semanas, con error ≤ 2 g) */
+  function pH91(g, ga){
+    if(!g || ga === null || ga < 10 || ga >= 42) return null;
+    var m = Math.exp(0.578 + 0.332 * ga - 0.00354 * ga * ga);
+    return phi((g / m - 1) / 0.1327);
+  }
+  function refPeso(){ return rv("sRef") === "fmf" ? "fmf" : "h91"; }
+  function refNom(){ return refPeso() === "fmf" ? "FMF 2018" : "Hadlock 1991"; }
+  function pPeso(g, ga){ return refPeso() === "fmf" ? pFMF(g, ga) : pH91(g, ga); }
+  function pFMF(g, ga){
+    if(!g || ga === null || ga < 20 || ga >= 42) return null;
+    var mu = 1.67104185 + 0.210005419 * ga + 0.000694712562 * ga * ga - 0.0000474100648 * ga * ga * ga;
+    var sd = 0.0577811973 + 0.000839648849 * ga + 0.00000109083800 * ga * ga;
+    return phi((Math.log(g) - mu) / sd);
+  }
+  /* Hadlock (medidas en cm) */
+  function hadlock(f, n){
+    var cc = f.cc / 10, ca = f.ca / 10, lf = f.lf / 10, dbp = f.dbp / 10;
+    if(!f.cc || !f.ca || !f.lf) return null;
+    if(n === "4"){
+      if(!f.dbp) return null;
+      return Math.pow(10, 1.3596 - 0.00386 * ca * lf + 0.0064 * cc + 0.00061 * dbp * ca + 0.0424 * ca + 0.174 * lf);
+    }
+    return Math.pow(10, 1.326 - 0.00326 * ca * lf + 0.0107 * cc + 0.0438 * ca + 0.158 * lf);
+  }
+
+  /* ---------- edad gestacional del Módulo 1 ---------- */
+  function egDias(){ var e = egCurrent(); return (e === null || e === undefined) ? null : e; }
+  function egOrigen(){
+    if(manual.eg) return "";
+    var fum = egFromFum(), eco = egFromEco();
+    if(fum !== null && eco !== null) return source === "eco" ? "por ecografía" : "por FUM";
+    if(eco !== null) return "por ecografía";
+    if(fum !== null) return "por FUM";
+    return "";
+  }
+  function cuantosFetos(){
+    var v = $("#fetuses").value;
+    return v === "Gemelar" ? 2 : (v === "Triple" ? 3 : 1);
+  }
+
+  /* ---------- formulario por feto ---------- */
+  function chips(name, opts, def, type){
+    type = type || "radio";
+    return '<div class="g-choices">' + opts.map(function(o){
+      var v = typeof o === "string" ? o : o[0], l = typeof o === "string" ? cap(o) : o[1];
+      return '<label><input type="' + type + '" name="' + name + '" value="' + v + '"' + (v === def ? " checked" : "") + '><span>' + l + "</span></label>";
+    }).join("") + "</div>";
+  }
+  function field(t, inner, extra){ return '<div class="g-field"' + (extra || "") + '><span class="g-title">' + t + "</span>" + inner + "</div>"; }
+  function bioRow(id, label){
+    return '<div class="s-br"><label class="s-lb" for="' + id + '">' + label + '</label>' +
+      '<div class="unit"><input type="number" id="' + id + '" min="0" step="0.1" inputmode="decimal" aria-label="' + label + ' en mm"><em>mm</em></div>' +
+      '<div class="s-bar" id="' + id + '_bar"><i></i><b></b><em></em></div><span class="s-pc" id="' + id + '_p"></span></div>';
+  }
+  /* v1.7: anatomía fetal básica y corazón (lo normal marcado de inicio) */
+  var ANAT = [
+    { k:"cab", t:"Cabeza", o:[["n","Normal"],["a","Alterada"],["ne","No evaluada"]], nom:"cabeza", grp:"sa", fem:1 },
+    { k:"cer", t:"Cerebelo y cisterna magna", o:[["n","Normales"],["a","Alterados"],["ne","No evaluados"]], nom:"cerebelo y cisterna magna", grp:"sa" },
+    { k:"col", t:"Columna vertebral", o:[["n","Normal"],["a","Alterada"],["ne","No evaluada"]], nom:"columna vertebral", grp:"sa", fem:1 },
+    { k:"tor", t:"Tórax y diafragma", o:[["n","Normales"],["a","Alterados"],["ne","No evaluados"]], nom:"tórax y diafragma", grp:"sa" },
+    { k:"par", t:"Pared abdominal", o:[["n","Íntegra"],["a","Alterada"],["ne","No evaluada"]], nom:"pared abdominal", fr:"Pared abdominal íntegra.", fem:1 },
+    { k:"est", t:"Cámara gástrica", o:[["n","Presente"],["nv","No visualizada"]], nom:"cámara gástrica", fr:"Cámara gástrica presente.", nv:"Cámara gástrica no visualizada.", fem:1 },
+    { k:"rin", t:"Riñones", o:[["n","Ambos presentes"],["a","Alterados"],["ne","No evaluados"]], nom:"riñones", fr:"Ambos riñones presentes." },
+    { k:"vej", t:"Vejiga", o:[["n","Con contenido"],["nv","No visualizada"]], nom:"vejiga", fr:"Vejiga con contenido.", nv:"Vejiga no visualizada.", fem:1 },
+    { k:"ext", t:"Extremidades", o:[["n","Cuatro presentes"],["a","Alteradas"],["ne","No evaluadas"]], nom:"extremidades", fr:"Cuatro extremidades presentes.", fem:1 }
+  ];
+  var CORA = [
+    { k:"cpos", t:"Posición", o:[["n","Levocardia"],["a","Otra"]], nom:"posición cardíaca" },
+    { k:"crit", t:"Ritmo", o:[["n","Regular"],["a","Irregular"]], nom:"ritmo" },
+    { k:"c4c", t:"Cuatro cámaras", o:[["n","Normal"],["a","Alterada"],["ne","No evaluable"]], nom:"vista de cuatro cámaras" },
+    { k:"ctsa", t:"Tractos de salida", o:[["n","Normales"],["a","Alterados"],["ne","No evaluables"]], nom:"tractos de salida" },
+    { k:"c3vt", t:"3 vasos y tráquea", o:[["n","Normal"],["a","Alterada"],["ne","No evaluable"]], nom:"vista de tres vasos y tráquea" }
+  ];
+  function anatRows(p, list){
+    return '<div class="s-an">' + list.map(function(x){
+      return '<div class="s-anr"><span class="s-anl">' + x.t + '</span>' + chips(p + x.k, x.o, "n") +
+        '<input type="text" class="hide s-ant" id="' + p + x.k + '_t" placeholder="Describe el hallazgo" aria-label="' + x.t + ': hallazgo"></div>';
+    }).join("") + "</div>";
+  }
+  function buildFeto(i){
+    var p = "f" + i + "_", L = LET[i];
+    var w = document.createElement("div");
+    w.className = "sub s-feto"; w.id = "sFeto" + i;
+    w.innerHTML = '<h3 class="s-ftit">' + (i === 0 ? "Feto" : "Feto " + L) + "</h3>" +
+      field("Posición", chips(p + "pos", [["izquierdo","Izquierdo"],["derecho","Derecho"],["superior","Superior"],["inferior","Inferior"]], i === 0 ? "izquierdo" : (i === 1 ? "derecho" : "")), ' data-multi="1"') +
+      '<div class="grid g2">' +
+        field("Situación", chips(p + "sit", ["longitudinal","transversa","oblicua"], "longitudinal")) +
+        field("Presentación", chips(p + "pres", ["cefálica","podálica","variable"], "cefálica")) +
+      "</div>" +
+      field("Dorso", chips(p + "dor", ["anterior","posterior","derecho","izquierdo","superior","inferior"], "")) +
+      '<div class="grid g2">' +
+        field("Actividad cardíaca", chips(p + "ac", [["presente","Presente"],["ausente","Ausente"]], "presente")) +
+        '<label class="f"><span>FCF</span><div class="unit"><input type="number" id="' + p + 'fcf" min="0" step="1" inputmode="numeric"><em>lpm</em></div></label>' +
+      "</div>" +
+      field("Movimientos fetales", chips(p + "mov", [["presentes","Presentes"],["no","No observados"]], "presentes")) +
+      '<h4 class="s-h4">Anatomía fetal básica <span class="s-hint">· lo normal viene marcado</span></h4>' +
+      anatRows(p, ANAT.slice(0, 1)) +
+      '<div class="s-an s-an-atr"><div class="s-anr"><span class="s-anl">Atrio ventricular</span><div class="unit" style="max-width:150px"><input type="number" id="' + p + 'atr" min="0" step="0.1" inputmode="decimal" aria-label="Atrio ventricular en mm"><em>mm</em></div><span class="s-hint">opcional · normal &lt; 10 mm</span></div></div>' +
+      anatRows(p, ANAT.slice(1)) +
+      '<h4 class="s-h4">Corazón</h4>' + anatRows(p, CORA) +
+      '<h4 class="s-h4">Biometría</h4>' +
+      '<div class="s-bt"><div class="s-bt-h"><span>MEDIDA</span><span>VALOR</span><span>p3 · · · p50 · · · p97</span><span>PERCENTIL</span></div>' +
+        bioRow(p + "dbp", "DBP") +
+        '<div class="s-br"><label class="s-lb" for="' + p + 'dof">DOF</label>' +
+          '<div class="unit"><input type="number" id="' + p + 'dof" min="0" step="0.1" inputmode="decimal" aria-label="DOF en mm"><em>mm</em></div>' +
+          '<div class="s-bar" id="' + p + 'dof_bar"><i></i><b></b><em></em></div><span class="s-pc" id="' + p + 'dof_p"></span>' +
+          '<div class="s-sub"><span id="' + p + 'dof_h"></span> <button type="button" class="btn quiet hide" id="' + p + 'dof_auto">volver a automático</button></div></div>' +
+        bioRow(p + "cc", "CC") +
+        '<div class="s-br s-ic"><span class="s-lb">Índice cefálico</span><span class="s-icv" id="' + p + 'ic">—</span><span class="s-hint">normal 70–86 · DBP / DOF × 100</span><span class="s-pc" id="' + p + 'ic_p"></span></div>' +
+        bioRow(p + "ca", "CA") + bioRow(p + "lf", "LF") + bioRow(p + "hum", "Húmero") +
+        '<div class="s-br s-pfe-row"><label class="s-lb" for="' + p + 'pfe">Peso fetal</label>' +
+          '<div class="unit"><input type="number" id="' + p + 'pfe" min="0" step="1" inputmode="numeric" aria-label="Peso fetal estimado en gramos"><em>g</em></div>' +
+          '<div class="s-bar" id="' + p + 'pfe_bar"><i></i><b></b><em></em></div><span class="s-pc" id="' + p + 'pfe_p"></span>' +
+          '<div class="s-sub"><span id="' + p + 'pfe_h"></span> <button type="button" class="btn quiet hide" id="' + p + 'pfe_auto">volver a automático</button></div></div>' +
+      "</div>" +
+      '<h4 class="s-h4">Placenta y líquido amniótico</h4>' +
+      field("Placenta", chips(p + "pla", [["anterior","Anterior"],["posterior","Posterior"],["fúndica","Fúndica"],["lateral derecha","Lateral derecha"],["lateral izquierda","Lateral izquierda"],["previa","Previa"],["baja","Baja"]], "")) +
+      '<div class="grid g3 hide" id="' + p + 'oci_w"><label class="f"><span>Distancia al OCI</span><div class="unit"><input type="number" id="' + p + 'oci" min="0" step="1" inputmode="numeric"><em>mm</em></div></label></div>' +
+      field("Madurez placentaria (Grannum) · opcional", chips(p + "gra", [["0","0"],["I","I"],["II","II"],["III","III"]], "")) +
+      '<div class="grid g2">' +
+        field("Líquido amniótico", chips(p + "lam", [["bolsillo","Bolsillo mayor"],["ila","ILA"]], "bolsillo")) +
+        '<label class="f"><span>Valor</span><div class="unit"><input type="number" id="' + p + 'la" min="0" step="0.1" inputmode="decimal"><em>cm</em></div><span class="s-pc" id="' + p + 'la_i"></span></label>' +
+      "</div>" +
+      '<div class="grid g2">' +
+        field("Cordón umbilical · opcional", chips(p + "cor", [["3","3 vasos"],["auu","Arteria umbilical única"]], "")) +
+        field("Inserción del cordón en la placenta", chips(p + "ins", [["central","Central"],["excéntrica","Excéntrica"],["marginal","Marginal"],["velamentosa","Velamentosa"]], "")) +
+        field("Sexo fetal · se imprime solo si se marca", chips(p + "sex", [["femenino","Femenino"],["masculino","Masculino"]], "")) +
+      "</div>";
+    return w;
+  }
+
+  /* ---------- lectura ---------- */
+  function leerFeto(i){
+    var p = "f" + i + "_", g = function(id){ return num(s$("#" + p + id).value); };
+    var f = { i:i, L:LET[i], pos:rv(p + "pos"), sit:rv(p + "sit"), pres:rv(p + "pres"), dor:rv(p + "dor"), ac:rv(p + "ac"),
+      fcf:g("fcf"), mov:rv(p + "mov"), dbp:g("dbp"), cc:g("cc"), ca:g("ca"), lf:g("lf"), hum:g("hum"),
+      pla:rv(p + "pla"), oci:s$("#" + p + "oci").value.trim(), gra:rv(p + "gra"), lam:rv(p + "lam"), la:g("la"), cor:rv(p + "cor"), sex:rv(p + "sex"),
+      ins:rv(p + "ins"), atr:g("atr"), an:{} };
+    ANAT.concat(CORA).forEach(function(x){ f.an[x.k] = { v:rv(p + x.k), t:s$("#" + p + x.k + "_t").value.trim() }; });
+    var de = s$("#" + p + "dof");
+    f.dofManual = de.dataset.manual === "1";
+    f.dofAuto = (f.dbp && f.cc && 2 * f.cc / Math.PI - f.dbp > 0) ? 2 * f.cc / Math.PI - f.dbp : null;
+    f.dof = f.dofManual ? num(de.value) : f.dofAuto;
+    f.ic = (f.dbp && f.dof) ? f.dbp / f.dof * 100 : null;
+    var el = s$("#" + p + "pfe");
+    f.manual = el.dataset.manual === "1";
+    f.pfeAuto = hadlock(f, rv("sHad"));
+    f.pfe = f.manual ? num(el.value) : f.pfeAuto;
+    return f;
+  }
+  function evalFeto(f, ga){
+    f.p = { dbp:pSnij("dbp", f.dbp, ga), dof:pSnij("dof", f.dof, ga), cc:pSnij("cc", f.cc, ga), ca:pSnij("ca", f.ca, ga), lf:pSnij("lf", f.lf, ga), hum:pHum(f.hum, ga), pfe:pPeso(f.pfe, ga) };
+    f.laEst = "";
+    if(f.la){
+      if(f.lam === "ila") f.laEst = f.la < 5 ? "oligo" : (f.la > 24 ? "poli" : "normal");
+      else f.laEst = f.la < 2 ? "oligo" : (f.la > 8 ? "poli" : "normal");
+    }
+    return f;
+  }
+  function fetos(){
+    var ga = egDias(); ga = ga === null ? null : ga / 7;
+    var out = [];
+    for(var i = 0; i < nFetos; i++) out.push(evalFeto(leerFeto(i), ga));
+    return out;
+  }
+
+  /* ---------- pantalla ---------- */
+  function pintar(F){
+    var ga = egDias();
+    F.forEach(function(f){
+      var p = "f" + f.i + "_";
+      ["dbp","cc","ca","lf","hum"].forEach(function(k){
+        var el = s$("#" + p + k + "_p"), v = f.p[k], has = f[k];
+        el.textContent = has ? (v === null ? "—" : pctTxt(v)) : "";
+        el.title = has && v === null ? "Sin referencia para esta edad gestacional" : "";
+        var out = v !== null && fuera(v);
+        el.classList.toggle("low", out);
+        barra(s$("#" + p + k + "_bar"), has ? v : null);
+      });
+      var di = s$("#" + p + "dof");
+      if(!f.dofManual) di.value = f.dofAuto ? f1(f.dofAuto) : "";
+      s$("#" + p + "dof_auto").classList.toggle("hide", !f.dofManual);
+      s$("#" + p + "dof_h").textContent = f.dof ? (f.dofManual ? "escrito a mano" : "calculado: 2·CC/π − DBP · editable") : "se calcula con DBP y CC";
+      var dp = s$("#" + p + "dof_p");
+      dp.textContent = f.dof ? (f.p.dof === null ? "—" : pctTxt(f.p.dof)) : "";
+      dp.classList.toggle("low", f.p.dof !== null && fuera(f.p.dof));
+      barra(s$("#" + p + "dof_bar"), f.dof ? f.p.dof : null);
+      var icOut = f.ic !== null && (f.ic < 70 || f.ic > 86);
+      s$("#" + p + "ic").textContent = f.ic === null ? "—" : String(Math.round(f.ic));
+      s$("#" + p + "ic_p").textContent = f.ic === null ? "" : (f.ic < 70 ? "dolicocefalia" : (f.ic > 86 ? "braquicefalia" : "normal"));
+      s$("#" + p + "ic_p").classList.toggle("low", icOut);
+      ANAT.concat(CORA).forEach(function(x){ s$("#" + p + x.k + "_t").classList.toggle("hide", f.an[x.k].v !== "a"); });
+      var inp = s$("#" + p + "pfe");
+      if(!f.manual) inp.value = f.pfeAuto ? Math.round(f.pfeAuto) : "";
+      s$("#" + p + "pfe_auto").classList.toggle("hide", !f.manual);
+      var pp = s$("#" + p + "pfe_p");
+      pp.textContent = f.pfe ? (f.p.pfe === null ? "—" : pctTxt(f.p.pfe)) : "";
+      pp.classList.toggle("low", f.p.pfe !== null && fuera(f.p.pfe));
+      barra(s$("#" + p + "pfe_bar"), f.pfe ? f.p.pfe : null);
+      var h = "";
+      if(!f.manual && rv("sHad") === "4" && f.cc && f.ca && f.lf && !f.dbp) h = 'Falta el DBP para la fórmula de 4 medidas. <button type="button" class="btn quiet" data-had3="1">Usar 3 medidas</button>';
+      else if(!f.manual) h = "Hadlock " + rv("sHad") + " medidas · automático · percentil " + refNom() + (f.pfe && f.p.pfe === null ? (refPeso() === "fmf" ? " (solo de 20 a 41 semanas)" : " (solo de 10 a 41 semanas)") : "");
+      else h = "Escrito a mano";
+      s$("#" + p + "pfe_h").innerHTML = h;
+      s$("#" + p + "oci_w").classList.toggle("hide", !(f.pla === "previa" || f.pla === "baja"));
+      var li = s$("#" + p + "la_i");
+      li.textContent = f.laEst === "normal" ? "normal (" + (f.lam === "ila" ? "5–24" : "2–8") + ")" : (f.laEst === "oligo" ? "oligohidramnios" : (f.laEst === "poli" ? "polihidramnios" : ""));
+      li.classList.toggle("low", f.laEst === "oligo"); li.classList.toggle("high", f.laEst === "poli");
+    });
+    var d = discordancia(F);
+    s$("#sDiscord").innerHTML = "Discordancia de peso: " + (d === null ? "—" : "<b>" + f1(d) + " %</b>" + (d >= 20 ? " (≥ 20 %)" : ""));
+    var e = ga === null ? "sin edad gestacional (escríbela en los datos de la paciente)" : egText(ga) + (egOrigen() ? " " + egOrigen() : "");
+    s$("#sRefM1").innerHTML = "<b>Edad gestacional:</b> " + esc(e) + " · <b>Fetos:</b> " + esc($("#fetuses").value) + ' <span class="s-hint">(se cambian en los datos de la paciente)</span>';
+  }
+  /* fuera de p10–p90 según el percentil que se muestra (redondeado) */
+  function pr(v){ return Math.round(v * 100); }
+  function fuera(v){ var c = Math.round(v * 100); return c < 10 || c > 90; }
+  function barPos(v){ return Math.max(1, Math.min(99, v * 100)); }
+  function barra(el, v){
+    if(!el) return;
+    el.classList.toggle("on", v !== null && v !== undefined);
+    el.classList.toggle("out", v !== null && v !== undefined && fuera(v));
+    if(v !== null && v !== undefined) el.querySelector("em").style.left = barPos(v) + "%";
+  }
+  function discordancia(F){
+    var w = F.map(function(f){ return f.pfe; }).filter(Boolean);
+    if(F.length < 2 || w.length < 2) return null;
+    var mx = Math.max.apply(null, w), mn = Math.min.apply(null, w);
+    return (mx - mn) / mx * 100;
+  }
+  function avisos(F){
+    var a = [], ga = egDias(), w = ga === null ? null : ga / 7;
+    var mult = F.length > 1;
+    F.forEach(function(f){
+      var t = mult ? "Feto " + f.L + ": " : "";
+      var pp = f.p.pfe;
+      if(pp !== null && pr(pp) < 3) a.push(t + "peso fetal < p3: criterio de restricción del crecimiento (consenso Delphi).");
+      else if(pp !== null && pr(pp) < 10) a.push(t + "peso fetal < p10: pequeño para la edad gestacional.");
+      if(pp !== null && pr(pp) > 90) a.push(t + "peso fetal > p90: grande para la edad gestacional.");
+      if(f.p.ca !== null && pr(f.p.ca) < 3) a.push(t + "circunferencia abdominal < p3.");
+      if(f.laEst === "oligo") a.push(t + "oligohidramnios.");
+      if(f.laEst === "poli") a.push(t + "polihidramnios.");
+      if(f.p.hum !== null && f.p.lf !== null && pr(f.p.hum) < 5 && pr(f.p.lf) < 5) a.push(t + "fémur y húmero < p5: considerar displasia esquelética (medir los demás huesos largos).");
+      else if(f.p.hum !== null && pr(f.p.hum) < 5 && w !== null && w < 28) a.push(t + "húmero < p5 en el 2.º trimestre (marcador blando).");
+      if(f.gra === "III" && w !== null && w < 32) a.push(t + "placenta grado III de Grannum antes de las 32 semanas.");
+      if(f.ac === "ausente") a.push(t + "actividad cardíaca ausente.");
+      if(f.ic !== null && f.ic < 70) a.push(t + "índice cefálico " + Math.round(f.ic) + " (< 70): dolicocefalia; el DBP puede subestimar la edad y el peso.");
+      if(f.ic !== null && f.ic > 86) a.push(t + "índice cefálico " + Math.round(f.ic) + " (> 86): braquicefalia.");
+      if(f.atr && f.atr >= 10) a.push(t + "atrio ventricular de " + f1(f.atr) + " mm: ventriculomegalia " + gradoVM(f.atr) + ". Considerar neurosonografía.");
+      var alt = ANAT.filter(function(x){ return f.an[x.k].v === "a" || f.an[x.k].v === "nv"; }).map(function(x){ return x.nom; });
+      if(alt.length) a.push(t + "hallazgo anatómico (" + alt.join(", ") + "): considerar ecografía morfológica dirigida.");
+      var calt = CORA.filter(function(x){ return f.an[x.k].v === "a" && x.k !== "crit"; }).map(function(x){ return x.nom; });
+      if(calt.length) a.push(t + "corazón alterado (" + calt.join(", ") + "): sugerir ecocardiografía fetal.");
+      if(f.an.crit.v === "a") a.push(t + "ritmo cardíaco irregular: evaluar arritmia fetal.");
+      if(f.ins === "velamentosa") a.push(t + "inserción velamentosa del cordón: descartar vasa previa con Doppler color.");
+      else if(f.ins === "marginal") a.push(t + "inserción marginal del cordón.");
+    });
+    var d = discordancia(F);
+    if(d !== null && d >= 20) a.push("Discordancia de peso de " + f1(d) + " % (≥ 20 %).");
+    if(mult && /^monocorial/.test(rv("sCorion")) && F.length === 2 && F[0].la && F[1].la && F[0].lam === "bolsillo" && F[1].lam === "bolsillo"){
+      var lo = Math.min(F[0].la, F[1].la), hi = Math.max(F[0].la, F[1].la);
+      if(lo < 2 && hi > 8) a.push("Monocorial: un saco con bolsillo < 2 cm y otro > 8 cm. Descartar síndrome de transfusión feto-fetal.");
+    }
+    return a;
+  }
+
+  /* ---------- texto del informe ---------- */
+  function gradoVM(a){ return a > 15 ? "severa" : (a > 12 ? "moderada" : "leve"); }
+  function listaY(a){ return a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " y " + a[a.length - 1]; }
+  /* v1.7: anatomía en un solo párrafo, de cabeza a pies, con el corazón en medio */
+  var ANAT_CORTO = { cab:"cabeza", cer:"cerebelo, cisterna magna", col:"columna", tor:"tórax y diafragma" };
+  function unirSA(a){
+    if(a.length <= 1) return a.join("");
+    var last = a[a.length - 1], rest = a.slice(0, -1).join(", ");
+    return / y /.test(last) || /,/.test(last) ? rest + ", " + last : rest + " y " + last;
+  }
+  function fraseAlt(x, o){
+    if(o.v === "a") return cap(x.nom) + ": " + (o.t ? dot(o.t.charAt(0).toLowerCase() + o.t.slice(1)) : (x.fem ? "alterada." : "alterados."));
+    if(o.v === "nv") return x.nv;
+    return "";
+  }
+  function lineaAnat(f){
+    var out = [], sa = [], altSup = [], ne = [];
+    ANAT.forEach(function(x){
+      var o = f.an[x.k];
+      if(o.v === "ne") ne.push(x.nom);
+      if(x.grp !== "sa") return;
+      if(o.v === "n") sa.push(ANAT_CORTO[x.k]);
+      else if(o.v === "a") altSup.push(fraseAlt(x, o));
+    });
+    if(sa.length) out.push(cap(unirSA(sa)) + " sin alteraciones.");
+    if(f.atr) out.push("Atrio ventricular de " + f1(f.atr) + " mm.");
+    out = out.concat(altSup);
+    var c = lineaCora(f); if(c) out.push(c);
+    ANAT.forEach(function(x){
+      if(x.grp === "sa") return;
+      var o = f.an[x.k];
+      if(o.v === "n") out.push(x.fr);
+      else { var fa = fraseAlt(x, o); if(fa) out.push(fa); }
+    });
+    if(ne.length) out.push("No se evaluaron: " + ne.join(", ") + ".");
+    return out.join(" ");
+  }
+  function lineaCora(f){
+    var pos = f.an.cpos, rit = f.an.crit, a = [], nor = [], alt = [], ne = [];
+    if(pos.v === "a") a.push(pos.t ? pos.t.charAt(0).toLowerCase() + pos.t.slice(1).replace(/[.]$/, "") : "posición cardíaca anormal");
+    else if(pos.v === "n") a.push("levocardia");
+    if(f.ac !== "ausente"){
+      if(rit.v === "a") a.push("ritmo irregular" + (rit.t ? " (" + rit.t.replace(/[.]$/, "") + ")" : ""));
+      else if(rit.v === "n") a.push("ritmo regular");
+    }
+    [["c4c","vista de cuatro cámaras","alterada"],["ctsa","tractos de salida","alterados"],["c3vt","tres vasos y tráquea","alterada"]].forEach(function(x){
+      var o = f.an[x[0]];
+      if(o.v === "n") nor.push(x[1]);
+      else if(o.v === "a") alt.push((x[0] === "c3vt" ? "vista de tres vasos y tráquea" : x[1]) + " " + x[2] + (o.t ? " (" + o.t.replace(/[.]$/, "") + ")" : ""));
+      else if(o.v === "ne") ne.push(x[0] === "c3vt" ? "vista de tres vasos y tráquea" : x[1]);
+    });
+    if(nor.length) a.push(nor.join(", ") + (nor.length > 1 || nor[0] === "tractos de salida" ? " normales" : " normal"));
+    var s = a.join(", ");
+    if(alt.length) s += (s ? "; " : "") + alt.join("; ");
+    if(ne.length) s += (s ? "; " : "") + ne.join(", ") + " no evaluable" + (ne.length > 1 ? "s" : "");
+    return s ? "Corazón: " + s + "." : "";
+  }
+  function lineaFeto(f, mult){
+    var t = [];
+    var pos = [];
+    if(f.sit) pos.push("en situación " + f.sit);
+    if(f.pres && f.sit !== "transversa") pos.push("presentación " + f.pres);
+    if(f.dor) pos.push("dorso " + f.dor);
+    if(!mult) t.push("Feto único" + (pos.length ? ", " + pos.join(", ") : "") + ".");
+    else if(pos.length) t.push(cap(pos.join(", ")) + ".");
+    if(f.ac === "ausente") t.push("Sin actividad cardíaca.");
+    else {
+      t.push("Actividad cardíaca presente" + (f.fcf ? ", FCF " + Math.round(f.fcf) + " lpm" : "") + ".");
+      t.push(f.mov === "no" ? "No se observan movimientos fetales durante el estudio." : "Movimientos fetales presentes.");
+    }
+    if(f.sex) t.push("Sexo fetal: " + f.sex + ".");
+    return t.join(" ");
+  }
+  var BIO = [["DBP","dbp"],["CC","cc"],["CA","ca"],["LF","lf"],["Húmero","hum"]];
+  function tieneBio(f){ return !!(f.pfe || BIO.some(function(x){ return f[x[1]]; })); }
+  var lastF = [];
+  function celdaP(v){ return v === null ? "" : '<span class="' + (fuera(v) ? "out" : "") + '">' + esc(pctTxt(v)) + "</span>"; }
+  function celdaBar(v){
+    if(v === null) return "";
+    return '<div class="bbar' + (fuera(v) ? " out" : "") + '" data-p="' + (Math.round(v * 1000) / 1000) + '"><i></i><b></b><em style="left:' + barPos(v) + '%"></em></div>';
+  }
+  function bioTableHTML(){
+    var F = lastF, mult = F.length > 1, h = [];
+    var rows = BIO.filter(function(x){ return F.some(function(f){ return f[x[1]]; }); }).map(function(x){ return [x[0], x[1], "mm"]; });
+    var iD = rows.findIndex(function(r){ return r[1] === "dbp"; });
+    if(F.some(function(f){ return f.dof; })) rows.splice(iD + 1, 0, ["DOF", "dof", "mm"]);
+    var iC = rows.findIndex(function(r){ return r[1] === "cc"; });
+    if(F.some(function(f){ return f.ic !== null; })) rows.splice(iC + 1, 0, ["Índice cefálico", "ic", ""]);
+    if(F.some(function(f){ return f.pfe; })) rows.push(["Peso fetal estimado", "pfe", "g"]);
+    function val(f, k, u){ if(k === "ic") return f.ic === null ? "—" : String(Math.round(f.ic)); return f[k] ? (k === "pfe" ? gramos(f[k]) : f1(f[k])) + " " + u : "—"; }
+    function icTxt(f){ return f.ic === null ? "" : '<span class="' + (f.ic < 70 || f.ic > 86 ? "out" : "") + '">' + (f.ic < 70 ? "dolicocefalia" : (f.ic > 86 ? "braquicefalia" : "normal")) + " (70–86)</span>"; }
+    if(!mult){
+      var f = F[0];
+      h.push('<table class="bio-tbl bio-1"><thead><tr><th>Medida</th><th class="n">Valor</th><th class="n">Percentil</th><th class="bar">p3 · · · p50 · · · p97</th></tr></thead><tbody>');
+      rows.forEach(function(r){
+        if(r[1] === "ic"){ h.push('<tr><td>Índice cefálico</td><td class="n">' + esc(val(f, "ic")) + '</td><td class="txt" colspan="2">' + icTxt(f) + "</td></tr>"); return; }
+        var v = f[r[1]] ? f.p[r[1]] : null;
+        h.push('<tr' + (r[1] === "pfe" ? ' class="ef"' : "") + "><td>" + r[0] + (r[1] === "dof" && !f.dofManual ? ' <span class="calc">(calculado)</span>' : "") + '</td><td class="n">' + esc(val(f, r[1], r[2])) + '</td><td class="n">' + celdaP(v) + '</td><td class="bar">' + celdaBar(v) + "</td></tr>");
+      });
+    } else {
+      h.push('<table class="bio-tbl bio-m"><thead><tr><th>Medida</th>' + F.map(function(f){ return '<th class="n">Feto ' + f.L + '</th><th class="n">Pc</th>'; }).join("") + "</tr></thead><tbody>");
+      rows.forEach(function(r){
+        h.push('<tr' + (r[1] === "pfe" ? ' class="ef"' : "") + "><td>" + r[0] + "</td>" + F.map(function(f){
+          if(r[1] === "ic") return '<td class="n">' + esc(val(f, "ic")) + '</td><td class="n">' + (f.ic === null ? "" : '<span class="' + (f.ic < 70 || f.ic > 86 ? "out" : "") + '">' + (f.ic < 70 ? "&lt;70" : (f.ic > 86 ? "&gt;86" : "normal")) + "</span>") + "</td>";
+          var v = f[r[1]] ? f.p[r[1]] : null;
+          return '<td class="n">' + esc(val(f, r[1], r[2])) + '</td><td class="n">' + celdaP(v) + "</td>";
+        }).join("") + "</tr>");
+      });
+      var d = discordancia(F);
+      if(d !== null) h.push('<tr><td class="disc" colspan="' + (1 + 2 * F.length) + '">Discordancia de peso: ' + f1(d) + " %</td></tr>");
+    }
+    h.push("</tbody></table>");
+    return h.join("");
+  }
+  function lineaBio(f){
+    var m = [["DBP","dbp"],["CC","cc"],["CA","ca"],["LF","lf"],["Húmero","hum"]].filter(function(x){ return f[x[1]]; }).map(function(x){
+      var p = f.p[x[1]];
+      return x[0] + " " + f1(f[x[1]]) + " mm" + (p !== null ? " (" + pctTxt(p) + ")" : "");
+    });
+    var out = [];
+    if(m.length) out.push(m.join(" · ") + ".");
+    if(f.pfe) out.push("Peso fetal estimado: " + gramos(f.pfe) + " g" + (f.p.pfe !== null ? " (" + pctTxt(f.p.pfe) + ")" : "") + ".");
+    return out.join("\n");
+  }
+  function lineaPla(f, mult){
+    var t = [];
+    if(f.pla){
+      var s;
+      if(f.pla === "previa") s = "Placenta previa" + (f.oci ? ", que cubre el OCI" + (num(f.oci) ? " (" + f.oci + " mm)" : "") : "");
+      else if(f.pla === "baja") s = "Placenta de inserción baja" + (f.oci ? ", a " + f.oci + " mm del OCI" : "");
+      else s = "Placenta " + f.pla + ", normoinserta";
+      if(f.gra) s += ", grado " + f.gra + " de Grannum";
+      t.push(s + ".");
+    }
+    var ins = f.ins ? "de inserción " + f.ins : "";
+    if(f.cor === "3") t.push("Cordón umbilical con tres vasos" + (ins ? ", " + ins : "") + ".");
+    else if(f.cor === "auu") t.push("Arteria umbilical única" + (ins ? "; cordón " + ins : "") + ".");
+    else if(ins) t.push("Cordón umbilical " + ins + ".");
+    if(f.la){
+      var m = (f.lam === "ila" ? "ILA " : "bolsillo mayor ") + f1(f.la) + " cm";
+      t.push((f.laEst === "oligo" ? "Oligohidramnios" : (f.laEst === "poli" ? "Polihidramnios" : "Líquido amniótico normal")) + " (" + m + ").");
+    }
+    return t.join(" ");
+  }
+  var NUMTXT = { 1:"una", 2:"dos", 3:"tres" };
+  function secMulti(){
+    var c = rv("sCorion"), sg = rv("sSigno"), pl = rv("sPlac");
+    var t = "Gestación " + (nFetos === 3 ? "triple" : "gemelar") + (c && c !== "no determinada" ? " " + c : "") +
+      (sg ? " (signo " + sg + ")" : "") + (pl ? ", con " + NUMTXT[pl] + (pl === "1" ? " placenta" : " placentas") : "") + ".";
+    if(c === "no determinada") t += " Corionicidad no determinada.";
+    return t;
+  }
+  function sugerencia(F){
+    var a = [], ga = egDias(), mult = F.length > 1;
+    var eg = ga === null ? "" : " de " + Math.floor(ga / 7) + "." + (ga % 7) + " semanas" + (egOrigen() ? " " + egOrigen() : "");
+    var vivos = F.filter(function(f){ return f.ac !== "ausente"; }).length;
+    if(!mult){
+      var f = F[0];
+      a.push("Embarazo único" + eg + ", " + (f.ac === "ausente" ? "feto sin actividad cardíaca" : "feto vivo") + (f.pres && f.sit === "longitudinal" ? ", presentación " + f.pres : (f.sit && f.sit !== "longitudinal" ? ", situación " + f.sit : "")));
+    } else {
+      var c = rv("sCorion");
+      var est = vivos === F.length ? (F.length === 2 ? "ambos fetos vivos" : "los tres fetos vivos") :
+        F.map(function(f){ return "Feto " + f.L + (f.ac === "ausente" ? " sin actividad cardíaca" : " vivo"); }).join(", ");
+      a.push("Gestación " + (F.length === 3 ? "triple" : "gemelar") + (c && c !== "no determinada" ? " " + c : "") + eg + ", " + est);
+    }
+    var crec = F.map(function(f){
+      var p = f.p.pfe;
+      if(p === null) return "";
+      var pre = mult ? "Feto " + f.L + ": " : "";
+      if(pr(p) < 3) return pre + "peso fetal estimado < p3, sospecha de restricción del crecimiento fetal";
+      if(pr(p) < 10) return pre + "feto pequeño para la edad gestacional (peso " + pctTxt(p) + ")";
+      if(pr(p) > 90) return pre + "feto grande para la edad gestacional (peso " + pctTxt(p) + ")";
+      return pre + "crecimiento adecuado (peso " + pctTxt(p) + ")";
+    }).filter(Boolean);
+    if(mult && crec.length === F.length && crec.every(function(x){ return /crecimiento adecuado/.test(x); })) a.push("Crecimiento adecuado en " + (F.length === 2 ? "ambos fetos" : "los tres fetos"));
+    else crec.forEach(function(x){ a.push(cap(x.replace(/^crecimiento/, "Crecimiento fetal"))); });
+    var d = discordancia(F);
+    if(d !== null) a.push(d >= 20 ? "Discordancia de peso significativa (" + f1(d) + " %)" : "Discordancia de peso " + f1(d) + " %");
+    var laMal = F.filter(function(f){ return f.laEst && f.laEst !== "normal"; });
+    if(laMal.length) laMal.forEach(function(f){ a.push((mult ? "Feto " + f.L + ": " : "") + (f.laEst === "oligo" ? "oligohidramnios" : "polihidramnios")); });
+    else if(F.some(function(f){ return f.laEst; })) a.push("Líquido amniótico normal" + (mult ? (F.length === 2 ? " en ambos sacos" : " en los tres sacos") : ""));
+    F.forEach(function(f){
+      var pre = mult ? "Feto " + f.L + ": " : "";
+      if(f.pla === "previa") a.push(pre + "placenta previa");
+      if(f.pla === "baja") a.push(pre + "placenta de inserción baja");
+      if(f.cor === "auu") a.push(pre + "arteria umbilical única");
+      if(f.ins === "marginal") a.push(pre + "inserción marginal del cordón");
+      if(f.ins === "velamentosa") a.push(pre + "inserción velamentosa del cordón");
+      if(f.atr && f.atr >= 10) a.push(pre + "ventriculomegalia " + gradoVM(f.atr) + " (atrio " + f1(f.atr) + " mm)");
+      ANAT.forEach(function(x){
+        var o = f.an[x.k];
+        if(o.v === "a") a.push(pre + "hallazgo en " + x.nom + (o.t ? ": " + o.t.replace(/[.]$/, "") : ""));
+        if(o.v === "nv") a.push(pre + x.nom + " no visualizada");
+      });
+      var ca = CORA.filter(function(x){ return f.an[x.k].v === "a"; });
+      if(ca.length) a.push(pre + "hallazgo cardíaco en el tamizaje básico (" + ca.map(function(x){ return x.nom; }).join(", ") + ")");
+    });
+    return a.map(function(x){ return "- " + cap(x) + (/[.]$/.test(x) ? "" : "."); }).join("\n");
+  }
+  function notaPeso(F){
+    var c = F.filter(function(f){ return f.pfe; });
+    if(!c.length || c.every(function(f){ return f.manual; })) return "";
+    return "\nNota del peso: peso fetal estimado: Hadlock (" + (rv("sHad") === "4" ? "DBP, CC, CA, LF" : "CC, CA, LF") + "). Percentil: " + refNom() + ".";
+  }
+  function regenerar(F){
+    if(previewManual) return;
+    var out = [], mult = F.length > 1;
+    var ind = s$("#sIndicacion").value.trim();
+    if(ind) out.push("Indicación: " + indPunto(ind));
+    if(mult) out.push((nFetos === 3 ? "GESTACIÓN TRIPLE" : "GESTACIÓN GEMELAR") + "\n" + secMulti());
+    if(mult && F.some(tieneBio)) out.push("BIOMETRÍA\n[TABLA DE BIOMETRÍA]" + notaPeso(F));
+    if(!mult){
+      var f = F[0];
+      out.push("FETO\n" + lineaFeto(f, false));
+      var an1 = lineaAnat(f); if(an1) out.push("ANATOMÍA FETAL BÁSICA\n" + an1);
+      if(tieneBio(f)) out.push("BIOMETRÍA\n[TABLA DE BIOMETRÍA]" + notaPeso(F));
+      var pl = lineaPla(f, false); if(pl) out.push("PLACENTA Y LÍQUIDO AMNIÓTICO\n" + pl);
+    } else {
+      F.forEach(function(f){
+        var an = lineaAnat(f);
+        var lines = [lineaFeto(f, true), an ? "Anatomía básica: " + an.charAt(0).toLowerCase() + an.slice(1) : "", lineaPla(f, true)].filter(Boolean);
+        out.push("FETO " + f.L + (f.pos ? " (" + f.pos.toUpperCase() + ")" : "") + "\n" + lines.join("\n"));
+      });
+    }
+    var cx = num(s$("#sCx").value);
+    if(cx) out.push("CÉRVIX\nLongitud cervical: " + f1(cx) + " mm.");
+    out.push("CONCLUSIONES\n" + (s$("#sConclusiones").value.trim() || "(pendiente)"));
+    var sg = s$("#sSugerencias").value.trim();
+    if(sg) out.push("SUGERENCIAS\n" + indPunto(sg));
+    s$("#sPreviewText").value = out.join("\n\n");
+  }
+  function html(){
+    var h = [];
+    s$("#sPreviewText").value.split("\n").forEach(function(line){
+      var t = line.trim();
+      if(!t) return;
+      if(/^Nota:/.test(t)) h.push('<p class="rb-note">' + esc(t.replace(/^Nota:\s*/, "").replace(/^./, function(c){ return c.toUpperCase(); })) + "</p>");
+      else if(/^Indicación:\s/.test(t)) h.push(indLineaHTML(t));
+      else if(t === "[TABLA DE BIOMETRÍA]") h.push(bioTableHTML());
+      else if(/^Nota del peso:/.test(t)) h.push('<p class="rb-wnote">' + esc(cap(t.replace(/^Nota del peso:\s*/, ""))) + "</p>");
+      else if(/^(Corazón|Anatomía básica):/.test(t)) h.push('<p class="rb-t rb-ov">' + esc(t) + "</p>");
+      else if(/^[A-ZÁÉÍÓÚÑ0-9 /·()]+$/.test(t) && t.length < 60){
+        /* v1.7: la primera sección va pegada a la indicación */
+        var prevInd = h.length && /class="rb-ind"/.test(h[h.length - 1]);
+        h.push('<p class="rb-h' + (prevInd ? " rb-h-tight" : "") + '">' + esc(t) + "</p>");
+      }
+      else h.push('<p class="rb-t">' + esc(t) + "</p>");
+    });
+    return h.join("");
+  }
+
+  /* ---------- ciclo ---------- */
+  function syncFetos(){
+    var n = cuantosFetos();
+    nFetos = n;
+    s$("#sMulti").classList.toggle("hide", n < 2);
+    s$("#sMultiTitle").textContent = n === 3 ? "Gestación triple" : "Gestación gemelar";
+    s$$("#obssCard .s3only").forEach(function(el){ el.closest("label").classList.toggle("hide", n !== 3); });
+    s$$("#sFetos .s-feto").forEach(function(w, i){
+      w.classList.toggle("hide", i >= n);
+      w.querySelector(".s-ftit").textContent = n === 1 ? "Feto" : "Feto " + LET[i];
+      s$$('[data-multi="1"]', w).forEach(function(x){ x.classList.toggle("hide", n === 1); });
+    });
+  }
+  function refresh(){
+    if(!s$("#obssCard") || !active()) return;
+    syncFetos();
+    var F = fetos();
+    lastF = F;
+    pintar(F);
+    var a = avisos(F), box = s$("#sAlerts");
+    box.classList.toggle("hide", !a.length);
+    box.querySelector("ul").innerHTML = a.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+    lastSugg = sugerencia(F);
+    s$("#sSuggTxt").textContent = lastSugg;
+    regenerar(F);
+  }
+  function clear(){
+    if(!s$("#obssCard")) return;
+    s$$("#obssCard input[type=number], #obssCard input[type=text], #obssCard textarea").forEach(function(el){ el.value = ""; el.dataset.manual = "0"; });
+    s$$("#obssCard input[type=radio], #obssCard input[type=checkbox]").forEach(function(el){ el.checked = el.defaultChecked; });
+    previewManual = false;
+    if(active()) recalcAll();
+  }
+  function toggleable(){
+    /* los opcionales se desmarcan al tocarlos de nuevo */
+    var vistos = [];
+    s$$("#obssCard input[type=radio]").forEach(function(inp){
+      var opt = /_(dor|pla|gra|cor|sex|pos|ins)$/.test(inp.name) || inp.name === "sSigno" || inp.name === "sPlac";
+      var box = inp.closest(".g-choices");
+      if(opt && vistos.indexOf(box) < 0){ vistos.push(box); toggleableRadios(box); }
+    });
+  }
+  function wire(){
+    var box = s$("#sFetos");
+    for(var i = 0; i < 3; i++) box.appendChild(buildFeto(i));
+    toggleable();
+    function onEdit(e){
+      var t = e.target;
+      if(t.id === "sPreviewText") return;
+      if(/^f\d_(pfe|dof)$/.test(t.id)) t.dataset.manual = t.value.trim() ? "1" : "0";
+      recalcAll();
+    }
+    s$("#obssCard").addEventListener("input", onEdit);
+    s$("#obssCard").addEventListener("change", onEdit);
+    s$("#obssCard").addEventListener("click", function(e){
+      var b = e.target.closest("[data-had3]");
+      if(b){ s$('input[name="sHad"][value="3"]').checked = true; recalcAll(); return; }
+      var au = e.target.closest('[id$="_pfe_auto"], [id$="_dof_auto"]');
+      if(au){ var inp = s$("#" + au.id.replace("_auto", "")); inp.dataset.manual = "0"; recalcAll(); }
+    });
+    s$("#sPreviewText").addEventListener("input", function(e){ e.stopPropagation(); previewManual = true; renderSheet(); });
+    s$("#btnSRegen").addEventListener("click", function(){ previewManual = false; recalcAll(); });
+    s$("#sAccept").addEventListener("click", function(){ s$("#sConclusiones").value = lastSugg; previewManual = false; recalcAll(); });
+    $("#fetuses").addEventListener("change", function(){ if(active()) recalcAll(); });
+  }
+
+  return { wire:wire, refresh:refresh, clear:clear, html:html, active:active,
+           _calc:{ pSnij:pSnij, pHum:pHum, pFMF:pFMF, hadlock:hadlock } };
+})();
+
 /* ============================ informe de endometriosis (módulo 5) ============================ */
 var UT_MODE = "gin";   /* "endo": el bloque compartido del útero omite el Douglas (el mapeo lo tiene en evaluación dinámica) */
 var ENDO = (function(){
@@ -6554,6 +7433,7 @@ recalcAll();
 buildOvarioBase('D'); buildOvarioBase('I'); wireGinForm(); regenerarInforme();
 FERT.wire();
 OBS.wire();
+OBSS.wire();
 ENDO.wire();
 fontsReady.then(function(){ renderSheet(); });
 if(centerSummary() === "Sin configurar"){
@@ -6692,6 +7572,8 @@ $("#btnClear").addEventListener("click", function(){
   FERT.clear();
   $("#obsCard").classList.add("hide");
   OBS.clear();
+  $("#obssCard").classList.add("hide");
+  OBSS.clear();
   ENDO.clear();
   $("#btnGo").disabled = true;
   now(); recalcAll();
@@ -6704,6 +7586,8 @@ $("#btnGo").addEventListener("click", function(){
     $("#ginCard").scrollIntoView({behavior:"smooth", block:"start"});
   } else if(study.id === "tv-fert"){
     $("#fertCard").scrollIntoView({behavior:"smooth", block:"start"});
+  } else if(study.id === "obs-simple"){
+    $("#obssCard").scrollIntoView({behavior:"smooth", block:"start"});
   } else if(study.id === "tv-obs"){
     $("#obsCard").scrollIntoView({behavior:"smooth", block:"start"});
   } else if(study.id === "endo-map"){
@@ -6741,8 +7625,9 @@ Array.prototype.forEach.call(document.querySelectorAll(".ind-chips"), function(b
 
 /* ============================ publicación v1.0 ============================ */
 var APP = {
-  version:"1.6", fecha:"30-oct-2026",
+  version:"1.7", fecha:"30-oct-2026",
   novedades:[
+    "1.7: nueva ecografía obstétrica (único, gemelar y triple): anatomía fetal básica y corazón (cuatro cámaras, tractos de salida y tres vasos) con lo normal marcado; biometría en tabla con barra de percentil (FMF: Snijders y Nicolaides; húmero: Chitty), DOF calculado e índice cefálico; peso fetal por Hadlock de 4 o 3 medidas con percentil FMF 2018; placenta, inserción del cordón, líquido amniótico, corionicidad y discordancia de peso; avisos en pantalla e impresión diagnóstica sugerida.",
     "1.6: nuevos informes de histerosonografía y HyCoSy: formulario ginecológico corto (sin evaluación dinámica ni Douglas basal) y sección Procedimiento (técnica, medio, volumen, distensión, contorno, lesiones intracavitarias con la lista detallada de pólipos y miomas, sinequias, trompas y derrame en HyCoSy, tolerancia y nota).",
     "1.5.2: mapeo de endometriosis: ovario Móvil / No móvil con caja \"Adherido a\" (botones nuevos: torus uterino, recto y sigmoides), fila Parénquima y lo normal marcado de inicio; impresión diagnóstica con solo lo profundo bajo \"endometriosis profunda\" y lo demás en renglones aparte. Ovarios (ginecológico y mapeo): el parénquima y los folículos antrales van con las medidas. El día del ciclo del endometrio se llena apenas se escribe la FUM.",
     "1.5.1: istmocele sin \"Compatible con istmocele\" al final (ya lo dice el título); medidas con el mismo formato y la razón de cicatrización en una oración aparte.",
