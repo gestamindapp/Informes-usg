@@ -243,6 +243,9 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 #ginCard .proc-only,#ginCard .hyc-only{display:none}
 #ginCard.proc .proc-only,#ginCard.hyc .hyc-only{display:revert}
 #ginCard.proc .proc-hide{display:none}
+#ginCard.hyc .hyc-hide{display:none}
+#ginCard .pr-sub{margin-top:8px;padding-left:10px;border-left:2px solid var(--line)}
+#ginCard .pr-sub>.g-hint{display:block;margin:0 0 5px}
 #ginCard .g-field>.g-title{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px}
 #ginCard .g-choices{display:flex;flex-wrap:wrap;gap:6px}
 #ginCard .g-choices label{font-size:13px;border:1px solid var(--line);border-radius:20px;
@@ -623,7 +626,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 <header class="topbar">
   <span class="mark appmark" id="mark"><img src="data:image/png;base64,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" alt="Informes USG"></span>
   <h1><span class="tl-long">Informes de ultrasonido</span><span class="tl-short">Informes USG</span></h1>
-  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.7</button>
+  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v1.8</button>
   <span class="who" id="topWho"></span>
   <span class="spacer"></span>
   <button class="btn" id="btnCfg">Configuración</button>
@@ -1168,7 +1171,8 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
         <h3 id="procTitulo">Procedimiento</h3>
         <div class="g-field">
           <span class="g-title">Técnica</span>
-          <div class="g-choices" data-group="pr_cat"><label><input type="radio" name="pr_cat" value="con balón" checked><span>Catéter con balón</span></label><label><input type="radio" name="pr_cat" value="sin balón"><span>Catéter sin balón</span></label></div>
+          <div class="g-choices" data-group="pr_cat"><label><input type="radio" name="pr_cat" value="foley" checked><span>Sonda Foley</span></label><label><input type="radio" name="pr_cat" value="con balón"><span>Catéter con balón</span></label><label><input type="radio" name="pr_cat" value="sin balón"><span>Catéter sin balón</span></label></div>
+          <div class="grid g3" id="pr_frWrap" style="margin-top:8px"><label class="f"><span>Calibre de la sonda (F)</span><input type="number" step="1" min="4" max="24" id="pr_fr" value="5" placeholder="5"></label></div>
         </div>
         <div class="g-field">
           <span class="g-title">Medio</span>
@@ -1194,21 +1198,25 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
           <div class="g-choices" data-group="pr_sin"><label><input type="radio" name="pr_sin" value="no" checked><span>Ausentes</span></label><label><input type="radio" name="pr_sin" value="si"><span>Presentes</span></label></div>
           <input type="text" id="pr_sinTxt" class="hide" placeholder="Ubicación y extensión (opcional)" style="margin-top:8px;width:100%">
         </div>
+        <div class="g-field">
+          <span class="g-title">Corte coronal 3D</span>
+          <div class="g-choices" data-group="pr_3d"><label><input type="radio" name="pr_3d" value="no" checked><span>No</span></label><label><input type="radio" name="pr_3d" value="normal"><span>Sí · morfología normal</span></label><label><input type="radio" name="pr_3d" value="hall"><span>Sí · hallazgo</span></label></div>
+          <input type="text" id="pr_3dTxt" class="hide" placeholder="Ej.: útero arcuato, indentación fúndica de 6 mm" style="margin-top:8px;width:100%">
+        </div>
         <div class="g-field hyc-only">
           <span class="g-title">Trompa derecha</span>
           <div class="g-choices" data-group="pr_tD"><label><input type="radio" name="pr_tD" value="permeable" checked><span>Permeable</span></label><label><input type="radio" name="pr_tD" value="no"><span>No permeable</span></label><label><input type="radio" name="pr_tD" value="nc"><span>No concluyente</span></label></div>
+          <div class="pr-tub" data-lado="D"></div>
         </div>
         <div class="g-field hyc-only">
           <span class="g-title">Trompa izquierda</span>
           <div class="g-choices" data-group="pr_tI"><label><input type="radio" name="pr_tI" value="permeable" checked><span>Permeable</span></label><label><input type="radio" name="pr_tI" value="no"><span>No permeable</span></label><label><input type="radio" name="pr_tI" value="nc"><span>No concluyente</span></label></div>
-        </div>
-        <div class="g-field hyc-only">
-          <span class="g-title">Derrame peritoneal del medio</span>
-          <div class="g-choices" data-group="pr_der"><label><input type="radio" name="pr_der" value="bilateral" checked><span>Bilateral periovárico</span></label><label><input type="radio" name="pr_der" value="D"><span>Solo derecho</span></label><label><input type="radio" name="pr_der" value="I"><span>Solo izquierdo</span></label><label><input type="radio" name="pr_der" value="no"><span>No se observa</span></label></div>
+          <div class="pr-tub" data-lado="I"></div>
         </div>
         <div class="g-field">
           <span class="g-title">Tolerancia</span>
           <div class="g-choices" data-group="pr_tol"><label><input type="radio" name="pr_tol" value="buena" checked><span>Buena</span></label><label><input type="radio" name="pr_tol" value="dolor"><span>Dolor moderado</span></label><label><input type="radio" name="pr_tol" value="vasovagal"><span>Reacción vasovagal</span></label></div>
+          <div class="grid g3" style="margin-top:8px"><label class="f"><span>EVA de dolor (0–10, opcional)</span><input type="number" step="1" min="0" max="10" id="pr_eva"></label></div>
         </div>
         <label class="f"><span>Nota del procedimiento</span><textarea id="pr_nota" rows="2"></textarea></label>
       </div>
@@ -1297,7 +1305,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 
       <div class="sub">
         <h3>Sugerencias</h3>
-        <div class="ind-chips" data-for="ginSugerencias"><button type="button" class="ind-chip pel-only" data-ind="Se sugiere complementar con ecografía transvaginal">Complementar con ecografía transvaginal</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar mapeo de endometriosis profunda">Mapeo de endometriosis profunda</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar resonancia magnética nuclear de pelvis">Resonancia magnética</button><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico en 6 a 8 semanas">Control en 6–8 semanas</button><button type="button" class="ind-chip" data-ind="Se sugiere control ecográfico posmenstrual (días 5 a 10 del ciclo)">Control posmenstrual</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar histeroscopia diagnóstica">Histeroscopia</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere realizar histerosonografía">Histerosonografía</button><button type="button" class="ind-chip" data-ind="Se sugiere biopsia endometrial o correlación histológica">Biopsia endometrial</button><button type="button" class="ind-chip" data-ind="Se sugiere evaluación por ginecología oncológica">Gineco-oncología</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar ecografía 3D">Ecografía 3D</button><button type="button" class="ind-chip" data-ind="Se sugiere correlación clínica y de laboratorio">Correlación clínica</button></div>
+        <div class="ind-chips" data-for="ginSugerencias"><button type="button" class="ind-chip hyc-only" data-ind="Se sugiere repetir la HyCoSy">Repetir HyCoSy</button><button type="button" class="ind-chip hyc-only" data-ind="Se sugiere realizar histerosalpingografía">Histerosalpingografía</button><button type="button" class="ind-chip hyc-only" data-ind="Se sugiere laparoscopía con cromotubación">Laparoscopía con cromotubación</button><button type="button" class="ind-chip hyc-only" data-ind="Se sugiere evaluación por medicina reproductiva">Medicina reproductiva</button><button type="button" class="ind-chip pel-only" data-ind="Se sugiere complementar con ecografía transvaginal">Complementar con ecografía transvaginal</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere realizar mapeo de endometriosis profunda">Mapeo de endometriosis profunda</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere realizar resonancia magnética nuclear de pelvis">Resonancia magnética</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere control ecográfico en 6 a 8 semanas">Control en 6–8 semanas</button><button type="button" class="ind-chip hyc-hide" data-ind="Se sugiere control ecográfico posmenstrual (días 5 a 10 del ciclo)">Control posmenstrual</button><button type="button" class="ind-chip" data-ind="Se sugiere realizar histeroscopia diagnóstica">Histeroscopia</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere realizar histerosonografía">Histerosonografía</button><button type="button" class="ind-chip hyc-hide" data-ind="Se sugiere biopsia endometrial o correlación histológica">Biopsia endometrial</button><button type="button" class="ind-chip hyc-hide" data-ind="Se sugiere evaluación por ginecología oncológica">Gineco-oncología</button><button type="button" class="ind-chip proc-hide" data-ind="Se sugiere realizar ecografía 3D">Ecografía 3D</button><button type="button" class="ind-chip" data-ind="Se sugiere correlación clínica y de laboratorio">Correlación clínica</button></div>
         <textarea id="ginSugerencias" rows="2" placeholder="Escribe una sugerencia o toca una opción"></textarea>
         <p class="note">Solo se imprime si tiene texto.</p>
       </div>
@@ -4426,7 +4434,7 @@ var PR_LES_TIPO = { endo:"Pólipo", mio:"Mioma submucoso" };
 function seccionProcedimiento(){
   var out = [];
   var cat = radioVal('pr_cat'), medio = radioVal('pr_medio'), vol = q('#pr_vol').value;
-  var t = "Previa asepsia y antisepsia, se coloca catéter" + (cat ? " " + cat : "") + " en el canal cervical y se instila" +
+  var t = "Previa asepsia y antisepsia, se coloca " + procSonda(cat) + " en el canal cervical y se instila" +
     (vol ? "n " + fmtMed(vol) + " ml de " : " ") + (medio || "solución salina") + ".";
   out.push("PROCEDIMIENTO\n" + t);
 
@@ -4451,27 +4459,27 @@ function seccionProcedimiento(){
     var st = q('#pr_sinTxt').value.trim();
     c.push(st ? "Se observan sinequias intrauterinas: " + dotEnd(st.charAt(0).toLowerCase() + st.slice(1)) : "Se observan sinequias intrauterinas.");
   } else if (lesSi) c.push("Sin sinequias.");
+  var d3 = radioVal('pr_3d'), d3t = q('#pr_3dTxt').value.trim();
+  if (d3 === "normal") c.push("Corte coronal 3D: cavidad de morfología normal, sin septos ni arcuación.");
+  if (d3 === "hall" && d3t) c.push("Corte coronal 3D: " + dotEnd(d3t.charAt(0).toLowerCase() + d3t.slice(1)));
   var cav = "", lista = false;
   c.forEach(function(x){ cav = cav ? cav + (lista ? "\n" : " ") + x : x; lista = x.indexOf("\n") >= 0; });
 
   var tol = radioVal('pr_tol'), nota = q('#pr_nota').value.trim(), fin = [];
-  if (tol === "buena") fin.push("Procedimiento bien tolerado, sin complicaciones.");
-  if (tol === "dolor") fin.push("Procedimiento tolerado con dolor moderado.");
-  if (tol === "vasovagal") fin.push("Procedimiento con reacción vasovagal transitoria.");
+  var evaV = q('#pr_eva').value, eva = "";
+  if (evaV !== "" && !isNaN(+evaV)) eva = " (EVA " + Math.max(0, Math.min(10, Math.round(+evaV))) + "/10)";
+  if (tol === "buena") fin.push("Procedimiento bien tolerado" + eva + ", sin complicaciones.");
+  if (tol === "dolor") fin.push("Procedimiento tolerado con dolor moderado" + eva + ".");
+  if (tol === "vasovagal") fin.push("Procedimiento con reacción vasovagal transitoria" + eva + ".");
   if (nota) fin.push(dotEnd(nota));
 
   if (esHyc()){
     out.push("CAVIDAD ENDOMETRIAL\n" + cav);
     var tr = [];
     [["D","derecha"],["I","izquierda"]].forEach(function(a){
-      var v = radioVal('pr_t' + a[0]);
-      if (v) tr.push("Trompa " + a[1] + ": " + (v === "permeable" ? "permeable." : v === "no" ? "no permeable." : "permeabilidad no concluyente."));
+      var x = procTrompaTexto(a[0]);
+      if (x) tr.push("Trompa " + a[1] + ": " + x);
     });
-    var d = radioVal('pr_der');
-    if (d === "bilateral") tr.push("Derrame peritoneal bilateral periovárico del medio de contraste.");
-    if (d === "D") tr.push("Derrame peritoneal periovárico derecho del medio de contraste.");
-    if (d === "I") tr.push("Derrame peritoneal periovárico izquierdo del medio de contraste.");
-    if (d === "no") tr.push("No se observa derrame peritoneal del medio de contraste.");
     if (fin.length) tr.push(fin.join(" "));
     out.push("TROMPAS UTERINAS\n" + tr.join("\n"));
   } else {
@@ -4490,17 +4498,72 @@ function sugProc(parte){
   a = [];
   if (esHyc()){
     var D = radioVal('pr_tD'), I = radioVal('pr_tI');
+    var nD = radioVal('pr_nvD') || "prox", nI = radioVal('pr_nvI') || "prox";
+    var ESP = " (no se descarta espasmo tubárico)";
+    var NIV = { prox:"proximal", ist:"ístmica" };
     if (D === "permeable" && I === "permeable") a.push("Permeabilidad tubárica bilateral");
-    else if (D === "no" && I === "no") a.push("Obstrucción tubárica bilateral");
-    else {
-      [["D", D, "derecha"], ["I", I, "izquierda"]].forEach(function(x){
+    else if (D === "no" && I === "no" && nD === nI){
+      a.push(nD === "dist" ? "Hidrosálpinx bilateral con obstrucción tubárica distal" :
+        "Obstrucción tubárica " + NIV[nD] + " bilateral" + (nD === "prox" ? ESP : ""));
+    } else {
+      [["D", D, "derecha", "derecho", nD], ["I", I, "izquierda", "izquierdo", nI]].forEach(function(x){
         if (x[1] === "permeable") a.push("Trompa " + x[2] + " permeable");
-        if (x[1] === "no") a.push("Obstrucción tubárica " + x[2]);
+        if (x[1] === "no") a.push(x[4] === "dist" ? "Hidrosálpinx " + x[3] + " con obstrucción tubárica distal" :
+          "Obstrucción tubárica " + NIV[x[4]] + " " + x[2] + (x[4] === "prox" ? ESP : ""));
         if (x[1] === "nc") a.push("Permeabilidad tubárica " + x[2] + " no concluyente");
       });
     }
   }
   return a;
+}
+/* v1.8: técnica con sonda Foley (calibre editable, 5F de inicio) */
+function procSonda(cat){
+  if (cat === "foley"){
+    var f = Math.round(+q('#pr_fr').value);
+    return "sonda Foley " + (f > 0 ? f : 5) + "F";
+  }
+  return "catéter" + (cat ? " " + cat : "");
+}
+/* v1.8: trompas descritas por estado (permeable / no permeable / no concluyente) y nivel */
+var PR_MOTIVO = { vis:"mala visualización del trayecto", ref:"reflujo del medio", esp:"probable espasmo cornual" };
+function procTrompaTexto(k){
+  var v = radioVal('pr_t' + k);
+  if (v === "permeable"){
+    return "permeable. Paso del medio de contraste a través del ostium y la porción intersticial, con progresión continua por el trayecto tubárico y derrame periovárico " +
+      (radioVal('pr_sp' + k) === "tar" ? "tardío, tras incrementar la presión de instilación" : "inmediato") + " (spill positivo).";
+  }
+  if (v === "no"){
+    var n = radioVal('pr_nv' + k);
+    if (n === "ist") return "no permeable. Paso del medio de contraste por la porción intersticial con detención a nivel ístmico a pesar de incrementar la presión de instilación, sin derrame peritoneal (spill negativo).";
+    if (n === "dist") return "no permeable. Paso del medio de contraste por la porción proximal, con dilatación del trayecto tubárico compatible con hidrosálpinx, sin derrame peritoneal (spill negativo).";
+    return "no permeable. Se visualiza el ostium tubárico, sin paso del medio de contraste más allá de la porción intersticial a pesar de incrementar la presión de instilación, sin derrame peritoneal (spill negativo).";
+  }
+  if (v === "nc"){
+    return "permeabilidad no concluyente. No se logra seguir con claridad el trayecto del medio de contraste por " +
+      (PR_MOTIVO[radioVal('pr_mo' + k)] || PR_MOTIVO.vis) + "; " + (radioVal('pr_dc' + k) === "no" ? "no se observa" : "se observa") + " derrame periovárico.";
+  }
+  return "";
+}
+function procTubHTML(k){
+  var g = function(name, title, opts){
+    return '<div class="pr-sub" data-sub="' + name + '"><span class="g-hint">' + title + '</span><div class="g-choices" data-group="' + name + k + '">' +
+      opts.map(function(o, i){ return '<label><input type="radio" name="' + name + k + '" value="' + o[0] + '"' + (i === 0 ? " checked" : "") + '><span>' + o[1] + '</span></label>'; }).join("") + '</div></div>';
+  };
+  return g("pr_sp", "Derrame (spill)", [["inm","Inmediato"],["tar","Tardío / con mayor presión"]]) +
+    g("pr_nv", "Nivel de la obstrucción", [["prox","Proximal (intersticial)"],["ist","Ístmico"],["dist","Distal (hidrosálpinx)"]]) +
+    g("pr_mo", "Motivo", [["vis","Mala visualización"],["ref","Reflujo del medio"],["esp","Espasmo cornual"]]) +
+    g("pr_dc", "Derrame periovárico", [["si","Se observa"],["no","No se observa"]]);
+}
+function procSync(){
+  var fw = q('#pr_frWrap'); if (fw) fw.classList.toggle('hide', radioVal('pr_cat') !== 'foley');
+  var t3 = q('#pr_3dTxt'); if (t3) t3.classList.toggle('hide', radioVal('pr_3d') !== 'hall');
+  qa('#procSub .pr-tub').forEach(function(box){
+    var k = box.dataset.lado, v = radioVal('pr_t' + k);
+    box.querySelector('[data-sub=pr_sp]').classList.toggle('hide', v !== 'permeable');
+    box.querySelector('[data-sub=pr_nv]').classList.toggle('hide', v !== 'no');
+    box.querySelector('[data-sub=pr_mo]').classList.toggle('hide', v !== 'nc');
+    box.querySelector('[data-sub=pr_dc]').classList.toggle('hide', v !== 'nc');
+  });
 }
 var PR_LES_HOME = null;
 function procMontar(id){
@@ -4543,6 +4606,9 @@ function procLesCambio(e){
   regenerarInforme();
 }
 function wireProc(){
+  qa('#procSub .pr-tub').forEach(function(box){ box.innerHTML = procTubHTML(box.dataset.lado); });
+  q('#procSub').addEventListener('change', procSync);
+  procSync();
   qa('input[name=pr_les]').forEach(function(c){ c.addEventListener('change', procLesCambio); });
   qa('input[name=pr_sin]').forEach(function(r){ r.addEventListener('change', function(){
     q('#pr_sinTxt').classList.toggle('hide', radioVal('pr_sin') !== 'si');
@@ -4607,6 +4673,7 @@ function limpiarGin(){
   q('#e_liquidoTipoWrap').classList.add('hide');
   q('#e_lesionWrap').classList.add('hide');
   q('#pr_sinTxt').classList.add('hide');
+  q('#pr_fr').value = '5'; procSync();
   if (esProc()) procMedioInicio(study.id);
   MENO = false; if (q('#pMenoAnios')) q('#pMenoAnios').value = ''; menoSync();
   ginPreviewManual = false;
@@ -7625,8 +7692,9 @@ Array.prototype.forEach.call(document.querySelectorAll(".ind-chips"), function(b
 
 /* ============================ publicación v1.0 ============================ */
 var APP = {
-  version:"1.7", fecha:"30-oct-2026",
+  version:"1.8", fecha:"31-oct-2026",
   novedades:[
+    "1.8: HyCoSy: cada trompa se describe según su estado (permeable con spill inmediato o tardío; no permeable con nivel proximal, ístmico o distal; no concluyente con el motivo) y el derrame va dentro de cada trompa; impresión diagnóstica con el nivel de la obstrucción. Histerosonografía y HyCoSy: sonda Foley con calibre (5F de inicio), corte coronal 3D opcional, EVA de dolor y sugerencias propias de cada estudio.",
     "1.7: nueva ecografía obstétrica (único, gemelar y triple): anatomía fetal básica y corazón (cuatro cámaras, tractos de salida y tres vasos) con lo normal marcado; biometría en tabla con barra de percentil (FMF: Snijders y Nicolaides; húmero: Chitty), DOF calculado e índice cefálico; peso fetal por Hadlock de 4 o 3 medidas con percentil FMF 2018; placenta, inserción del cordón, líquido amniótico, corionicidad y discordancia de peso; avisos en pantalla e impresión diagnóstica sugerida.",
     "1.6: nuevos informes de histerosonografía y HyCoSy: formulario ginecológico corto (sin evaluación dinámica ni Douglas basal) y sección Procedimiento (técnica, medio, volumen, distensión, contorno, lesiones intracavitarias con la lista detallada de pólipos y miomas, sinequias, trompas y derrame en HyCoSy, tolerancia y nota).",
     "1.5.2: mapeo de endometriosis: ovario Móvil / No móvil con caja \"Adherido a\" (botones nuevos: torus uterino, recto y sigmoides), fila Parénquima y lo normal marcado de inicio; impresión diagnóstica con solo lo profundo bajo \"endometriosis profunda\" y lo demás en renglones aparte. Ovarios (ginecológico y mapeo): el parénquima y los folículos antrales van con las medidas. El día del ciclo del endometrio se llena apenas se escribe la FUM.",
