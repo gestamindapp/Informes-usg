@@ -75,15 +75,22 @@ button,input,select{font:inherit;color:inherit}
 .spacer{margin-left:auto}
 
 .wrap{max-width:1180px;margin:0 auto;padding:18px 20px 72px}
-.cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:start}
-@media (max-width:920px){ .cols{grid-template-columns:1fr} .cols>.study{order:-1} }
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:18px}
 .card>header{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line2)}
 .card>header h2{font-size:14px}
 .card .body{padding:16px}
-.study{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px)}
-@media (max-width:920px){ .study{position:static} }
+/* v2.0.1: franja de estudios */
+.band{display:grid;gap:12px}
+.band .bgrp{display:flex;flex-wrap:wrap;gap:6px}
+.band .bg-t{width:100%;font-size:12.5px;color:var(--muted)}
+.band .leaf{width:auto;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13.5px;color:var(--ink)}
+.band .leaf .dot{display:none}
+.band .leaf[aria-pressed=true]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.study #picked{margin-top:0}
+.study:not(.done) #picked{display:none}
+.study.done .band{display:none}
 
 /* ---------- fields ---------- */
 .grid{display:grid;gap:12px}
@@ -93,6 +100,11 @@ button,input,select{font:inherit;color:inherit}
 .f{display:flex;flex-direction:column;gap:5px;min-width:0}
 .f>span{font-size:12.5px;color:var(--muted)}
 .ctl{display:flex;align-items:center;gap:6px}
+[hidden]{display:none!important}
+.grid>*{min-width:0}
+input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;display:block;max-width:100%;text-align:left;line-height:1.25}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left;margin:0}
+input[type=text],input[type=date],input[type=time],input[type=number],select{height:38px;box-sizing:border-box}
 input[type=text],input[type=date],input[type=time],input[type=number],select{
   width:100%;min-width:0;padding:8px 10px;background:var(--surface2);
   border:1px solid var(--line);border-radius:8px;
@@ -414,6 +426,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 .sheet table.bio-tbl td.dsep,.sheet table.bio-tbl th.dsep{padding-left:12pt}
 .sheet table.bio-tbl .calc{font-size:calc(var(--rs,10.5pt)*.7);color:#777;font-weight:400}
 .sheet .rb-h.rb-h-tight{margin-top:3pt}
+.sheet .rb-tiny{margin:1pt 0 3pt;font-size:5pt;line-height:1.25;color:#666}
 .sheet .rb-wnote{margin:-3pt 0 6pt;font-size:calc(var(--rs,10.5pt)*.68);color:#666}
 .sheet .sig:has(.rb-foot){flex-wrap:wrap}
 .sheet .sig .rb-foot{flex:0 0 100%}
@@ -549,16 +562,23 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 #obssCard .s-anr>.s-ant,#obssCard .s-anr>.s-hint{grid-column:2}
 #obssCard .s-br.s-ic{background:var(--surface2)}
 #obssCard:not(.cd) .cd-only,#obssCard.cd .ss-only,#obssCard.noan .s-anat{display:none}
-#obssCard .s-dop{border:1px solid var(--line);border-radius:10px;padding:4px 12px;background:var(--surface);margin-bottom:6px}
-#obssCard .s-dr{display:grid;grid-template-columns:170px 130px minmax(0,1fr);gap:6px 12px;align-items:center;padding:7px 0}
-#obssCard .s-dop .s-dr+.s-dr{border-top:1px solid var(--line2)}
-#obssCard .s-dr>.s-anl{font-size:13px;font-weight:600}
-#obssCard .s-dr .s-pc{margin:0}
-#obssCard .s-dr>.s-dx{grid-column:2 / -1}
-@media (max-width:560px){ #obssCard .s-dr{grid-template-columns:1fr 1fr} #obssCard .s-dr>.s-anl{grid-column:1 / -1} #obssCard .s-dr>.s-dx{grid-column:1 / -1} }
-#obssCard .s-ut{display:grid;gap:8px}
-#obssCard .s-utr{display:grid;grid-template-columns:90px 130px auto minmax(0,1fr);gap:6px 12px;align-items:center}
-@media (max-width:560px){ #obssCard .s-utr{grid-template-columns:90px minmax(0,1fr)} }
+#obssCard .dg{display:grid;grid-template-columns:minmax(150px,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:8px 10px;align-items:center}
+#obssCard .dg-th{font-size:11.5px;color:var(--muted)}
+#obssCard .dg-l{font-size:13px;font-weight:600}
+#obssCard .dg-x{grid-column:3 / -1;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#obssCard .dg-x3{grid-column:2 / -1}
+#obssCard .dg-ro{height:38px;box-sizing:border-box;display:flex;align-items:center;padding:0 10px;border:1px dashed var(--line);border-radius:8px;background:var(--sunken);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#obssCard .dg-ro.ok{border-style:solid;border-color:color-mix(in srgb,var(--accent) 45%,var(--surface));background:var(--accent-soft);color:var(--accent);font-weight:600}
+#obssCard .dg-ro.al{border-style:solid;border-color:color-mix(in srgb,var(--danger) 45%,var(--surface));background:color-mix(in srgb,var(--danger) 12%,var(--surface));color:var(--danger);font-weight:600}
+#obssCard .g-choices label.abn:has(input:checked){background:var(--danger);border-color:var(--danger);color:#fff}
+#obssCard .s-dopf{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);margin-bottom:10px}
+#obssCard .s-dopt{margin:0 0 10px;font-size:13.5px;font-weight:600}
+@media (max-width:560px){
+  #obssCard .dg{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #obssCard .dg>span:first-child{display:none}
+  #obssCard .dg-l{grid-column:1 / -1;margin-top:6px}
+  #obssCard .dg-x,#obssCard .dg-x3{grid-column:1 / -1}
+}
 #obssCard .s-icv{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
 @media (max-width:620px){ #obssCard .s-anr{grid-template-columns:1fr} #obssCard .s-anr>.s-ant,#obssCard .s-anr>.s-hint{grid-column:1} #obssCard .s-br.s-ic .s-hint{grid-column:1 / -1} }
 #obssCard .s-bt{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
@@ -678,7 +698,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 <header class="topbar">
   <span class="mark appmark" id="mark"><img src="data:image/png;base64,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" alt="Informes USG"></span>
   <h1><span class="tl-long">Informes de ultrasonido</span><span class="tl-short">Informes USG</span></h1>
-  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v2.0</button>
+  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v2.0.1</button>
   <span class="who" id="topWho"></span>
   <span class="spacer"></span>
   <button class="btn" id="btnCfg">Configuración</button>
@@ -742,6 +762,15 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
         <label class="switch"><input type="checkbox" id="letterhead">Imprimo en papel membretado</label>
         <p class="note">Deja en blanco los espacios del membrete preimpreso de tu papel. Las medidas y la guía se ajustan en Diseño de página.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- 2 · ESTUDIO (v2.0.1: franja arriba, a todo lo ancho; se encoge al elegir) -->
+  <section class="card study" id="studyBand">
+    <header><h2>Tipo de estudio</h2><span class="spacer"></span><button type="button" class="btn quiet hide" id="studyChange">Cambiar</button></header>
+    <div class="body">
+      <div class="band" id="tree"></div>
+      <div class="picked none" id="picked">Escoge un estudio para continuar.</div>
     </div>
   </section>
 
@@ -892,14 +921,6 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
       </div>
     </section>
 
-    <!-- 3 · ESTUDIO -->
-    <section class="card study">
-      <header><h2>Tipo de estudio</h2></header>
-      <div class="body">
-        <ul class="tree" id="tree"></ul>
-        <div class="picked none" id="picked">Escoge un estudio para continuar.</div>
-      </div>
-    </section>
   </div>
 
   <section class="card" id="ginCard">
@@ -2176,16 +2197,20 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 
       <div id="sFetos"></div>
 
-      <div class="sub cd-only">
-        <h3>Doppler materno · arterias uterinas</h3>
-        <div class="s-ut">
-          <div class="s-utr"><span class="s-anl">Derecha</span><div class="unit"><input type="number" id="sUtD" min="0" step="0.01" inputmode="decimal" aria-label="IP de la arteria uterina derecha"><em>IP</em></div>
-            <span class="s-hint">Notch</span><div class="g-choices"><label><input type="radio" name="sNotD" value="no"><span>No</span></label><label><input type="radio" name="sNotD" value="si"><span>Sí</span></label></div></div>
-          <div class="s-utr"><span class="s-anl">Izquierda</span><div class="unit"><input type="number" id="sUtI" min="0" step="0.01" inputmode="decimal" aria-label="IP de la arteria uterina izquierda"><em>IP</em></div>
-            <span class="s-hint">Notch</span><div class="g-choices"><label><input type="radio" name="sNotI" value="no"><span>No</span></label><label><input type="radio" name="sNotI" value="si"><span>Sí</span></label></div></div>
-          <div class="ro" id="sUtMed">IP medio: —</div>
+      <div class="sub cd-only" id="sDopSec">
+        <h3>Doppler</h3>
+        <h4 class="s-h4">Doppler materno · arterias uterinas</h4>
+        <div class="dg">
+          <span></span><span class="dg-th">Valor (IP)</span><span class="dg-th">Percentil</span><span class="dg-th">Clasificación</span>
+          <label class="dg-l" for="sUtD">Uterina derecha</label><div class="unit"><input type="number" id="sUtD" min="0" step="0.01" inputmode="decimal"><em>IP</em></div>
+          <div class="dg-x"><span class="s-hint">Notch</span><div class="g-choices"><label><input type="radio" name="sNotD" value="no"><span>No</span></label><label class="abn"><input type="radio" name="sNotD" value="si"><span>Sí</span></label></div></div>
+          <label class="dg-l" for="sUtI">Uterina izquierda</label><div class="unit"><input type="number" id="sUtI" min="0" step="0.01" inputmode="decimal"><em>IP</em></div>
+          <div class="dg-x"><span class="s-hint">Notch</span><div class="g-choices"><label><input type="radio" name="sNotI" value="no"><span>No</span></label><label class="abn"><input type="radio" name="sNotI" value="si"><span>Sí</span></label></div></div>
+          <span class="dg-l">IP medio</span><div class="dg-ro" id="sUtMV"></div><div class="dg-ro" id="sUtMP"></div><div class="dg-ro" id="sUtMC"></div>
         </div>
-        <p class="note">IP medio = (derecha + izquierda) / 2, calculado. Percentil del IP medio: Gómez 2008 (11 a 41 semanas); cada lado se imprime sin percentil.</p>
+        <p class="note">IP medio = (derecha + izquierda) / 2. Percentil: Gómez 2008 (11 a 41 semanas). Las casillas punteadas se calculan solas.</p>
+        <h4 class="s-h4" style="margin-top:16px">Doppler fetal</h4>
+        <div id="sDopFet"></div>
       </div>
 
       <div class="sub cd-only">
@@ -2352,7 +2377,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
   <button class="btn warn" id="btnClear">Limpiar</button>
   <button class="btn quiet" id="btnPage">Diseño y aspecto</button>
   <span class="spacer"></span>
-  <button class="btn solid" id="btnGo" disabled>Continuar al informe</button>
+  <button class="btn solid" id="btnGo" disabled hidden>Continuar al informe</button>
 </div>
 
 <dialog id="pageDlg">
@@ -2527,10 +2552,6 @@ var TREE = [
   { id:"obs-simple", label:"Ecografía obstétrica simple", kind:"obs",
     title:"Ecografía obstétrica" },
   { label:"Ecografía obstétrica especializada", children:[
-    { id:"obs-1114",    label:"Genética 11–14", kind:"obs",
-      title:"Ecografía obstétrica especializada: genética 11–14" },
-    { id:"obs-morfo",   label:"Morfológica", kind:"obs",
-      title:"Ecografía obstétrica especializada: morfológica" },
     { id:"obs-crecdop", label:"Crecimiento y Doppler materno-fetal", kind:"obs",
       title:"Ecografía de crecimiento y Doppler materno-fetal" }
   ]}
@@ -2718,6 +2739,41 @@ function buildTree(nodes, parentUl, path){
   });
 }
 
+/* v2.0.1: franja de estudios agrupada (Ginecología / Obstetricia) */
+var BAND = [
+  { g:"Ginecología", items:[["tv-gin","Transvaginal ginecológica"],["tv-fert","Fertilidad"],["pel-gin","Pélvica ginecológica"],["endo-map","Mapeo de endometriosis"],["hsn","Histerosonografía"],["hycosy","HyCoSy"]] },
+  { g:"Obstetricia", items:[["tv-obs","Transvaginal obstétrica"],["obs-simple","Obstétrica simple"],["obs-crecdop","Crecimiento y Doppler materno-fetal"]] }
+];
+function findNode(id, nodes, path){
+  for(var i = 0; i < nodes.length; i++){
+    var n = nodes[i];
+    if(n.id === id) return { node:n, path:path };
+    if(n.children){ var r = findNode(id, n.children, path.concat(n.label)); if(r) return r; }
+  }
+  return null;
+}
+function buildBand(){
+  var host = $("#tree");
+  BAND.forEach(function(gr){
+    var d = document.createElement("div"); d.className = "bgrp";
+    d.innerHTML = '<span class="bg-t">' + gr.g + "</span>";
+    gr.items.forEach(function(it){
+      var r = findNode(it[0], TREE, []); if(!r) return;
+      var l = document.createElement("button");
+      l.type = "button"; l.className = "leaf"; l.dataset.id = it[0];
+      l.setAttribute("aria-pressed", "false");
+      l.innerHTML = '<span class="dot"></span>';
+      l.appendChild(document.createTextNode(it[1]));
+      l.addEventListener("click", function(){ pick(r.node, r.path); });
+      d.appendChild(l);
+    });
+    host.appendChild(d);
+  });
+  $("#studyChange").addEventListener("click", function(){
+    $("#studyBand").classList.remove("done");
+    $("#studyChange").classList.add("hide");
+  });
+}
 function pick(node, path){
   study = { id:node.id, label:node.label, kind:node.kind, title:node.title, path:path.slice() };
   Array.prototype.forEach.call(document.querySelectorAll(".leaf"), function(l){
@@ -2754,6 +2810,8 @@ function pick(node, path){
   $("#obssCard").classList.toggle("hide", !esOBSS(node.id));
   $("#obssCard").classList.toggle("cd", node.id === "obs-crecdop");
   $("#btnGo").disabled = false;
+  $("#studyBand").classList.add("done");
+  $("#studyChange").classList.remove("hide");
   recalcAll();
 }
 
@@ -3177,6 +3235,7 @@ function paginate(html){
       }
       curT.tBodies[0].removeChild(r);
       var nt = t.cloneNode(false);
+      nt.classList.add("rb-cont");
       nt.appendChild(head.cloneNode(true));
       nt.appendChild(document.createElement("tbody"));
       newPage(); cur.body.appendChild(nt);
@@ -3267,7 +3326,7 @@ function pdfNode(el, ctx){
       var row = [];
       for(var j = 0; j < 4; j++){
         var c = cells[i+j];
-        row.push(c ? { text:c.textContent, bold:c.tagName === "DD", margin:[j === 2 ? 12 : 0, 0, 0, 0] } : { text:"" });
+        row.push(c ? { text:c.textContent, bold:c.tagName === "DD", noWrap:c.tagName === "DT", margin:[j === 2 ? 12 : 0, 0, 0, 0] } : { text:"" });
       }
       rows.push(row);
     }
@@ -3302,6 +3361,7 @@ function pdfNode(el, ctx){
     return { text:ir, alignment:"justify", margin:[0,0,0,COMPACT() ? 2 : 6] };
   }
   if(cl.contains("rb-clause")) return { text:el.textContent, fontSize:S*0.68, lineHeight:1.15, color:"#666", alignment:"justify", margin:[0,1,0,0] };
+  if(cl.contains("rb-tiny")) return { text:el.textContent, fontSize:5, lineHeight:1.1, color:"#666", margin:[0,1,0,3] };
   if(cl.contains("rb-wnote")) return { text:el.textContent, fontSize:S*0.68, color:"#666", margin:COMPACT() ? [0,-2,0,2] : [0,-3,0,6] };
   if(cl.contains("rb-foot")) return { stack:[ hline(0.5, "#c8c8c8"), { text:el.textContent, fontSize:S*0.68, color:"#666", margin:[0,3,0,0] } ], margin:[0,12,0,0] };
   if(cl.contains("rb-note")){
@@ -3414,27 +3474,59 @@ function COMPACT(){ return !!(study && esOBSS(study.id)); }
 function buildPdfDoc(){
   var nat = RFONTS[look.font].nat;
   var ctx = { cw:mm2pt(page.w - page.l - page.r), nat:nat };
-  var content = [];
+  /* v2.0.1: el PDF arma sus propias páginas (antes copiaba los cortes de la vista previa y, si el PDF
+     ocupaba un poco más, quedaba una página casi vacía). Se juntan los párrafos y tablas que la vista
+     previa partió, los títulos nunca quedan solos al pie y la cláusula va pegada a la firma. */
+  var lhAny = $("#letterhead").checked, lhAll = lhAny && page.lhAll;
+  var els = [];
   sheetPages.forEach(function(p, i){
-    var st = [];
     Array.prototype.forEach.call(p.body.children, function(el){
-      var nd = pdfNode(el, ctx); if(nd) st.push(nd);
+      if(el.classList.contains("letterhead") && (i > 0 || lhAll)) return;
+      els.push(el);
     });
-    if(!st.length) st.push({ text:"" });
-    content.push(i ? { stack:st, pageBreak:"before" } : { stack:st });
   });
-  var name = $("#pName").value.trim(), web = $("#cWeb").value.trim(), n = sheetPages.length;
+  var M = [];
+  for(var k = 0; k < els.length; k++){
+    var el = els[k];
+    if(el.classList.contains("rb-split")){
+      var c = el.cloneNode(true); c.classList.remove("rb-split");
+      while(els[k + 1] && els[k + 1].classList.contains("rb-t") && els[k].classList.contains("rb-split")){
+        k++; c.innerHTML += " " + els[k].innerHTML;
+      }
+      M.push(c); continue;
+    }
+    var prev = M[M.length - 1];
+    if(el.tagName === "TABLE" && el.classList.contains("rb-cont") && prev && prev.tagName === "TABLE"){
+      if(!prev._junta){ prev = prev.cloneNode(true); prev._junta = true; M[M.length - 1] = prev; }
+      Array.prototype.forEach.call(el.tBodies[0].rows, function(r){ prev.tBodies[0].appendChild(r.cloneNode(true)); });
+      continue;
+    }
+    M.push(el);
+  }
+  var content = [];
+  M.forEach(function(el, idx){
+    var nd = pdfNode(el, ctx); if(!nd) return;
+    if(el.classList.contains("rb-h")) nd.headlineLevel = 1;
+    if(el.classList.contains("sig")){
+      var pv = content[content.length - 1];
+      if(pv && pv._clausula){ content.pop(); nd = { stack:[pv, nd], unbreakable:true }; }
+      else nd = { stack:[nd], unbreakable:true };
+    }
+    if(el.classList.contains("rb-clause")) nd._clausula = true;
+    content.push(nd);
+  });
+  var name = $("#pName").value.trim(), web = $("#cWeb").value.trim();
   var third = ctx.cw/3;
   return {
     pageSize:{ width:mm2pt(page.w), height:mm2pt(page.h) },
-    pageMargins:[mm2pt(page.l), mm2pt(page.t), mm2pt(page.r), mm2pt(page.b)],
+    pageMargins:[mm2pt(page.l), mm2pt(page.t + (lhAll ? page.lh : 0)), mm2pt(page.r), mm2pt(page.b + (lhAny ? page.lb : 0))],
+    pageBreakBefore:function(node, after){ return node.headlineLevel === 1 && after.length === 0; },
     info:{ title:fileName().replace(/\.pdf$/, ""), author:$("#cOperator").value.trim(), creator:"Informes de ultrasonido" },
     defaultStyle:{ font:look.font, fontSize:look.size, lineHeight:1.42/nat, color:"#000000" },
     content:content,
-    background:function(cp){
-      var i = cp - 1;
-      return { absolutePosition:{ x:mm2pt(page.l), y:mm2pt(footTopMM(i)) }, fontSize:look.size*0.76,
-        columns:[ { width:third, text:name }, { width:third, text:cp + " / " + Math.max(n, cp), alignment:"center" },
+    footer:function(cp, pc){
+      return { absolutePosition:{ x:mm2pt(page.l), y:mm2pt(footTopMM(cp - 1)) }, fontSize:look.size*0.76,
+        columns:[ { width:third, text:name }, { width:third, text:cp + " / " + pc, alignment:"center" },
                   { width:third, text:web, alignment:"right" } ] };
     }
   };
@@ -6522,9 +6614,8 @@ var OBSS = (function(){
     if(U.m) refs.push("Gómez 2008 (uterinas)");
     if(F.some(function(f){ return f.dv; })) refs.push("Kessler 2006 (ductus)");
     if(F.some(function(f){ return f.mom !== null; })) refs.push("Mari 2000 (VSM)");
-    if(F.some(function(f){ var o = prevFeto(f); return o && o.v && o.v.ok; })) refs.push("Hugh y Gardosi 2022 (velocidad)");
-    var np = notaPeso(F).replace(/^\nNota del peso: peso fetal estimado: /, "");
-    if(refs.length || np) L.push("Nota del Doppler: " + (np ? "PFE: " + np.replace(/\. Percentil: /, ", percentil ").replace(/\.$/, "") + (refs.length ? ". " : ".") : "") + (refs.length ? "Doppler: " + refs.join(", ") + "." : ""));
+    var dTab = L.indexOf("[TABLA DOPPLER]");
+    if(refs.length && dTab >= 0) L.splice(dTab + 1, 0, "Nota mínima: Doppler: " + refs.join(", ") + ".");
     var n = lineaNotch(U), fl = F.map(function(f){ return lineaDopFeto(f, mult); }).filter(Boolean);
     if(!mult){ var one = [n].concat(fl).filter(Boolean).join(" "); if(one) L.push(one); }
     else { if(n) L.push(n); L = L.concat(fl); }
@@ -6630,21 +6721,24 @@ var OBSS = (function(){
     card.classList.toggle("noan", !anatOn());
     s$("#sCardTitle").textContent = "Informe · " + (isCD() ? titulo() : "Ecografía obstétrica");
     if(!isCD()) return;
-    s$("#sUtMed").innerHTML = U.m ? "IP medio: <b>" + ip2(U.m) + "</b> · " + (U.p === null ? "sin referencia para esta EG" : '<span class="' + (utAlta(U) ? "bad" : "ok") + '">' + esc(dTxt(U.p)) + "</span>") + " · Gómez 2008" : "IP medio: — (escribe ambas uterinas)";
+    function caja(el, txt, cls){ el.textContent = txt || ""; el.classList.toggle("ok", cls === "ok"); el.classList.toggle("al", cls === "al"); }
+    caja(s$("#sUtMV"), U.m ? ip2(U.m) : "");
+    caja(s$("#sUtMP"), U.m ? (U.p === null ? "sin referencia" : dTxt(U.p)) : "");
+    caja(s$("#sUtMC"), U.m && U.p !== null ? (utAlta(U) ? "Alterado" : "Normal") : "", U.m && U.p !== null ? (utAlta(U) ? "al" : "ok") : "");
     F.forEach(function(f){
       var p = "f" + f.i + "_";
-      [["ua", function(v){ return dpr(v) > 95; }], ["acm", function(v){ return dpr(v) < 5; }], ["dv", function(v){ return dpr(v) > 95; }]].forEach(function(r){
-        var el = s$("#" + p + r[0] + "_p"), v = f.dp[r[0]];
-        el.textContent = f[r[0]] ? (v === null ? "— sin referencia" : dTxt(v)) : "";
-        el.classList.toggle("low", v !== null && r[1](v));
+      [["ua", function(v){ return v > 95; }], ["acm", function(v){ return v < 5; }], ["dv", function(v){ return v > 95; }]].forEach(function(r){
+        var v = f.dp[r[0]], has = !!f[r[0]], ok = has && v !== null;
+        caja(s$("#" + p + r[0] + "_p"), has ? (v === null ? "sin referencia" : dTxt(v)) : "");
+        caja(s$("#" + p + r[0] + "_c"), ok ? (r[1](v) ? "Alterado" : "Normal") : "", ok ? (r[1](v) ? "al" : "ok") : "");
       });
-      s$("#" + p + "ccp").textContent = f.ccp === null ? "—" : ip2(f.ccp);
-      var cp = s$("#" + p + "ccp_p");
-      cp.textContent = f.ccp === null ? "se calcula: IP ACM / IP AU" : (f.dp.ccp === null ? "— sin referencia" : dTxt(f.dp.ccp));
-      cp.classList.toggle("low", f.dp.ccp !== null && dpr(f.dp.ccp) < 5);
-      var ps = s$("#" + p + "psv_p");
-      ps.textContent = f.psv ? (f.mom === null ? "MoM: 18 a 40 semanas" : f.mom.toFixed(2) + " MoM" + (f.mom >= 1.5 ? " · anemia moderada-severa" : (f.mom >= 1.29 ? " · anemia leve" : ""))) : "";
-      ps.classList.toggle("low", f.mom !== null && f.mom >= 1.29);
+      var cv = f.dp.ccp, cok = f.ccp !== null && cv !== null;
+      caja(s$("#" + p + "ccp"), f.ccp === null ? "" : ip2(f.ccp));
+      caja(s$("#" + p + "ccp_p"), f.ccp === null ? "" : (cv === null ? "sin referencia" : dTxt(cv)));
+      caja(s$("#" + p + "ccp_c"), cok ? (cv < 5 ? "Alterado" : "Normal") : "", cok ? (cv < 5 ? "al" : "ok") : "");
+      var m = f.mom;
+      caja(s$("#" + p + "psv_p"), f.psv ? (m === null ? "18 a 40 sem" : m.toFixed(2) + " MoM") : "");
+      caja(s$("#" + p + "psv_c"), m === null ? "" : (m >= 1.5 ? "Anemia moderada-severa" : (m >= 1.29 ? "Anemia leve" : "Normal")), m === null ? "" : (m >= 1.29 ? "al" : "ok"));
     });
     var on = rv("sPrev") === "si";
     s$("#sPrevBody").classList.toggle("hide", !on);
@@ -6696,10 +6790,33 @@ var OBSS = (function(){
       '<div class="unit"><input type="number" id="' + id + '" min="0" step="0.1" inputmode="decimal" aria-label="' + label + ' en mm"><em>mm</em></div>' +
       '<div class="s-bar" id="' + id + '_bar"><i></i><b></b><em></em></div><span class="s-pc" id="' + id + '_p"></span></div>';
   }
+  /* v2.0.1: Doppler fetal en la sección Doppler: valor, percentil (automático) y clasificación (automática) */
   function dopRow(id, label, u, step){
-    return '<div class="s-dr"><label class="s-anl" for="' + id + '">' + label + '</label>' +
+    return '<label class="dg-l" for="' + id + '">' + label + '</label>' +
       '<div class="unit"><input type="number" id="' + id + '" min="0" step="' + step + '" inputmode="decimal" aria-label="' + label + " " + u + '"><em>' + u + "</em></div>" +
-      '<span class="s-pc" id="' + id + '_p"></span></div>';
+      '<div class="dg-ro" id="' + id + '_p"></div><div class="dg-ro" id="' + id + '_c"></div>';
+  }
+  function dopChips(label, name, opts, def){
+    return '<span class="dg-l">' + label + '</span><div class="dg-x dg-x3"><div class="g-choices">' + opts.map(function(o){
+      return '<label' + (o[2] ? ' class="abn"' : "") + '><input type="radio" name="' + name + '" value="' + o[0] + '"' + (o[0] === def ? " checked" : "") + "><span>" + o[1] + "</span></label>";
+    }).join("") + "</div></div>";
+  }
+  function buildDopFeto(i){
+    var p = "f" + i + "_", w = document.createElement("div");
+    w.className = "s-dopf"; w.id = "sDopF" + i;
+    w.innerHTML = '<h5 class="s-dopt">Feto ' + LET[i] + "</h5>" + '<div class="dg">' +
+      '<span></span><span class="dg-th">Valor</span><span class="dg-th">Percentil</span><span class="dg-th">Clasificación</span>' +
+      dopRow(p + "ua", "Arteria umbilical", "IP", "0.01") +
+      dopChips("Diástole", p + "uad", [["presente","Presente"],["ausente","Ausente",1],["reversa","Reversa",1]], "presente") +
+      dopRow(p + "acm", "Arteria cerebral media", "IP", "0.01") +
+      dopRow(p + "psv", "VSM cerebral media", "cm/s", "0.1") +
+      '<span class="dg-l">Índice cerebro-placentario</span><div class="dg-ro" id="' + p + 'ccp"></div><div class="dg-ro" id="' + p + 'ccp_p"></div><div class="dg-ro" id="' + p + 'ccp_c"></div>' +
+      dopRow(p + "dv", "Ductus venoso · opcional", "IPV", "0.01") +
+      dopChips("Onda a del ductus", p + "dva", [["positiva","Positiva"],["ausente","Ausente",1],["reversa","Reversa",1]], "") +
+      dopChips("Istmo aórtico · opcional", p + "ia", [["anterógrado","Anterógrado"],["ausente","Ausente",1],["reverso","Reverso",1]], "") +
+      dopChips("Vena umbilical · opcional", p + "vu", [["sin","Sin pulsaciones"],["con","Con pulsaciones",1]], "") +
+      "</div>";
+    return w;
   }
   /* v1.7: anatomía fetal básica y corazón (lo normal marcado de inicio) */
   var ANAT = [
@@ -6762,18 +6879,6 @@ var OBSS = (function(){
           '<div class="s-bar" id="' + p + 'pfe_bar"><i></i><b></b><em></em></div><span class="s-pc" id="' + p + 'pfe_p"></span>' +
           '<div class="s-sub"><span id="' + p + 'pfe_h"></span> <button type="button" class="btn quiet hide" id="' + p + 'pfe_auto">volver a automático</button></div></div>' +
       "</div>" +
-      /* v2.0: Doppler fetal (solo en crecimiento y Doppler) */
-      '<div class="cd-only"><h4 class="s-h4">Doppler fetal <span class="s-hint">· lo vacío no se imprime</span></h4><div class="s-dop">' +
-        dopRow(p + "ua", "Arteria umbilical", "IP", "0.01") +
-        '<div class="s-dr"><span class="s-anl"></span><span class="s-dx">' + chips(p + "uad", [["presente","Diástole presente"],["ausente","Diástole ausente"],["reversa","Diástole reversa"]], "presente") + "</span></div>" +
-        dopRow(p + "acm", "Arteria cerebral media", "IP", "0.01") +
-        dopRow(p + "psv", "VSM de la cerebral media", "cm/s", "0.1") +
-        '<div class="s-dr"><span class="s-anl">Índice cerebro-placentario</span><span class="s-icv" id="' + p + 'ccp">—</span><span class="s-pc" id="' + p + 'ccp_p"></span></div>' +
-        dopRow(p + "dv", "Ductus venoso · opcional", "IPV", "0.01") +
-        '<div class="s-dr"><span class="s-anl">Onda a del ductus</span><span class="s-dx">' + chips(p + "dva", [["positiva","Positiva"],["ausente","Ausente"],["reversa","Reversa"]], "") + "</span></div>" +
-        '<div class="s-dr"><span class="s-anl">Istmo aórtico · opcional</span><span class="s-dx">' + chips(p + "ia", [["anterógrado","Anterógrado"],["ausente","Ausente"],["reverso","Reverso"]], "") + "</span></div>" +
-        '<div class="s-dr"><span class="s-anl">Vena umbilical · opcional</span><span class="s-dx">' + chips(p + "vu", [["sin","Sin pulsaciones"],["con","Con pulsaciones"]], "") + "</span></div>" +
-      "</div></div>" +
       '<h4 class="s-h4">Placenta y líquido amniótico</h4>' +
       field("Placenta", chips(p + "pla", [["anterior","Anterior"],["posterior","Posterior"],["fúndica","Fúndica"],["lateral derecha","Lateral derecha"],["lateral izquierda","Lateral izquierda"],["previa","Previa"],["baja","Baja"]], "")) +
       '<div class="grid g3 hide" id="' + p + 'oci_w"><label class="f"><span>Distancia al OCI</span><div class="unit"><input type="number" id="' + p + 'oci" min="0" step="1" inputmode="numeric"><em>mm</em></div></label></div>' +
@@ -7218,6 +7323,14 @@ var OBSS = (function(){
     if(!c.length || c.every(function(f){ return f.manual; })) return "";
     return "\nNota del peso: peso fetal estimado: Hadlock (" + (hadN() === "4" ? "DBP, CC, CA, LF" : "CC, CA, LF") + "). Percentil: " + refNom() + (esIG() ? " 2020; medidas: Intergrowth-21st 2014" : "") + ".";
   }
+  /* v2.0.1: en crecimiento y Doppler la nota del peso va muy pequeña bajo la biometría */
+  function notaMinBio(F){
+    var np = notaPeso(F).replace(/^\nNota del peso: peso fetal estimado: /, "");
+    var vel = F.some(function(f){ var o = prevFeto(f); return o && o.v && o.v.ok; });
+    if(!np && !vel) return "";
+    return "\nNota mínima: " + (np ? "PFE: " + np.replace(/\. Percentil: /, ", percentil ").replace(/\.$/, "") + "." : "") +
+      (vel ? (np ? " " : "") + "Velocidad de crecimiento: Hugh y Gardosi 2022." : "");
+  }
   function regenerar(F){
     if(previewManual) return;
     var out = [], mult = F.length > 1;
@@ -7225,8 +7338,8 @@ var OBSS = (function(){
     if(ind) out.push("Indicación: " + indPunto(ind));
     if(mult) out.push((nFetos === 3 ? "GESTACIÓN TRIPLE" : "GESTACIÓN GEMELAR") + "\n" + secMulti());
     var dop = isCD() ? seccionDop(F, lastU) : "", prv = isCD() && mult ? lineaPrev(F) : "";
-    var nPeso = dop ? "" : notaPeso(F);
-    if(mult && F.some(tieneBio)) out.push("BIOMETRÍA\n[TABLA DE BIOMETRÍA]" + nPeso + (prv ? "\n" + prv : ""));
+    var nPeso = isCD() ? notaMinBio(F) : notaPeso(F);
+    if(mult && F.some(tieneBio)) out.push("BIOMETRÍA\n[TABLA DE BIOMETRÍA]" + (prv ? "\n" + prv : "") + nPeso);
     if(mult && dop) out.push(dop);
     if(!mult){
       var f = F[0];
@@ -7263,7 +7376,7 @@ var OBSS = (function(){
       else if(t === "[TABLA DE BIOMETRÍA]") h.push(bioTableHTML());
       else if(/^Nota del peso:/.test(t)) h.push('<p class="rb-wnote">' + esc(cap(t.replace(/^Nota del peso:\s*/, ""))) + "</p>");
       else if(t === "[TABLA DOPPLER]") h.push(dopTableHTML());
-      else if(/^Nota del Doppler:/.test(t)) h.push('<p class="rb-wnote">' + esc(cap(t.replace(/^Nota del Doppler:\s*/, ""))) + "</p>");
+      else if(/^Nota mínima:/.test(t)) h.push('<p class="rb-tiny">' + esc(t.replace(/^Nota mínima:\s*/, "")) + "</p>");
       else if(/^Cláusula:/.test(t)) h.push('<p class="rb-clause">' + esc(t.replace(/^Cláusula:\s*/, "")) + "</p>");
       else if(/^(Corazón|Anatomía básica):/.test(t)) h.push('<p class="rb-t rb-ov">' + esc(t) + "</p>");
       else if(/^[A-ZÁÉÍÓÚÑ0-9 /·()-]+$/.test(t) && t.length < 60){
@@ -7388,6 +7501,10 @@ var OBSS = (function(){
     s$("#sMulti").classList.toggle("hide", n < 2);
     s$("#sMultiTitle").textContent = n === 3 ? "Gestación triple" : "Gestación gemelar";
     s$$("#obssCard .s3only").forEach(function(el){ el.closest("label").classList.toggle("hide", n !== 3); });
+    s$$("#sDopFet .s-dopf").forEach(function(w, i){
+      w.classList.toggle("hide", i >= n);
+      w.querySelector(".s-dopt").classList.toggle("hide", n === 1);
+    });
     s$$("#sFetos .s-feto").forEach(function(w, i){
       w.classList.toggle("hide", i >= n);
       w.querySelector(".s-ftit").textContent = n === 1 ? "Feto" : "Feto " + LET[i];
@@ -7433,6 +7550,7 @@ var OBSS = (function(){
   function wire(){
     var box = s$("#sFetos");
     for(var i = 0; i < 3; i++) box.appendChild(buildFeto(i));
+    for(var j = 0; j < 3; j++) s$("#sDopFet").appendChild(buildDopFeto(j));
     toggleable();
     function onEdit(e){
       var t = e.target;
@@ -8281,7 +8399,7 @@ function now(){
   $("#pExamTime").value = String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
 }
 
-buildTree(TREE, $("#tree"), []);
+buildBand();
 loadCenter();
 loadPage(); fillPage(); applyPage();
 loadLook(); applyLook(); loadGuide(); paintGuide();
@@ -8420,6 +8538,8 @@ $("#btnClear").addEventListener("click", function(){
   Array.prototype.forEach.call(document.querySelectorAll(".leaf"), function(l){ l.setAttribute("aria-pressed","false"); });
   $("#picked").className = "picked none";
   $("#picked").textContent = "Escoge un estudio para continuar.";
+  $("#studyBand").classList.remove("done");
+  $("#studyChange").classList.add("hide");
   $("#ginBlock").classList.add("hide");
   $("#obsBlock").classList.add("hide");
   $("#ginCard").classList.add("hide");
@@ -8482,8 +8602,9 @@ Array.prototype.forEach.call(document.querySelectorAll(".ind-chips"), function(b
 
 /* ============================ publicación v1.0 ============================ */
 var APP = {
-  version:"2.0", fecha:"31-oct-2026",
+  version:"2.0.1", fecha:"31-oct-2026",
   novedades:[
+    "2.0.1: tipo de estudio en una franja arriba, agrupado en Ginecología y Obstetricia, que se encoge al elegir (botón Cambiar); se quitan Genética 11–14 y Morfológica hasta construirlas y el botón Continuar al informe. Las cajas de fecha y hora ya no se salen de su columna en iPad. Crecimiento y Doppler: todo el Doppler junto en una sección (materno y fetal) con valor, percentil y clasificación (normal o alterado) en casillas aparte; gemelares con un bloque por feto; las opciones anormales se pintan de rojo; las referencias van muy pequeñas bajo la biometría y bajo la tabla del Doppler. PDF: arma sus propias páginas (ya no deja páginas casi vacías ni numera mal), los títulos no quedan solos al pie, la cláusula va con la firma y las etiquetas del encabezado no se parten.",
     "2.0: nueva ecografía de crecimiento y Doppler materno-fetal (reemplaza las entradas Doppler fetal y Crecimiento): misma base de la obstétrica; arterias uterinas derecha e izquierda con IP medio calculado y su percentil con la ecuación de Gómez 2008 (igual que Fetal Medicine Barcelona); arteria umbilical con diástole presente, ausente o reversa, cerebral media e índice cerebro-placentario con percentil exacto y su estado, normal o alterado (FMF, Ciobanu 2019, leída en el punto medio de cada semana como en el artículo); VSM de la cerebral media en MoM (Mari 2000); ductus venoso (Kessler 2006), istmo aórtico y vena umbilical opcionales; tabla del Doppler sin barras; estudio anterior con velocidad de crecimiento (Hugh y Gardosi 2022); estadio de Barcelona y restricción temprana o tardía; conclusiones y seguimiento automáticos; título según la edad gestacional y anatomía básica opcional.",
     "1.9: obstétrica: conclusiones según ISUOG (viabilidad, crecimiento con PFE y percentil, anatomía y solo los hallazgos; en gemelares el crecimiento y la discordancia en una línea); cláusula muy pequeña bajo las conclusiones, firma más cerca y espacios reducidos entre secciones para que quepa en una hoja; la barra de percentil ya no sale encogida en la vista previa ni al imprimir; cordón con 3 vasos de inicio; sección Otros hallazgos (No / Sí) con miomas (misma redacción del ginecológico), adenomiosis, placenta y anexos, caja libre y aviso de desprendimiento; percentiles Intergrowth-21st (peso de Hadlock 3 medidas con el estándar 2020 y medidas con el de 2014); p3, p10, p50, p90 y p97 alineados sobre la barra; \"miomas distribuidos\" en todos los informes.",
     "1.8: HyCoSy: cada trompa se describe según su estado (permeable con spill inmediato o tardío; no permeable con nivel proximal, ístmico o distal; no concluyente con el motivo) y el derrame va dentro de cada trompa; impresión diagnóstica con el nivel de la obstrucción. Histerosonografía y HyCoSy: sonda Foley con calibre (5F de inicio), corte coronal 3D opcional, EVA de dolor y sugerencias propias de cada estudio.",
