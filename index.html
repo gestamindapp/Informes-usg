@@ -426,6 +426,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 .sheet table.bio-tbl td.dsep,.sheet table.bio-tbl th.dsep{padding-left:12pt}
 .sheet table.bio-tbl .calc{font-size:calc(var(--rs,10.5pt)*.7);color:#777;font-weight:400}
 .sheet .rb-h.rb-h-tight{margin-top:3pt}
+.sheet.tvo .rb-h.rb-h-tight{margin-top:2.5pt}
 .sheet .rb-tiny{margin:1pt 0 3pt;font-size:5pt;line-height:1.25;color:#666}
 .sheet .rb-wnote{margin:-3pt 0 6pt;font-size:calc(var(--rs,10.5pt)*.68);color:#666}
 .sheet .sig:has(.rb-foot){flex-wrap:wrap}
@@ -452,6 +453,9 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 .sheet.obs-compact .rb-ind{margin:0 0 2pt}
 .sheet.obs-compact table.bio-tbl{margin:1pt 0 3pt}
 .sheet.obs-compact .rb-wnote{margin:-2pt 0 2pt}
+/* v2.0.2: obstétrica transvaginal: 2.5 pt antes de cada título; nota pequeña bajo la conclusión */
+.sheet.obs-compact.tvo .rb-h{margin:2.5pt 0 2pt}
+.sheet .rb-snote{margin:0 0 2pt;font-size:calc(var(--rs,10.5pt)*.68);line-height:1.3;color:#666;text-align:justify}
 .sheet .rb-li>span:last-child{text-align:justify}
 .sheet .rb-note{margin:8pt 0 0;padding-top:4pt;border-top:.5pt solid #9a9a9a;font-size:calc(var(--rs,10.5pt)*.82)}
 
@@ -641,6 +645,8 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
   background:var(--surface2);color:var(--ink)}
 .ind-chip:hover{border-color:var(--accent)}
 .ind-chip.used{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* v2.0.2: botón de sugerencia indicado para el caso (obstétrica transvaginal) */
+.ind-chip.rec{border-style:dashed;border-color:var(--accent)}
 .ind-box textarea{width:100%;min-height:52px;padding:8px 10px;background:var(--surface2);border:1px solid var(--line);
   border-radius:8px;font:inherit;color:inherit;resize:vertical}
 .ind-box textarea:focus{outline:2px solid var(--focus);outline-offset:-1px;border-color:transparent}
@@ -698,7 +704,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 <header class="topbar">
   <span class="mark appmark" id="mark"><img src="data:image/png;base64,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" alt="Informes USG"></span>
   <h1><span class="tl-long">Informes de ultrasonido</span><span class="tl-short">Informes USG</span></h1>
-  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v2.0.1</button>
+  <button type="button" class="verbadge" id="verBadge" title="Versión y novedades">v2.0.2</button>
   <span class="who" id="topWho"></span>
   <span class="spacer"></span>
   <button class="btn" id="btnCfg">Configuración</button>
@@ -1665,27 +1671,19 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
 
 
   <section class="card hide" id="obsCard">
-    <header><h2>Informe · Ecografía transvaginal obstétrica (hasta 10 semanas 6 días)</h2></header>
+    <header><h2>Informe · Ecografía obstétrica transvaginal (hasta 10 semanas 6 días)</h2></header>
     <div class="body">
 
       <!-- 1 · DATOS DE LA GESTACIÓN -->
       <h3 style="font-size:12.5px;color:var(--muted);font-weight:500;margin-bottom:11px">Datos de la gestación</h3>
       <div class="ref" id="oRefM1">Se toman de los datos de la paciente.</div>
 
-      <div class="grid g2" style="margin-top:12px">
-        <label class="f"><span>Motivo del estudio (opcional)</span>
-          <select id="oMotivo">
-            <option value="">—</option>
-            <option value="control prenatal">Control prenatal</option>
-            <option value="confirmación de embarazo">Confirmación de embarazo</option>
-            <option value="control de viabilidad">Control de viabilidad</option>
-            <option value="sangrado vaginal">Sangrado vaginal</option>
-            <option value="dolor pélvico">Dolor pélvico</option>
-            <option value="sangrado vaginal y dolor pélvico">Sangrado y dolor</option>
-            <option value="otro">Otro</option>
-          </select>
-        </label>
-        <label class="f"><span>Detalle del motivo (opcional)</span><input type="text" id="oMotivoDet" autocomplete="off" placeholder="Sangrado escaso de 2 días"></label>
+      <!-- v2.0.2: motivo del estudio con botones y caja libre; se imprime como línea bajo el título -->
+      <div style="margin-top:12px">
+        <span class="g-title" style="display:block;margin-bottom:6px">Motivo del estudio</span>
+        <div class="ind-chips" data-for="oMotivo"><button type="button" class="ind-chip" data-ind="Control prenatal">Control prenatal</button><button type="button" class="ind-chip" data-ind="Confirmación de embarazo">Confirmación de embarazo</button><button type="button" class="ind-chip" data-ind="Control de viabilidad">Control de viabilidad</button><button type="button" class="ind-chip" data-ind="Sangrado vaginal">Sangrado vaginal</button><button type="button" class="ind-chip" data-ind="Dolor pélvico">Dolor pélvico</button><button type="button" class="ind-chip" data-ind="Seguimiento de hallazgo previo">Seguimiento de hallazgo previo</button></div>
+        <textarea id="oMotivo" rows="2" placeholder="Escribe el motivo o toca una opción"></textarea>
+        <div class="row" style="margin-top:6px"><button type="button" class="btn quiet" id="oMotivoClr">Limpiar</button></div>
       </div>
       <div class="grid g3" style="margin-top:12px">
         <label class="f"><span>β-hCG (opcional)</span><div class="unit"><input type="number" id="oHcg" min="0" step="1" inputmode="numeric"><em>mUI/ml</em></div></label>
@@ -1855,12 +1853,42 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
           <p class="hint" style="margin:8px 0 0">En un ectópico, la edad gestacional por LCN se informa en el texto; no se escribe en los datos de la paciente ni se imprime la FPP.</p>
         </div>
 
+        <!-- v2.0.2: contenido intrauterino con restos ovulares (aborto incompleto) y aborto completo -->
         <div class="g-field">
           <span class="g-title">Contenido intrauterino</span>
           <div class="g-choices">
-            <label><input type="checkbox" id="oTrofo" value="si"><span>Material ecogénico con múltiples imágenes quísticas (sospecha de enfermedad trofoblástica)</span></label>
+            <label><input type="radio" name="oCont" value="" checked><span>Sin contenido anormal</span></label>
+            <label><input type="radio" name="oCont" value="restos"><span>Restos ovulares (aborto incompleto)</span></label>
+            <label><input type="radio" name="oCont" value="completo"><span>Cavidad vacía, endometrio fino (aborto completo)</span></label>
+            <label><input type="radio" name="oCont" value="trofo"><span>Material ecogénico con múltiples imágenes quísticas (sospecha de enfermedad trofoblástica)</span></label>
           </div>
         </div>
+        <div class="box hide" id="oRestosWrap" style="margin-bottom:14px">
+          <div class="g4">
+            <label class="f"><span>Medida 1</span><div class="unit"><input type="number" id="oRe1" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label><label class="f"><span>Medida 2</span><div class="unit"><input type="number" id="oRe2" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label><label class="f"><span>Medida 3</span><div class="unit"><input type="number" id="oRe3" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+            <div class="f"><span>Volumen</span><div class="ro" id="oReVol">—</div></div>
+          </div>
+          <div class="g-cols2" style="margin-top:12px">
+            <div class="g-field">
+              <span class="g-title">Aspecto</span>
+              <div class="g-choices">
+                <label><input type="radio" name="oReAsp" value="heterogéneo" checked><span>Heterogéneo</span></label>
+                <label><input type="radio" name="oReAsp" value="heterogéneo de predominio ecogénico"><span>Predominio ecogénico</span></label>
+                <label><input type="radio" name="oReAsp" value="mixto (ecogénico y anecoico)"><span>Mixto</span></label>
+              </div>
+            </div>
+            <div class="g-field">
+              <span class="g-title">Doppler</span>
+              <div class="g-choices">
+                <label><input type="radio" name="oReDop" value="sin"><span>Sin flujo</span></label>
+                <label><input type="radio" name="oReDop" value="con"><span>Con vascularización</span></label>
+                <label><input type="radio" name="oReDop" value="abund"><span>Vascularización abundante</span></label>
+              </div>
+            </div>
+          </div>
+          <label class="f"><span>Comentario sobre los restos</span><textarea id="oReCom"></textarea></label>
+        </div>
+        <p class="hint hide" id="oCompWrap" style="margin:0 0 12px">Escribe el grosor endometrial arriba. El aborto completo solo se diagnostica si antes se confirmó una gestación intrauterina (ESHRE): marca en "El estudio previo mostró" qué se vio.</p>
         <label class="f"><span>Comentario sobre el útero</span><textarea id="oUtCom"></textarea></label>
       </div>
 
@@ -1940,18 +1968,8 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
       <!-- 6 · CÉRVIX -->
       <div class="sub">
         <h3>Cérvix · cervicometría (técnica FMF)</h3>
-        <div class="g4">
-          <label class="f"><span>Medida 1</span><div class="unit"><input type="number" id="oCx1" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
-          <label class="f"><span>Medida 2</span><div class="unit"><input type="number" id="oCx2" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
-          <label class="f"><span>Medida 3</span><div class="unit"><input type="number" id="oCx3" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
-          <div class="f"><span>Longitud (la menor)</span>
-            <div class="ctl">
-              <div class="unit"><input type="number" id="oCxLen" class="derived" min="0" step="0.1" inputmode="decimal"><em>mm</em></div>
-              <button class="revert" type="button" data-orevert="cx" title="Volver al cálculo automático" aria-label="Volver al cálculo automático">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2v3h3"/></svg>
-              </button>
-            </div>
-          </div>
+        <div class="grid g3">
+          <label class="f"><span>Longitud cervical</span><div class="unit"><input type="number" id="oCxLen" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
         </div>
         <div class="g-cols2" style="margin-top:12px">
           <div class="g-field">
@@ -1993,9 +2011,9 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
         <label class="f"><span>Comentario sobre el cérvix</span><textarea id="oCxCom"></textarea></label>
       </div>
 
-      <!-- 7 · ANEXOS Y PELVIS -->
+      <!-- 7 · ANEXOS -->
       <div class="sub">
-        <h3>Anexos y pelvis</h3>
+        <h3>Anexos</h3>
         <div class="g-cols2">
           <div class="box">
             <h4>Ovario derecho</h4>
@@ -2012,6 +2030,12 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
                 <label><input type="radio" name="oClD" value="no" checked><span>No</span></label>
                 <label><input type="radio" name="oClD" value="si"><span>Sí</span></label>
               </div>
+            </div>
+            <div class="grid g4 hide" id="oClWrapD" style="margin-bottom:12px">
+              <label class="f"><span>Medida 1</span><div class="unit"><input type="number" id="oClD1" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <label class="f"><span>Medida 2</span><div class="unit"><input type="number" id="oClD2" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <label class="f"><span>Medida 3</span><div class="unit"><input type="number" id="oClD3" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <div class="f"><span>Volumen</span><div class="ro" id="oClVolD">—</div></div>
             </div>
             <label class="f"><span>Hallazgos</span><textarea id="oOvD"></textarea></label>
           </div>
@@ -2030,6 +2054,12 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
                 <label><input type="radio" name="oClI" value="no" checked><span>No</span></label>
                 <label><input type="radio" name="oClI" value="si"><span>Sí</span></label>
               </div>
+            </div>
+            <div class="grid g4 hide" id="oClWrapI" style="margin-bottom:12px">
+              <label class="f"><span>Medida 1</span><div class="unit"><input type="number" id="oClI1" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <label class="f"><span>Medida 2</span><div class="unit"><input type="number" id="oClI2" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <label class="f"><span>Medida 3</span><div class="unit"><input type="number" id="oClI3" min="0" step="0.1" inputmode="decimal"><em>mm</em></div></label>
+              <div class="f"><span>Volumen</span><div class="ro" id="oClVolI">—</div></div>
             </div>
             <label class="f"><span>Hallazgos</span><textarea id="oOvI"></textarea></label>
           </div>
@@ -2084,7 +2114,7 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
             </div>
           </div>
         </div>
-        <label class="f"><span>Comentario sobre anexos y pelvis</span><textarea id="oAnxCom"></textarea></label>
+        <label class="f"><span>Comentario sobre anexos</span><textarea id="oAnxCom"></textarea></label>
       </div>
 
       <!-- 8 · FECHADO Y CONCLUSIONES -->
@@ -2101,22 +2131,34 @@ dialog footer{display:flex;gap:9px;justify-content:flex-end;padding:13px 18px;
         <p class="hint" style="margin:8px 0 0">Las alertas y avisos solo se ven en pantalla; no se imprimen.</p>
       </div>
 
+      <!-- v2.0.2: la sugerencia diagnóstica no se imprime; se escribe sola en Conclusiones mientras no se edite -->
       <div class="sub">
-        <h3>Impresión diagnóstica</h3>
+        <h3>Sugerencia diagnóstica</h3>
         <div class="sugg">
-          <div class="lbl">Sugerencia según lo capturado</div>
+          <div class="lbl">Sugerencia según lo capturado · pasa sola a Conclusiones</div>
           <div class="txt" id="oSuggTxt">—</div>
-          <div class="row">
-            <button class="btn" type="button" id="oSuggAccept">Aceptar sugerencia</button>
-            <span class="same hide" id="oSuggSame">Aceptada</span>
-          </div>
         </div>
-        <label class="f" style="margin-top:12px"><span>Impresión diagnóstica (se imprime)</span><textarea id="oClasif" rows="2" placeholder="Acepta la sugerencia o escribe la tuya"></textarea></label>
+        <div class="g-field hide" id="oDiscWrap" style="margin-top:10px">
+          <div class="g-choices">
+            <label><input type="checkbox" id="oDisc" checked><span>Incluir la discordancia con la FUM en el informe</span></label>
+          </div>
+          <div class="ro" id="oDiscTxt" style="margin-top:6px"></div>
+        </div>
       </div>
 
       <div class="sub">
         <h3>Conclusiones</h3>
-        <textarea id="oConclusiones" rows="4" placeholder="Conclusiones y recomendaciones..."></textarea>
+        <textarea id="oConclusiones" rows="4" placeholder="Se llena con la sugerencia diagnóstica; puedes editarla."></textarea>
+        <div class="row" style="margin-top:8px"><button class="btn quiet hide" type="button" id="oConclRevert">Volver a la sugerencia</button></div>
+      </div>
+
+      <!-- v2.0.2: sugerencias con botones y caja libre; se imprimen solo si hay texto -->
+      <div class="sub">
+        <h3>Sugerencias</h3>
+        <div class="ind-chips" data-for="oSuger"><button type="button" class="ind-chip" data-osg="tam" data-ind="Se sugiere ecografía de tamizaje del primer trimestre entre las 11 y 13 semanas 6 días">Tamizaje 11–14</button><button type="button" class="ind-chip" data-osg="c1" data-ind="Se sugiere control ecográfico en 1 semana">Control en 1 semana</button><button type="button" class="ind-chip" data-osg="c2" data-ind="Se sugiere control ecográfico en 2 semanas">Control en 2 semanas</button><button type="button" class="ind-chip" data-osg="c710" data-ind="Se sugiere control ecográfico en 7 a 10 días para confirmar viabilidad">Control en 7–10 días</button><button type="button" class="ind-chip" data-osg="hcg" data-ind="Se sugiere control de β-hCG cuantitativa en 48 horas">β-hCG en 48 horas</button><button type="button" class="ind-chip" data-osg="post" data-ind="Se sugiere control ecográfico tras la resolución del aborto">Control tras aborto</button><button type="button" class="ind-chip" data-osg="urg" data-ind="Se sugiere evaluación por ginecología y obstetricia de forma urgente">Evaluación urgente</button><button type="button" class="ind-chip" data-osg="cpn" data-ind="Se sugiere iniciar control prenatal">Inicio de control prenatal</button><button type="button" class="ind-chip" data-osg="fol" data-ind="Se sugiere suplementación con ácido fólico">Ácido fólico</button><button type="button" class="ind-chip" data-osg="corr" data-ind="Se sugiere correlación clínica">Correlación clínica</button></div>
+        <p class="hint hide" id="oSugerHint" style="margin:0 0 8px">El botón con borde punteado es el indicado para este caso.</p>
+        <textarea id="oSuger" rows="2" placeholder="Toca una opción o escribe la sugerencia"></textarea>
+        <div class="row" style="margin-top:6px"><button type="button" class="btn quiet" id="oSugerClr">Limpiar</button></div>
       </div>
 
       <div class="sub">
@@ -2533,7 +2575,7 @@ var TREE = [
     { id:"tv-fert", label:"Fertilidad", kind:"gin",
       title:"Ecografía transvaginal de fertilidad" },
     { id:"tv-obs",  label:"Obstétrica", kind:"obs",
-      title:"Ecografía transvaginal obstétrica" }
+      title:"Ecografía obstétrica transvaginal" }
   ]},
   { label:"Ecografía pélvica", children:[
     { id:"pel-gin", label:"Ginecológica pélvica", kind:"gin",
@@ -2742,7 +2784,7 @@ function buildTree(nodes, parentUl, path){
 /* v2.0.1: franja de estudios agrupada (Ginecología / Obstetricia) */
 var BAND = [
   { g:"Ginecología", items:[["tv-gin","Transvaginal ginecológica"],["tv-fert","Fertilidad"],["pel-gin","Pélvica ginecológica"],["endo-map","Mapeo de endometriosis"],["hsn","Histerosonografía"],["hycosy","HyCoSy"]] },
-  { g:"Obstetricia", items:[["tv-obs","Transvaginal obstétrica"],["obs-simple","Obstétrica simple"],["obs-crecdop","Crecimiento y Doppler materno-fetal"]] }
+  { g:"Obstetricia", items:[["tv-obs","Obstétrica transvaginal"],["obs-simple","Obstétrica simple"],["obs-crecdop","Crecimiento y Doppler materno-fetal"]] }
 ];
 function findNode(id, nodes, path){
   for(var i = 0; i < nodes.length; i++){
@@ -3172,7 +3214,7 @@ function paginate(html){
 
   function newPage(){
     var i = pages.length;
-    var pg = document.createElement("div"); pg.className = "sheet" + (study && esOBSS(study.id) ? " obs-compact" : "");
+    var pg = document.createElement("div"); pg.className = "sheet" + (study && esOBSS(study.id) ? " obs-compact" : "") + (TVO() ? " obs-compact tvo" : "");
     if(lhOn(i) && lhGuide){
       var g = document.createElement("div"); g.className = "guide";
       g.style.backgroundImage = 'url("' + lhGuide + '")';
@@ -3347,7 +3389,7 @@ function pdfNode(el, ctx){
   if(cl.contains("rb-h")){
     return { stack:[ { text:el.textContent.toLocaleUpperCase("es"), bold:true, color:C, fontSize:S*0.9, characterSpacing:0.6 },
                      { canvas:[{ type:"line", x1:0, y1:0, x2:cw, y2:0, lineWidth:0.75, lineColor:C }], margin:[0,1.5,0,0] } ],
-             margin:[0, cl.contains("rb-h-tight") || COMPACT() ? 3 : 11, 0, COMPACT() ? 2 : 4] };
+             margin:[0, TVO() ? 2.5 : (cl.contains("rb-h-tight") || COMPACT() ? 3 : 11), 0, COMPACT() ? 2 : 4] };
   }
   if(cl.contains("rb-li")){
     var spans = el.querySelectorAll("span");
@@ -3357,10 +3399,11 @@ function pdfNode(el, ctx){
   if(cl.contains("rb-kv")) return { text:inlineRuns(el), alignment:"left", margin:[0,0,0,3] };
   if(cl.contains("rb-t")) return { text:inlineRuns(el), alignment:"justify", margin:[0,0,0,COMPACT() ? 2 : 3] };
   if(cl.contains("rb-ind")){
-    var ir = inlineRuns(el); if(ir.length) ir[0].color = C;
+    var ir = inlineRuns(el); if(ir.length && !cl.contains("rb-dat")) ir[0].color = C;
     return { text:ir, alignment:"justify", margin:[0,0,0,COMPACT() ? 2 : 6] };
   }
   if(cl.contains("rb-clause")) return { text:el.textContent, fontSize:S*0.68, lineHeight:1.15, color:"#666", alignment:"justify", margin:[0,1,0,0] };
+  if(cl.contains("rb-snote")) return { text:el.textContent, fontSize:S*0.68, color:"#666", alignment:"justify", margin:[0,0,0,2] };
   if(cl.contains("rb-tiny")) return { text:el.textContent, fontSize:5, lineHeight:1.1, color:"#666", margin:[0,1,0,3] };
   if(cl.contains("rb-wnote")) return { text:el.textContent, fontSize:S*0.68, color:"#666", margin:COMPACT() ? [0,-2,0,2] : [0,-3,0,6] };
   if(cl.contains("rb-foot")) return { stack:[ hline(0.5, "#c8c8c8"), { text:el.textContent, fontSize:S*0.68, color:"#666", margin:[0,3,0,0] } ], margin:[0,12,0,0] };
@@ -3470,7 +3513,9 @@ function pdfNode(el, ctx){
   return tx ? { text:tx, margin:[0,0,0,3] } : null;
 }
 /* v1.9: la obstétrica usa espacios reducidos (como .sheet.obs-compact) */
-function COMPACT(){ return !!(study && esOBSS(study.id)); }
+function COMPACT(){ return !!(study && (esOBSS(study.id) || study.id === "tv-obs")); }
+/* v2.0.2: la obstétrica transvaginal lleva 2.5 pt antes de cada título */
+function TVO(){ return !!(study && study.id === "tv-obs"); }
 function buildPdfDoc(){
   var nat = RFONTS[look.font].nat;
   var ctx = { cw:mm2pt(page.w - page.l - page.r), nat:nat };
@@ -5522,7 +5567,7 @@ var OBS = (function(){
   function egT(days){
     if(days === null || days === undefined || days < 0) return "";
     var w = Math.floor(days/7), d = days % 7;
-    return w + (w === 1 ? " semana" : " semanas") + (d ? " " + d + (d === 1 ? " día" : " días") : "");
+    return w + (w === 1 ? " semana" : " semanas") + (d ? " y " + d + (d === 1 ? " día" : " días") : "");
   }
   function signed(d){ return (d > 0 ? "+" : (d < 0 ? "−" : "")) + Math.abs(d) + (Math.abs(d) === 1 ? " día" : " días"); }
   function robinson(lcn){ return Math.round(8.052*Math.sqrt(lcn) + 23.73); }
@@ -5530,7 +5575,9 @@ var OBS = (function(){
   var LET = "ABCDEFGH";
   var PREFIX = ["", "mono", "bi", "tri", "tetra"];
 
-  var oManual = { chor:false, cx:false };
+  var oManual = { chor:false };
+  function cont(){ return radio("oCont"); }
+  function volT(v){ return v === null ? "" : " (Vol: " + (v < 0.1 ? v.toFixed(2) : volNum(v)) + " cc)"; }
   var previewManual = false, sacSeq = 0, forceLcn = false, lastFetos = null, lastSugg = "";
 
   function active(){ return !!(study && study.id === "tv-obs"); }
@@ -5584,6 +5631,7 @@ var OBS = (function(){
     o$("#oSacs").insertAdjacentHTML("beforeend", sacHTML(sacSeq));
   }
   function sacsVisible(){ var l = radio("oLoc"); return l !== "no" && l !== "anexial"; }
+  function abortoSinSaco(){ var c = cont(); return radio("oLoc") === "no" && (c === "restos" || c === "completo"); }
   function ectLoc(){ var l = radio("oLoc"); return l === "cicatriz" || l === "intersticial" || (l === "cervical" && radio("oSlide") !== "positivo"); }
   function anexOn(){ var l = radio("oLoc"); return l === "anexial" || ((l === "normo" || l === "bajo") && o$("#oHetero").checked); }
   function noFpp(){ return active() && (ectLoc() || radio("oLoc") === "anexial"); }
@@ -5710,7 +5758,10 @@ var OBS = (function(){
     if(ectHB) ev.other.push("Embarazo ectópico con actividad cardíaca.");
     if((ed || ectLoc()) && liq !== "no" && radio("oLiqEco") === "con ecos") ev.other.push("Embarazo ectópico con líquido libre con ecos: sospecha de rotura.");
     var hcg = num(o$("#oHcg").value);
-    if(loc === "no" && hcg && hcg >= 3500) ev.other.push("β-hCG de " + Math.round(hcg) + " mUI/ml sin saco intrauterino: por encima de la zona discriminatoria (3 500 mUI/ml).");
+    if(cont() === "completo" && (!o$("#oPrevHall").value || o$("#oPrevHall").value === "sac"))
+      ev.other.push("Aborto completo sin gestación intrauterina confirmada previamente (vesícula o embrión): considera embarazo de localización desconocida y seguimiento con β-hCG (ESHRE).");
+    if(cont() === "restos" && radio("oReDop") === "abund") ev.other.push("Restos con vascularización abundante: valora malformación arteriovenosa o retención con flujo aumentado.");
+    if(loc === "no" && !abortoSinSaco() && hcg && hcg >= 3500) ev.other.push("β-hCG de " + Math.round(hcg) + " mUI/ml sin saco intrauterino: por encima de la zona discriminatoria (3 500 mUI/ml).");
     ev.definitive = ev.def.length > 0;
     return ev;
   }
@@ -5744,7 +5795,11 @@ var OBS = (function(){
     o$("#oMioTxt").classList.toggle("hide", radio("oMio") !== "si");
     o$("#oCesNWrap").classList.toggle("hide", radio("oCes") !== "si");
     o$("#oInterWrap").classList.toggle("hide", loc !== "intersticial");
-    o$("#oEndoWrap").classList.toggle("hide", loc !== "no" && loc !== "anexial");
+    o$("#oEndoWrap").classList.toggle("hide", (loc !== "no" && loc !== "anexial") || cont() === "restos");
+    o$("#oRestosWrap").classList.toggle("hide", cont() !== "restos");
+    o$("#oCompWrap").classList.toggle("hide", cont() !== "completo");
+    o$("#oClWrapD").classList.toggle("hide", radio("oClD") !== "si" || radio("oVisD") === "no");
+    o$("#oClWrapI").classList.toggle("hide", radio("oClI") !== "si" || radio("oVisI") === "no");
     o$("#oHeteroWrap").classList.toggle("hide", loc !== "normo" && loc !== "bajo");
     o$("#oEctWrap").classList.toggle("hide", !anexOn());
     o$("#oESacWrap").classList.toggle("hide", radio("oETipo") !== "saco");
@@ -5807,11 +5862,10 @@ var OBS = (function(){
       (ch.undef ? "" : " · " + ch.a + " amnios")) : "—";
     if(!oManual.chor) o$("#oChorTipo").value = showChor ? ch.txt : "";
     o$("#oChorTipo").classList.toggle("manual", oManual.chor);
-    if(!oManual.cx){
-      var m = ["#oCx1","#oCx2","#oCx3"].map(function(s){ return num(o$(s).value); }).filter(function(v){ return v; });
-      o$("#oCxLen").value = m.length ? fmtN(Math.min.apply(null, m)) : "";
-    }
-    o$("#oCxLen").classList.toggle("manual", oManual.cx);
+    [["oRe","#oReVol"],["oClD","#oClVolD"],["oClI","#oClVolI"]].forEach(function(r){
+      var vv = volCC(o$("#"+r[0]+"1").value, o$("#"+r[0]+"2").value, o$("#"+r[0]+"3").value);
+      o$(r[1]).innerHTML = vv === null ? "—" : "<b>" + (vv < 0.1 ? vv.toFixed(2) : volNum(vv)) + " cc</b>";
+    });
     o$$("[data-orevert]").forEach(function(b){ b.classList.toggle("show", !!oManual[b.dataset.orevert]); });
     var v = volCC(o$("#oHem1").value, o$("#oHem2").value, o$("#oHem3").value);
     o$("#oHemVol").innerHTML = v === null ? "—" : "<b>" + (v < 1 ? v.toFixed(2) : v.toFixed(1)) + " cc</b>";
@@ -5901,6 +5955,23 @@ var OBS = (function(){
     if(ev.sacs.length && ev.embs.length === 0) return ", sin embrión visible";
     return "";
   }
+  /* v2.0.2: edad gestacional de la conclusión al estilo ISUOG ("9 semanas y 3 días por LCN") */
+  function egConc(){
+    var mode = datingMode(), L = lcnInfo(), eg = egCurrent();
+    if(mode === "lcn" && L) return egT(L.days) + " por LCN";
+    if(mode === "prev" && eg !== null) return egT(eg) + " por ecografía previa";
+    if(mode === "fum" && eg !== null) return egT(eg) + " por FUM";
+    if(mode === "manual" && eg !== null) return egT(eg);
+    return L ? egT(L.days) + " por LCN" : "";
+  }
+  /* discordancia LCN − FUM (solo cuando se fecha por la LCN de este examen) */
+  function discFum(){
+    var L = lcnInfo(), fum = egFromFum();
+    if(!L || fum === null || datingMode() !== "lcn" || noFpp()) return null;
+    var d = L.days - fum;
+    return Math.abs(d) > threshold(L.days) ? d : null;
+  }
+  function discTxt(d){ return "Discordante con la FUM (diferencia de " + Math.abs(d) + (Math.abs(d) === 1 ? " día" : " días") + "); se fecha por LCN."; }
   function iuText(ev){
     var embs = ev.embs, total = embs.length, L = lcnInfo();
     var vvYes = ev.sacs.some(function(s){ return s.vv === "si"; });
@@ -5910,18 +5981,20 @@ var OBS = (function(){
     }
     if(total === 1){
       var e = embs[0], mm = e.lcn ? " de " + fmtN(e.lcn) + " mm" : "";
-      if(e.hb === "presente") return "Gestación única intrauterina, viable" + (e.days ? ", de " + egT(e.days) + " por LCN" : "");
+      if(e.hb === "presente"){ var gc = egConc(); return "Gestación única intrauterina, embrión vivo" + (gc ? " de " + gc : ""); }
       if(e.hb === "ausente") return ev.definitive ? "Pérdida gestacional temprana: embrión" + mm + " sin actividad cardíaca"
                                                   : "Gestación única intrauterina de viabilidad incierta: embrión" + mm + " sin actividad cardíaca";
+      if(!e.lcn && !e.hb) return "Gestación única intrauterina";
       return "Gestación única intrauterina con embrión" + mm + "; actividad cardíaca no evaluada";
     }
     var mult = total === 2 ? "gemelar" : (total === 3 ? "triple" : "múltiple");
     var chor = o$("#oChorTipo").value.trim();
     var t = "Gestación " + mult + " intrauterina" + (chor ? " " + low(chor) : "");
-    if(ev.viable === total) t += ", " + (total === 2 ? "ambos embriones viables" : "todos los embriones viables");
+    if(ev.viable === total) t += ", " + (total === 2 ? "ambos embriones vivos" : "todos los embriones vivos");
     else if(ev.viable === 0) t += ", sin actividad cardíaca en ningún embrión";
     else t += ", " + ev.viable + (ev.viable === 1 ? " embrión" : " embriones") + " con actividad cardíaca y " + (total - ev.viable) + " sin actividad cardíaca confirmada";
-    if(L) t += ", de " + egT(L.days) + " por LCN";
+    var gm = egConc();
+    if(L && gm) t += ", de " + gm;
     return t;
   }
   function suggestion(ev){
@@ -5932,8 +6005,10 @@ var OBS = (function(){
         (ed.emb ? (ed.hb === "presente" ? ", con embrión con actividad cardíaca" : (ed.hb === "ausente" ? ", con embrión sin actividad cardíaca" : ", con embrión")) : "");
     }
     var parts = [];
-    if(o$("#oTrofo").checked) parts.push("Sospecha de enfermedad trofoblástica gestacional");
-    if(loc === "no") parts.push("Embarazo de localización desconocida");
+    if(cont() === "trofo") parts.push("Sospecha de enfermedad trofoblástica gestacional");
+    if(loc === "no" && cont() === "restos") parts.push("Hallazgos compatibles con aborto incompleto (restos ovulares)");
+    else if(loc === "no" && cont() === "completo") parts.push("Hallazgos compatibles con aborto completo");
+    else if(loc === "no") parts.push("Embarazo de localización desconocida");
     else if(loc === "anexial") parts.push(ect || "Embarazo ectópico anexial");
     else if(loc === "cicatriz"){ var tp = radio("oCsTipo"); parts.push("Embarazo en cicatriz de cesárea" + (tp ? " tipo " + tp : "") + viaSuffix(ev)); }
     else if(loc === "cervical") parts.push(radio("oSlide") === "positivo" ? "Aborto en curso: saco gestacional en el canal cervical, con signo de deslizamiento positivo" : "Embarazo cervical" + viaSuffix(ev));
@@ -5949,13 +6024,37 @@ var OBS = (function(){
     if(radio("oHem") === "si" && sacsVisible()) parts.push("Hematoma subcoriónico");
     return parts.map(endDot).join(" ");
   }
+  /* v2.0.2: sugerencias: fechas del tamizaje 11–14 y botón indicado según el caso */
+  function isoOf(d){ return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+  function renderSuger(ev){
+    var tam = o$('[data-osg="tam"]'), base = "Se sugiere ecografía de tamizaje del primer trimestre entre las 11 y 13 semanas 6 días";
+    var eg = egCurrent(), ex = examDate();
+    if(eg !== null && ex && eg < 77 && !noFpp()){
+      var d1 = new Date(ex.getTime()), d2 = new Date(ex.getTime());
+      d1.setDate(d1.getDate() + (77 - eg)); d2.setDate(d2.getDate() + (97 - eg));
+      tam.dataset.ind = base + " (del " + human(isoOf(d1)) + " al " + human(isoOf(d2)) + ")";
+    } else tam.dataset.ind = base;
+    var loc = radio("oLoc"), c = cont(), rec = "";
+    if(ectLoc() || anexOn()) rec = "urg";
+    else if(loc === "no" && c === "restos") rec = "post";
+    else if(loc === "no") rec = "hcg";
+    else if(ev.definitive) rec = "post";
+    else if(ev.viable > 0 && ev.viable === ev.embs.length) rec = "tam";
+    else if(ev.sacs.length) rec = "c710";
+    o$$("[data-osg]").forEach(function(b){ b.classList.toggle("rec", b.dataset.osg === rec); });
+    o$("#oSugerHint").classList.toggle("hide", !rec);
+  }
   function renderSugg(ev){
     var s = suggestion(ev);
     lastSugg = s;
     o$("#oSuggTxt").textContent = s || "—";
-    var same = s && o$("#oClasif").value.trim() === s;
-    o$("#oSuggSame").classList.toggle("hide", !same);
-    o$("#oSuggAccept").classList.toggle("hide", !s || same);
+    /* v2.0.2: la sugerencia se escribe sola en Conclusiones mientras no se edite */
+    var ta = o$("#oConclusiones"), last = ta.dataset.auto || "";
+    if(ta.value.trim() === "" || ta.value === last){ ta.value = s; ta.dataset.auto = s; }
+    o$("#oConclRevert").classList.toggle("hide", !s || ta.value === s);
+    var d = discFum();
+    o$("#oDiscWrap").classList.toggle("hide", d === null);
+    o$("#oDiscTxt").textContent = d === null ? "" : discTxt(d);
   }
 
   /* ---------- texto del informe ---------- */
@@ -5964,31 +6063,43 @@ var OBS = (function(){
 
   function meas(a){ return a.every(function(x){ return x; }) ? a.map(fmtN).join(" x ") + " mm" : ""; }
 
+  /* v2.0.2: el motivo va como línea bajo el título; β-hCG y estudio previo en la línea siguiente, sin título */
+  function motivoTxt(){ var m = o$("#oMotivo").value.trim(); return m ? indPunto(m.replace(/\s*\n+\s*/g, " ")) : ""; }
   function secClinicos(){
     var s = [];
-    var m = o$("#oMotivo").value, md = o$("#oMotivoDet").value.trim();
-    if(m || md) s.push("Motivo del estudio: " + (m && m !== "otro" ? m : "") + (md ? (m && m !== "otro" ? " (" + md + ")" : md) : "") + ".");
     var h = num(o$("#oHcg").value), hd = toDate(o$("#oHcgDate").value);
-    if(h) s.push("β-hCG: " + Math.round(h).toLocaleString("es-PE") + " mUI/ml" + (hd ? " (" + fmtDate(hd) + ")" : "") + ".");
+    if(h) s.push("β-hCG: " + Math.round(h) + " mUI/ml" + (hd ? " (" + human(o$("#oHcgDate").value) + ")" : "") + ".");
     var ph = o$("#oPrevHall").value, pd = toDate($("#prevDate").value);
-    if(ph) s.push("Estudio previo" + (pd ? " del " + fmtDate(pd) : "") + ": " + PREV_TXT[ph] + ".");
+    if(ph) s.push("Estudio previo" + (pd ? " del " + human($("#prevDate").value) : "") + ": " + PREV_TXT[ph] + ".");
     return s.join(" ");
   }
   function secUtero(){
-    var s = [], pos = radio("oUtPos"), loc = radio("oLoc");
-    if(pos) s.push("Útero en " + pos + ".");
+    var s = [], pos = radio("oUtPos"), loc = radio("oLoc"), c = cont();
+    /* v2.0.2: el útero se describe con el saco gestacional en la misma frase */
+    var sacTxt = loc === "normo" ? "saco gestacional intrauterino normoinserto" : (loc === "bajo" ? "saco gestacional intrauterino de implantación baja (ístmica)" : "");
+    if(sacTxt) s.push(pos ? "Útero en " + pos + ", con " + sacTxt + "." : cap(sacTxt) + ".");
+    else if(pos) s.push("Útero en " + pos + ".");
     if(radio("oMio") === "si"){ var mt = o$("#oMioTxt").value.trim(); s.push(mt ? endDot(cap(mt)) : "Presencia de miomas."); }
     if(radio("oCes") === "si"){ var n = o$("#oCesN").value; s.push("Antecedente de cesárea" + (n ? " (" + n + ")" : "") + "."); }
-    if(loc === "normo") s.push("Saco gestacional intrauterino normoinserto.");
-    if(loc === "bajo") s.push("Saco gestacional intrauterino de implantación baja (ístmica).");
     if(loc === "cervical" && !ectLoc()) s.push("Saco gestacional localizado en el canal cervical.");
     if(loc === "cicatriz" || loc === "intersticial" || (loc === "cervical" && ectLoc())) s.push("No se observa saco gestacional en la cavidad uterina.");
-    if(loc === "no" || loc === "anexial"){
+    var en = num(o$("#oEndo").value);
+    if(loc === "no" && c === "restos"){
+      var d = meas([num(o$("#oRe1").value), num(o$("#oRe2").value), num(o$("#oRe3").value)]);
+      var v = volCC(o$("#oRe1").value, o$("#oRe2").value, o$("#oRe3").value), dop = radio("oReDop");
       s.push("No se visualiza saco gestacional intrauterino.");
-      var en = num(o$("#oEndo").value); if(en) s.push("Endometrio mide: " + fmtN(en) + " mm.");
+      s.push("Cavidad endometrial ocupada por material " + radio("oReAsp") + (d ? " de " + d + volT(v) : "") +
+        (dop === "sin" ? ", sin flujo a la evaluación con el Doppler" : (dop === "con" ? ", con vascularización a la evaluación con el Doppler" : (dop === "abund" ? ", con abundante vascularización a la evaluación con el Doppler" : ""))) + ".");
+      var rc = o$("#oReCom").value.trim(); if(rc) s.push(endDot(cap(rc)));
+    } else if(loc === "no" && c === "completo"){
+      s.push("No se visualiza saco gestacional ni restos ovulares en la cavidad endometrial.");
+      if(en) s.push("Endometrio de " + fmtN(en) + " mm.");
+    } else if(loc === "no" || loc === "anexial"){
+      s.push("No se visualiza saco gestacional intrauterino.");
+      if(en) s.push("Endometrio mide: " + fmtN(en) + " mm.");
     }
-    if(o$("#oTrofo").checked) s.push("Cavidad ocupada por material ecogénico con múltiples imágenes quísticas pequeñas.");
-    var c = o$("#oUtCom").value.trim(); if(c) s.push(endDot(c));
+    if(c === "trofo") s.push("Cavidad ocupada por material ecogénico con múltiples imágenes quísticas pequeñas.");
+    var uc = o$("#oUtCom").value.trim(); if(uc) s.push(endDot(uc));
     return s.join(" ");
   }
   function secCicatriz(){
@@ -6048,7 +6159,7 @@ var OBS = (function(){
     return s;
   }
   function embLines(sacs, sac, total){
-    return sac.embs.map(function(e){
+    return sac.embs.filter(function(e){ return e.lcn || e.hb; }).map(function(e){
       var lead = total > 1 ? "Embrión " + embLabel(sacs, sac, e) + (e.pos ? " (" + e.pos + ")" : "") + ": " : "Embrión ";
       var t = e.lcn ? (total > 1 ? "LCN de " : "con LCN de ") + fmtN(e.lcn) + " mm, que corresponde a " + egT(e.days) + "." : (total > 1 ? "visible." : "visible.");
       var hb = "";
@@ -6076,28 +6187,36 @@ var OBS = (function(){
     return t;
   }
   function secCervix(){
+    /* v2.0.2: solo lo positivo (embudo, sludge y deslizamiento se imprimen solo si están presentes) */
     var s = [], L = num(o$("#oCxLen").value);
-    if(L) s.push("Cérvix de " + fmtN(L) + " mm de longitud.");
+    if(L) s.push("Cervicometría de " + fmtN(L) + " mm de longitud.");
     var oci = radio("oOci"), om = num(o$("#oOciMm").value);
     if(oci) s.push("Orificio cervical interno " + oci + (oci === "abierto" && om ? " (" + fmtN(om) + " mm)" : "") + ".");
-    var em = radio("oEmb"), emm = num(o$("#oEmbMm").value);
-    if(em === "no") s.push("Sin embudo.");
-    if(em === "si") s.push("Embudo" + (emm ? " de " + fmtN(emm) + " mm" : "") + ".");
-    var sl = radio("oSludge");
-    if(sl === "no") s.push("Sin sludge.");
-    if(sl === "si") s.push("Presencia de sludge.");
-    if(!o$("#oSlideWrap").classList.contains("hide")){ var g = radio("oSlide"); if(g && g !== "no evaluado") s.push("Signo de deslizamiento del saco " + g + "."); }
+    var emm = num(o$("#oEmbMm").value);
+    if(radio("oEmb") === "si") s.push("Embudo" + (emm ? " de " + fmtN(emm) + " mm" : "") + ".");
+    if(radio("oSludge") === "si") s.push("Presencia de sludge.");
+    if(!o$("#oSlideWrap").classList.contains("hide") && radio("oSlide") === "positivo") s.push("Signo de deslizamiento del saco positivo.");
     var c = o$("#oCxCom").value.trim(); if(c) s.push(endDot(c));
     return s.join(" ");
   }
-  function ovTxt(side, name){
-    if(radio("oVis"+side) === "no") return "Ovario " + name + " no visualizado.";
-    var t = "Ovario " + name + " visualizado" + (radio("oCl"+side) === "si" ? ", con cuerpo lúteo" : "") + ".";
-    var h = o$("#oOv"+side).value.trim(); if(h) t += " " + endDot(h);
+  /* v2.0.2: "Ambos ovarios visualizados." o una línea por ovario con el cuerpo lúteo medido */
+  function ovTxt(side){
+    if(radio("oVis"+side) === "no") return "no visualizado.";
+    var t = "visualizado";
+    if(radio("oCl"+side) === "si"){
+      var p = "#oCl"+side, d = meas([num(o$(p+"1").value), num(o$(p+"2").value), num(o$(p+"3").value)]);
+      t += ", con presencia de cuerpo lúteo" + (d ? " que mide " + d + volT(volCC(o$(p+"1").value, o$(p+"2").value, o$(p+"3").value)) : "");
+    }
+    t += ".";
+    var h = o$("#oOv"+side).value.trim(); if(h) t += " " + endDot(cap(h));
     return t;
   }
   function secAnexos(){
-    var s = [ovTxt("D","derecho"), ovTxt("I","izquierdo")];
+    var lines = [], s = [];
+    var simple = function(sd){ return radio("oCl"+sd) !== "si" && !o$("#oOv"+sd).value.trim(); };
+    if(simple("D") && simple("I") && radio("oVisD") === radio("oVisI"))
+      lines.push(radio("oVisD") === "no" ? "Ovarios no visualizados." : "Ambos ovarios visualizados.");
+    else { lines.push("Ovario derecho: " + ovTxt("D")); lines.push("Ovario izquierdo: " + ovTxt("I")); }
     if(radio("oMasa") === "si"){
       var lado = radio("oMasaLado");
       var d = meas([num(o$("#oMasa1").value), num(o$("#oMasa2").value), num(o$("#oMasa3").value)]);
@@ -6108,7 +6227,11 @@ var OBS = (function(){
     if(liq === "no") s.push("Sin líquido libre.");
     else { var sit = checked("oLiqSitio"); s.push("Líquido libre " + liq + ", " + radio("oLiqEco") + (sit.length ? ", en " + listY(sit) : "") + "."); }
     var c = o$("#oAnxCom").value.trim(); if(c) s.push(endDot(c));
-    return s.join(" ");
+    if(s.length){
+      /* con "Ambos ovarios visualizados." el resto sigue en la misma línea */
+      if(lines.length === 1) lines[0] += " " + s.join(" "); else lines.push(s.join(" "));
+    }
+    return lines.join("\n");
   }
   function secFechado(){
     var A = anyLcn();
@@ -6143,8 +6266,11 @@ var OBS = (function(){
     if(previewManual) return;
     var out = [];
     function add(h, body){ if(body) out.push(h + "\n" + body); }
-    add("DATOS CLÍNICOS", secClinicos());
-    add("ÚTERO", secUtero());
+    var mt = motivoTxt(), dc = secClinicos();
+    if(mt) out.push("Motivo del estudio: " + mt);
+    if(dc) out.push("Datos: " + dc);
+    var ut = secUtero(), cx = secCervix();
+    add("ÚTERO Y CÉRVIX", [ut, cx].filter(Boolean).join("\n"));
     var total = allEmbs(sacs).length, ed = ectData();
     if(ectLoc()){
       var ex = [locLine()], cz = secCicatriz();
@@ -6177,11 +6303,13 @@ var OBS = (function(){
     }
     add("CORIONICIDAD", secCorion(sacs));
     add("HEMATOMA SUBCORIÓNICO", secHematoma());
-    add("CÉRVIX", secCervix());
-    add("ANEXOS Y PELVIS", secAnexos());
-    if(!noFpp()) add("FECHADO", secFechado());
-    add("IMPRESIÓN DIAGNÓSTICA", o$("#oClasif").value.trim());
-    out.push("CONCLUSIONES\n" + (o$("#oConclusiones").value.trim() || "(pendiente)"));
+    add("ANEXOS", secAnexos());
+    /* v2.0.2: sin sección FECHADO ni impresión diagnóstica; la edad gestacional va en la conclusión (ISUOG) */
+    var co = o$("#oConclusiones").value.trim(), dd = discFum();
+    if(co || (dd !== null && o$("#oDisc").checked))
+      out.push("CONCLUSIONES" + (co ? "\n" + co : "") + (dd !== null && o$("#oDisc").checked ? "\nNota pequeña: " + discTxt(dd) : ""));
+    var sg = o$("#oSuger").value.trim();
+    if(sg) out.push("SUGERENCIAS\n" + indPunto(sg.replace(/\s*\n+\s*/g, " ")));
     o$("#oPreviewText").value = out.join("\n\n");
   }
   function html(){
@@ -6189,8 +6317,13 @@ var OBS = (function(){
     o$("#oPreviewText").value.split("\n").forEach(function(line){
       var t = line.trim();
       if(!t) return;
+      var prevTop = h.length && /class="rb-ind/.test(h[h.length - 1]);
       if(t.indexOf("Nota:") === 0) h.push('<p class="rb-note">' + oesc(t) + '</p>');
-      else if(/^[A-ZÁÉÍÓÚÑ0-9 /·]+$/.test(t) && t.length < 60) h.push('<p class="rb-h">' + oesc(t) + '</p>');
+      else if(/^Motivo del estudio:\s/.test(t)) h.push('<p class="rb-ind"><b>Motivo del estudio:</b> ' + oesc(t.replace(/^Motivo del estudio:\s*/, "")) + "</p>");
+      else if(/^Datos:\s/.test(t)) h.push('<p class="rb-ind rb-dat">' + oesc(t.replace(/^Datos:\s*/, "")) + "</p>");
+      else if(/^Nota pequeña:/.test(t)) h.push('<p class="rb-snote">' + oesc(t.replace(/^Nota pequeña:\s*/, "")) + "</p>");
+      else if(/^Ovario (derecho|izquierdo):/.test(t)) h.push('<p class="rb-t rb-ov">' + oesc(t) + '</p>');
+      else if(/^[A-ZÁÉÍÓÚÑ0-9 /·]+$/.test(t) && t.length < 60) h.push('<p class="rb-h' + (prevTop ? " rb-h-tight" : "") + '">' + oesc(t) + '</p>');
       else h.push('<p class="rb-t">' + oesc(t) + '</p>');
     });
     return h.join("");
@@ -6206,6 +6339,7 @@ var OBS = (function(){
     renderDating();
     renderAlerts(ev);
     renderSugg(ev);
+    renderSuger(ev);
     regenerar(sacs);
   }
   function syncFetos(){
@@ -6222,7 +6356,8 @@ var OBS = (function(){
     o$$("#obsCard input[type=radio], #obsCard input[type=checkbox]").forEach(function(el){ el.checked = el.defaultChecked; });
     o$("#oSacs").innerHTML = "";
     addSac();
-    oManual = { chor:false, cx:false };
+    oManual = { chor:false };
+    o$("#oConclusiones").dataset.auto = "";
     previewManual = false; forceLcn = false; lastFetos = null;
     refresh();
   }
@@ -6248,7 +6383,11 @@ var OBS = (function(){
       if(t.id === "oPreviewText") return;
       if(t.dataset && t.dataset.dms) t.closest(".sac").dataset.dmsManual = "1";
       if(t.id === "oChorTipo") oManual.chor = true;
-      if(t.id === "oCxLen") oManual.cx = true;
+      /* v2.0.2: restos o aborto completo implican que no se ve saco; un saco intrauterino quita esas opciones */
+      if(t.name === "oCont" && (t.value === "restos" || t.value === "completo")){ var rn = document.querySelector('input[name="oLoc"][value="no"]'); if(rn) rn.checked = true; }
+      if(t.name === "oLoc" && t.value !== "no" && (cont() === "restos" || cont() === "completo")){ var r0 = document.querySelector('input[name="oCont"][value=""]'); if(r0) r0.checked = true; }
+      var mcl = t.id && t.id.match(/^oCl([DI])[123]$/);
+      if(mcl && num(t.value)){ var rcl = document.querySelector('input[name="oCl'+mcl[1]+'"][value="si"]'); if(rcl) rcl.checked = true; }
       var mv = t.id && t.id.match(/^(s\d+_)vvd$/);
       if(mv && num(t.value)){ var rv2 = document.querySelector('input[name="'+mv[1]+'vv"][value="si"]'); if(rv2) rv2.checked = true; }
       if(t.id === "oEVvd" && num(t.value)){ var rv3 = document.querySelector('input[name="oEVv"][value="si"]'); if(rv3) rv3.checked = true; }
@@ -6260,7 +6399,9 @@ var OBS = (function(){
     o$("#oApplyLcn").addEventListener("click", applyLcn);
     o$("#oForceLcn").addEventListener("click", function(){ forceLcn = true; applyLcn(); });
     o$("#oUnforceLcn").addEventListener("click", function(){ forceLcn = false; recalcAll(); });
-    o$("#oSuggAccept").addEventListener("click", function(){ o$("#oClasif").value = lastSugg; recalcAll(); });
+    o$("#oConclRevert").addEventListener("click", function(){ var ta = o$("#oConclusiones"); ta.value = lastSugg; ta.dataset.auto = lastSugg; recalcAll(); });
+    o$("#oSugerClr").addEventListener("click", function(){ o$("#oSuger").value = ""; o$("#oSuger").dispatchEvent(new Event("input", { bubbles:true })); });
+    o$("#oMotivoClr").addEventListener("click", function(){ o$("#oMotivo").value = ""; o$("#oMotivo").dispatchEvent(new Event("input", { bubbles:true })); });
   }
 
   return { wire:wire, refresh:refresh, clear:clear, html:html, active:active, lcnForM1:lcnForM1, noFpp:noFpp };
@@ -8602,8 +8743,9 @@ Array.prototype.forEach.call(document.querySelectorAll(".ind-chips"), function(b
 
 /* ============================ publicación v1.0 ============================ */
 var APP = {
-  version:"2.0.1", fecha:"31-oct-2026",
+  version:"2.0.2", fecha:"18-nov-2026",
   novedades:[
+    "2.0.2: obstétrica transvaginal: título ECOGRAFÍA OBSTÉTRICA TRANSVAGINAL; motivo del estudio con botones y caja libre, impreso bajo el título (β-hCG y estudio previo en la línea siguiente); contenido intrauterino con restos ovulares (aborto incompleto) y aborto completo; útero y cérvix en una sección (útero con el saco en una frase y cervicometría con una sola medida, solo lo positivo); \"Ambos ovarios visualizados\" o una línea por ovario con el cuerpo lúteo medido, sección ANEXOS; sin \"Embrión visible\" si no se llena el embrión; sin sección FECHADO: la edad gestacional va en la conclusión (ISUOG) con la discordancia con la FUM opcional en nota pequeña; la sugerencia diagnóstica pasa sola a Conclusiones; sugerencias con botones (tamizaje 11–14 con sus fechas, controles, β-hCG, control tras aborto, evaluación urgente y más; el indicado para el caso con borde punteado); hoja compacta con 2.5 pt antes de cada título.",
     "2.0.1: tipo de estudio en una franja arriba, agrupado en Ginecología y Obstetricia, que se encoge al elegir (botón Cambiar); se quitan Genética 11–14 y Morfológica hasta construirlas y el botón Continuar al informe. Las cajas de fecha y hora ya no se salen de su columna en iPad. Crecimiento y Doppler: todo el Doppler junto en una sección (materno y fetal) con valor, percentil y clasificación (normal o alterado) en casillas aparte; gemelares con un bloque por feto; las opciones anormales se pintan de rojo; las referencias van muy pequeñas bajo la biometría y bajo la tabla del Doppler. PDF: arma sus propias páginas (ya no deja páginas casi vacías ni numera mal), los títulos no quedan solos al pie, la cláusula va con la firma y las etiquetas del encabezado no se parten.",
     "2.0: nueva ecografía de crecimiento y Doppler materno-fetal (reemplaza las entradas Doppler fetal y Crecimiento): misma base de la obstétrica; arterias uterinas derecha e izquierda con IP medio calculado y su percentil con la ecuación de Gómez 2008 (igual que Fetal Medicine Barcelona); arteria umbilical con diástole presente, ausente o reversa, cerebral media e índice cerebro-placentario con percentil exacto y su estado, normal o alterado (FMF, Ciobanu 2019, leída en el punto medio de cada semana como en el artículo); VSM de la cerebral media en MoM (Mari 2000); ductus venoso (Kessler 2006), istmo aórtico y vena umbilical opcionales; tabla del Doppler sin barras; estudio anterior con velocidad de crecimiento (Hugh y Gardosi 2022); estadio de Barcelona y restricción temprana o tardía; conclusiones y seguimiento automáticos; título según la edad gestacional y anatomía básica opcional.",
     "1.9: obstétrica: conclusiones según ISUOG (viabilidad, crecimiento con PFE y percentil, anatomía y solo los hallazgos; en gemelares el crecimiento y la discordancia en una línea); cláusula muy pequeña bajo las conclusiones, firma más cerca y espacios reducidos entre secciones para que quepa en una hoja; la barra de percentil ya no sale encogida en la vista previa ni al imprimir; cordón con 3 vasos de inicio; sección Otros hallazgos (No / Sí) con miomas (misma redacción del ginecológico), adenomiosis, placenta y anexos, caja libre y aviso de desprendimiento; percentiles Intergrowth-21st (peso de Hadlock 3 medidas con el estándar 2020 y medidas con el de 2014); p3, p10, p50, p90 y p97 alineados sobre la barra; \"miomas distribuidos\" en todos los informes.",
